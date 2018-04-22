@@ -1,0 +1,388 @@
+@charset "UTF-8";
+// form input style.
+input {
+    @include radius(0px);
+}
+
+.radio-custom,
+.radio-custom-label {
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+    line-height: 30px;
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+
+
+/*原本的input框隱藏起來*/
+
+.radio-custom {
+    opacity: 0;
+    position: absolute;
+}
+
+.radio-custom-label {
+    position: relative
+}
+
+
+
+
+/*自定個input框*/
+
+.radio-custom+.radio-custom-label:before {
+    content: '';
+    background: transparent;
+    border: 1px solid $black;
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    margin-right: 10px;
+    vertical-align: top;
+    @include trans(.3s);
+}
+
+
+
+
+
+
+
+/*點擊之後圓圈圈變色*/
+
+.radio-custom:checked+.radio-custom-label:before {
+    background: $h-green;
+    border-color: $h-green;
+}
+
+
+
+
+
+
+
+/*勾勾*/
+
+.radio-custom:checked+.radio-custom-label:after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 5px;
+    background: transparent;
+    top: 9px;
+    left: 8px;
+    border: 2px solid #ffffff;
+    border-top: none;
+    border-right: none;
+    transform: rotate(-45deg);
+}
+
+
+
+
+
+
+
+/* 輸入匡 */
+
+.input-container {
+    position: relative;
+    width: 35%;
+    display: inline-block;
+    padding-right: 2%;
+    @include box;
+    font-size: 18px;
+    @media only screen and (max-width: 1169px) and (min-width: 480px) {
+        width: 25%;
+    }
+    @media only screen and (min-width: 768px) and (max-width: 1024px) {
+        width: 32%;
+    }
+    @media only screen and (min-width: 320px) and (max-width: 780px) {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    input {
+        border: 0;
+        border-bottom: 1px solid $h-grey;
+        outline: none;
+        @include trans(.2s);
+        @include box;
+        padding-left: 8px;
+    }
+
+    label {
+        top: 0;
+        left: 0;
+        right: 0;
+        color: $h-green;
+        display: flex;
+        align-items: center;
+        position: absolute;
+        font-size: 18px;
+        cursor: text;
+        @include trans(.2s);
+        @include box;
+        padding-left: 8px;
+    }
+
+    input,
+    label {
+        width: 100%;
+        height: 36px;
+        font-size: 18px;
+    }
+    /* Interation */
+    input:valid,
+    input:focus {
+        border-bottom: 1px solid $h-grey;
+    }
+
+    input:valid+label,
+    input:focus+label {
+        color: $h-green;
+        font-size: 14px;
+        top: -30px;
+        pointer-events: none;
+    }
+}
+
+
+.input-container2 {
+    width: 35%;
+    @include box;
+
+    @media only screen and (max-width: 1169px) and (min-width: 480px) {
+        width: 25%;
+    }
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+        width: 32%;
+    }
+    @media only screen and (min-width: 320px) and (max-width: 780px) {
+        width: 100%;
+    }
+}
+
+.input-container3 {
+    width: 25%;
+    @media only screen and (min-width: 320px) and (max-width: 780px) {
+        width: 100%;
+    }
+}
+
+.input-container4 {
+    width: 25%;
+    @media only screen and (min-width: 320px) and (max-width: 780px) {
+        width: 100%;
+    }
+}
+
+.input-container5 {
+    width: 14%;
+    @media only screen and (min-width: 320px) and (max-width: 780px) {
+        width: 100%;
+    }
+}
+
+.input-container6 {
+    width: 34%;
+    padding-right: 0;
+    @media only screen and (min-width: 320px) and (max-width: 780px) {
+        width: 100%;
+    }
+}
+
+.input-container7 {
+    width: 58%;
+    margin-right: 0;
+    vertical-align: middle;
+    @media only screen and (min-width: 320px) and (max-width: 780px) {
+        width: 100%;
+        margin-top: 30px;
+        padding-right: 0px;
+    }
+}
+
+.input-container8 {
+    width: 98%;
+    padding-right: 0;
+    vertical-align: middle;
+    @media only screen and (min-width: 320px) and (max-width: 780px) {}
+}
+
+.input-container9 {
+    width: 30%;
+    padding-right: 0;
+    vertical-align: middle;
+    margin-left: 10px;
+    @media only screen and (min-width: 320px) and (max-width: 780px) {
+        width: 100%;
+        margin-top: 30px;
+    }
+}
+
+.payment_wrap {
+    display: inline-block;
+    width: 28%;
+    min-width: 305px;
+    @include box;
+    @media only screen and (min-width: 320px) and (max-width: 780px) {
+        width: 100%;
+    }
+    p {
+        color: $h-green;
+        display: inline-block;
+        margin-right: 10px;
+        font-size: 18px;
+        vertical-align: middle;
+        margin-top: 0px;
+    }
+    b {
+        font-size: 18px;
+        color: &h_green;
+        vertical-align: middle;
+        margin-right: 8px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+//select
+@import 'https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css';
+
+
+*,
+*:after,
+*:before {
+    box-sizing: border-box;
+}
+
+.select {
+    position: relative;
+    display: inline-block;
+    width: 20%;
+    color: #cccccc;
+    vertical-align: middle;
+    text-align: center;
+    user-select: none;
+    -webkit-touch-callout: none;
+    @include box;
+    font-size: 18px;
+
+    .placeholder {
+        position: relative;
+        display: block;
+        background-color: $m-grey;
+        z-index: 1;
+        padding: 8px;
+        cursor: pointer;
+
+        &:hover {
+            background: darken($m-grey, 2%);
+        }
+
+        &:after {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-family: 'FontAwesome';
+            content: '\f107';
+            z-index: 10;
+        }
+    }
+
+    &.is-open {
+        .placeholder:after {
+            content: '\f106';
+        }
+        ul {
+            display: block;
+        }
+    }
+
+    &.select--white {
+        margin-right: 1%;
+        .placeholder {
+            background: transparent;
+            border-bottom: 1px solid #333;
+            color: $h-grey;
+            &:hover {
+                background: transparent;
+            }
+        }
+        @media only screen and (min-width: 320px) and (max-width: 780px) {
+            margin-right: 0px;
+            padding-right: 4%;
+            width: 50%;
+        }
+    }
+    &.select--white2 {
+        @media only screen and (min-width: 320px) and (max-width: 780px) {
+            margin-right: 0px;
+            padding-right: 0px;
+        }
+    }
+    &.select--ticket {
+        width: 37%;
+        @media only screen and (min-width: 768px) and (max-width: 1024px) {
+
+            margin: 0px;
+        }
+        @media only screen and (min-width: 320px) and (max-width: 780px) {
+            width: 50%;
+            margin-bottom: 25px;
+        }
+        @media only screen and (max-width: 320px) {
+            width: 40%;
+        }
+    }
+
+    ul {
+        position: absolute;
+        overflow: hidden;
+        width: 94%;
+        height: 200px;
+        overflow: scroll;
+        background: $m-grey;
+        @include radius(3px);
+        top: 100%;
+        left: 0;
+        list-style: none;
+        margin: 5px 0 0 0;
+        padding: 0;
+        z-index: 100;
+        @include trans(.2s);
+        display: none;
+        text-align: center;
+        font-size: 18px;
+
+        li {
+            display: block;
+            text-align: left;
+            padding: 0.8em 1em 0.8em 1em;
+            color: $black;
+            cursor: pointer;
+            text-align: center;
+
+            &:hover {
+                background: $h-green;
+                color: #fff;
+            }
+        }
+    }
+}

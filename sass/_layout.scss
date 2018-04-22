@@ -1,0 +1,245 @@
+@charset "UTF-8";
+// for website grid system or section width and height.
+html {
+    height: 100%;
+}
+
+body {
+    background-color: #ffffff;
+    @include font-source(18px, 400, $h-grey);
+    @include font-noto(18px, 400, $h-grey);
+    height: 100%;
+}
+
+h1 {
+    font-size: 72px;
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 50px;
+    @media only screen and (min-width: 320px) and (max-width: 780px) {
+        font-size: 56px;
+    }
+}
+
+h2 {
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 100px;
+    margin-bottom: 10px;
+    @media only screen and (min-width: 320px) and (max-width: 780px) {
+        font-size: 26px;
+        line-height: 20px;
+        margin-bottom: 25px;
+    }
+}
+
+//選單
+nav {
+    @include box;
+    width: 100%;
+    height: 100px;
+    background-color: #000000;
+    position: fixed;
+    padding: 0 2%;
+    z-index: 1000;
+    @include trans(.5s);
+    img {
+        width: 192px;
+        float: left;
+        margin-top: 27px;
+        @include transition-duration(0.5s);
+        a {
+            border: none;
+        }
+    }
+    li a {
+        float: right;
+        margin-right: 50px;
+        line-height: 100px;
+        color: #ffffff;
+        text-decoration: none;
+        @include trans(.5s);
+        display: block;
+    }
+    li a:hover {
+        color: $l-green;
+    }
+    li:first-child a {
+        margin-right: 0px;
+    }
+}
+
+
+@media only screen and (max-width: 959px) {
+    //手機
+    nav {
+        height: 75px;
+        img {
+            width: 170px;
+            margin-top: 19px;
+        }
+        ul {
+            display: none;
+        }
+    }
+}
+
+
+//mobile nav
+.menu-toggle {
+    display: block;
+    width: 35px;
+    height: 30px;
+    position: fixed;
+    top: 20px;
+    right: 15px;
+    cursor: pointer;
+    z-index: 10000;
+    @media only screen and (min-width: 960px) {
+        display: none;
+    }
+    @media only screen and (min-width: 375px) and (max-width: 667px) {
+        top: 20px;
+        right: 20px;
+    }
+    &:hover .one {
+        background: #ffffff;
+    }
+    &:hover .two {
+        background: #ffffff;
+    }
+    &:hover .three {
+        background: #ffffff;
+    }
+    &.on {
+        .one {
+            @include transform(rotate(45deg) translate(8px, 8px));
+        }
+        .two {
+            opacity: 0;
+        }
+        .three {
+            @include transform (rotate(-45deg) translate(6px, -7px));
+        }
+    }
+}
+
+.one,
+.two,
+.three {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #ffffff;
+    margin: 8px auto;
+    backface-visibility: hidden;
+    @include transition-duration(0.5s);
+}
+
+.menu-m {
+    @include pos-mid;
+    @include transition-duration(0.5s);
+    width: 65%;
+    @media only screen and (max-width: 959px) and (min-width: 480px) {
+        width: 40%;
+    }
+    img {
+        width: 100%;
+        margin-bottom: 30px;
+        @media only screen and (max-device-width: 320px) {
+            margin-bottom: 15px;
+        }
+    }
+    ul {
+        margin: 0 auto;
+        text-align: center;
+        width: 100%;
+
+        a {
+            @include transition-duration(0.5s);
+            text-decoration: none;
+            color: #ffffff;
+            width: 100%;
+            text-align: center; // border-bottom: #ffffff 1px dashed;
+            display: block;
+            letter-spacing: 2px;
+            padding-bottom: 35px;
+            @media only screen and (max-device-width: 320px) {
+                padding-bottom: 25px;
+            }
+        }
+    }
+}
+
+.menu-section {
+    @include trans(.5s);
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100%;
+    z-index: 9000;
+    box-sizing: content-box !important;
+    position: fixed;
+    background-color: $black;
+    &.on {
+        right: 0;
+        display: block;
+    }
+} //mobile nav end
+a.btn {
+    margin: 0 auto;
+    text-align: center;
+    width: 250px;
+    height: 80px;
+    background-color: $h_green;
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    @include radius(5px);
+    @include trans(.4s);
+    line-height: 80px;
+
+    @media only screen and (min-width: 320px) and (max-width: 780px) {
+        font-size: 18px;
+        font-weight: 800;
+    }
+    &:hover {
+        background-color: #28642a;
+    }
+}
+
+a.btn_ticket {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+a.btn_popup_ticket {
+    margin-top: 50px;
+}
+
+
+
+
+
+footer {
+    margin: 0 auto;
+    padding: 20px;
+    @include box;
+    width: 100%;
+    text-align: center;
+    margin-top: 50px;
+    font-size: 13px;
+    line-height: 18px;
+    p {
+        display: block;
+        @media only screen and (max-width: 375px) {
+            display: none;
+        }
+    }
+    p.phone {
+        display: none;
+        @media only screen and (max-width: 375px) {
+            display: block;
+        }
+    }
+}

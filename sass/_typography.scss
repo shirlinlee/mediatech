@@ -1,0 +1,28 @@
+@charset "UTF-8";
+// font style or font face.
+
+// google 思源黑體
+
+@import url(http://fonts.googleapis.com/earlyaccess/notosanstc.css);
+
+// google source
+
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700');
+
+// 思源黑體字型設定
+
+@mixin font-noto($fontsize, $fontweight, $fontcolor) {
+    font-family: 'Roboto', sans-serif;
+    font-size: $fontsize;
+    font-weight: $fontweight;
+    color: $fontcolor;
+}
+
+// Roboto字型設定
+
+@mixin font-source($fontsize1, $fontweight1, $fontcolor1) {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: $fontsize1;
+    font-weight: $fontweight1;
+    color: $fontcolor1;
+}

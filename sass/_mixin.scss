@@ -1,0 +1,44 @@
+@charset "UTF-8";
+//box
+@mixin trans($sec) {
+    -o-transition: $sec;
+    -webkit-transition: $sec;
+    -moz-transition: $sec;
+    transition: $sec;
+}
+
+//透明度
+@mixin opacity($opacity) {
+    opacity: $opacity;
+    $opacity-ie: $opacity * 100;
+    filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+//背景cover
+@mixin cover($left, $top) {
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-position: $left $top;
+}
+
+//圓角
+@mixin radius($rwidth) {
+    -webkit-border-radius: $rwidth;
+    -moz-border-radius: $rwidth;
+    border-radius: $rwidth;
+}
+
+@mixin pos-mid {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include translate(-50%, -50%);
+}
+
+@mixin box{
+    -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}

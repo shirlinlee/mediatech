@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Site Title</title>
+    <!-- facebook share -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="" />
+    <meta property="og:description" content="" />
+    <meta property="og:image" content="" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- favicon -->
+    <link rel="icon" href="img/favicon.ico">
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src='js/jquery.twzipcode.min.js'></script>
+    <!-- css style -->
+    <link rel="stylesheet" href="css/style.css">
+    <!--[if gt IE 9]>
+    <script src="js/vendor/html5shiv.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <!-- ======================= 報名完成popup ========================= -->
+    <div class="popup_ticket" style="display: none;">
+        <a class="close" href=""><img src="asset/svg/close.svg" alt="" width="100%"></a>
+        <div class="wrap">
+            <h1>線上報名完成！</h1> 感謝您的支持，
+            <b>報名確認信</b>已寄發到您所填的信箱，請於5日內完成付款。我們將於活動前10日寄出入場證，再請您多加留意。<b>若於7/4(二)前未收到入場證，請立即與我們聯絡！</b>
+            <br>
+            <br>
+            <div class="nonphone">
+                2018媒體科技大會（Media Tech）&nbsp; &nbsp; 日期：2018年7月10日－7月11日
+                <br> 地點：台北國際會議中心201會議室 &nbsp; &nbsp; 地址：台北市信義區信義路五段1號2樓
+                <br> 如有任何問題請來信 <a href="mailto:vivian.hung@rock.com.tw">vivian.hung@rock.com.tw </a>
+                <br> 或電洽請於周一至周五上班時間撥打02-2721-6121，分機358，聯絡Vivian（洪小姐）
+                <br>
+                <br>
+            </div>
+            大會保留議程變動之權利，如有行程異動將公布於大會官網，並寄發EMAIL通知。
+            <a class="btn btn_popup_ticket" href="#">了解更多大會資訊</a>
+        </div>
+
+    </div>
+    <!-- ======================= 報名完成popup結束 ========================= -->
+    <header>
+        <!-- navigation -->
+        <nav>
+            <a href="index.html"><img src="img/navi_logo.png"></a>
+            <ul>
+                <li><a href="">聯絡我們</a></li>
+                <li><a href="">交通資訊</a></li>
+                <li><a href="">立即報名</a></li>
+                <li><a href="">講師介紹</a></li>
+                <li><a href="">大會議程</a></li>
+                <li><a href="">大會首頁</a></li>
+            </ul>
+        </nav>
+        <!-- ======================= 手機選單結束 ========================= -->
+        <div class="menu-toggle">
+            <a href="javascript:;">
+                <div class="one"></div>
+                <div class="two"></div>
+                <div class="three"></div>
+            </a>
+        </div>
+        <div class="menu-section">
+            <div class="menu-m">
+                <img src="img/navi_logo.png" alt="">
+                <ul>
+                    <li><a href="">大會首頁</a></li>
+                    <li><a href="">大會議程</a></li>
+                    <li><a href="">講師介紹</a></li>
+                    <li><a href="">立即報名</a></li>
+                    <li><a href="">交通資訊</a></li>
+                    <li><a href="">聯絡我們</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- ======================= 手機選單結束 ========================= -->
+    </header>
+    <div class="wrap_ticket">
+        <h1>立即報名</h1>
+        <h2>報名公司資訊</h2>
+        <div class="form_line1">
+            <div class="input-container">
+                <input id="company" class="input" type="text" pattern=".+" required />
+                <label class="label" for="company">公司抬頭</label>
+            </div>
+            <div class="input-container input-container2">
+                <input id="EIN" class="input" type="tel" pattern=".+" required />
+                <label class="label" for="EIN">統一編號</label>
+            </div>
+            <div class="payment_wrap">
+                <b>發票形式</b>
+                <input id="radio-1" class="radio-custom" name="radio-group" type="radio" checked>
+                <label for="radio-1" class="radio-custom-label">二聯式</label>
+                <input id="radio-2" class="radio-custom" name="radio-group" type="radio">
+                <label for="radio-2" class="radio-custom-label">三聯式</label>
+            </div>
+        </div>
+        <h2>報名聯絡人</h2>
+        <div class="form_line1">
+            <div class="input-container input-container3">
+                <input id="name" class="input" type="text" pattern=".+" required />
+                <label class="label" for="name">姓名</label>
+            </div>
+            <div class="input-container input-container4">
+                <input id="tel" class="input" type="tel" pattern=".+" required />
+                <label class="label" for="tel">聯絡電話</label>
+            </div>
+            <div class="input-container input-container5">
+                <input id="port" class="input" type="tel" pattern=".+" required />
+                <label class="label" for="port">分機</label>
+            </div>
+            <div class="input-container input-container6">
+                <input id="email" class="input" type="email" pattern=".+" required />
+                <label class="label" for="email">電子郵件</label>
+            </div>
+        </div>
+        <div class="form_line1">
+            <!-- <div id="twzipcode"></div> -->
+            <div class="select select--white" id="country">
+                <span class="placeholder">選擇縣市</span>
+                <ul>
+                    <li>台北市</li>
+                    <li>新北市</li>
+                    <li>桃園市</li>
+                    <li>高雄市</li>
+                    <li>台中市</li>
+                    <li>苗栗縣</li>
+                </ul>
+            </div>
+            <div class="select select--white select--white2" id="district">
+                <span class="placeholder">選擇行政區</span>
+                <ul>
+                    <li>大安區</li>
+                    <li>信義區</li>
+                    <li>中正區</li>
+                    <li>大同區</li>
+                    <li>松山區</li>
+                    <li>中山區</li>
+                </ul>
+            </div>
+            <div class="input-container input-container7">
+                <input id="add" class="input" type="text" pattern=".+" required />
+                <label class="label" for="add">完整街道地址</label>
+            </div>
+        </div>
+        <h2>購買票種</h2>
+        <div class="form_line1">
+            <div class="ticket_wrap1">
+                早鳥票 : 6000元
+                <div class="select select--white select--ticket">
+                    <span class="placeholder">0</span>
+                    <ul>
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                        <li>6</li>
+                    </ul>
+                </div>
+                張
+            </div>
+            <div class="ticket_wrap1">
+                一般票 : 8000元
+                <div class="select select--white select--ticket">
+                    <span class="placeholder">0</span>
+                    <ul>
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                        <li>6</li>
+                    </ul>
+                </div>
+                張
+            </div>
+            <div class="ticket_wrap1 ticket_wrap2">
+                學生票 : 1000元
+                <div class="select select--white select--ticket">
+                    <span class="placeholder">0</span>
+                    <ul>
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                        <li>6</li>
+                    </ul>
+                </div>
+                張
+            </div>
+        </div>
+        <div class="form_line1">
+            <div class="input-container input-container8">
+                <input id="ps" class="input" type="text" pattern=".+" required />
+                <label class="label" for="ps">備註</label>
+            </div>
+        </div>
+        <div class="form_line1">
+            <div class="total_wrap1">結算</div>
+            <div class="total_wrap1 total_wrap2">總人數<b>15</b>人</div>
+            <div class="total_wrap1 total_wrap2 total_wrap3">總金額<b>68,000</b>元</div>
+        </div>
+        <h2>選擇付款方式</h2>
+        <div class="form_line1">
+            <input id="radio-3" class="radio-custom" name="payment" type="radio" checked>
+            <label for="radio-3" class="radio-custom-label">現金匯款</label>
+            <div class="input-container input-container9">
+                <input id="5num" class="input" type="text" pattern=".+" required />
+                <label class="label" for="5num">帳號後五碼</label>
+            </div>
+            <p>請於三日內匯款至如下帳戶，匯款完成後請回覆Mail 至 <a href="mailto:service@media-tech.com.tw">service@media-tech.com.tw</a></p>
+            <div class="bank_wrap_l">
+                <div class="tittle">銀行名稱</div>
+                <div class="tittle content">中國信託商業銀行仁愛分行</div>
+                <div class="tittle">銀行帳號</div>
+                <div class="tittle content">152-11-8100203</div>
+                <div class="tittle">收款帳戶地址</div>
+                <div class="tittle content">台北市仁愛路四段341號</div>
+            </div>
+            <div class="bank_wrap_l bank_wrap_r">
+                <div class="tittle">SWIFT CODE</div>
+                <div class="tittle content">CTCBTWTP 152</div>
+                <div class="tittle">收款人姓名</div>
+                <div class="tittle content">滾石文化股份有限公司</div>
+                <div class="tittle">收款人地址</div>
+                <div class="tittle content">台北市光復南路290巷1號6樓之1</div>
+            </div>
+        </div>
+        <div class="form_line1">
+            <input id="radio-4" class="radio-custom" name="payment" type="radio" checked>
+            <label for="radio-4" class="radio-custom-label">信用卡</label>
+            <p><a href="#">下載刷卡單</a>，填妥資料並傳真至02-2775 1132 </p>
+        </div>
+        <h2>注意事項</h2>
+        <div class="note_wrap">
+            <ul>
+                <li>如有任何報名問題請洽+886-2-2721-6121 #358 Vivian，繳費發票問題請洽+886-2-2721-6121 #232 詹小姐；請於期限內完成繳費， 繳費完成方視為完成報名。成功完成報名者，即代表同意遵守2018 《Media Tech》大會之相關規範。</li>
+                <li>主辦單位並不會主動致電詢問您的「銀行帳號」或「密碼」，請注意個人匯款安全。</li>
+                <li>請學員準時前往參加上課，如缺席，主辦單位恕不另行安排補課或退款。</li>
+                <li>報名繳費後，於開課前請求退費者須支付25%行政手續費，7/9後恕不退費。</li>
+                <li>活動前10日會寄發入場證，請學員妥善保管識別證，並憑證入場，遺失恕不補發。</li>
+                <li>上課時必須保持安靜，請勿在活動進行時使用電話或會發出聲音之物品。 </li>
+                <li>請保持課室場地清潔，並請愛護公物，如有損壞須照價賠償。</li>
+                <li>請自行看管個人財物，如有遺失，主辦單位恕不負責。 </li>
+                <li>請勿帶錄音、錄影、照相器材入場，會場內禁止攜帶瓶裝水以外之飲食。</li>
+                <li>現場採自由入座，座位有限，請提前10分鐘入場。</li>
+                <li>本活動演講場次大部分皆有翻譯，僅部分場次全程使用英語。</li>
+                <li>本活動不提供中餐，需請學員自理。 </li>
+                <li>活動全程採預先報名，不接受現場報名與現場補繳款。</li>
+                <li>主辦單位保有大會所有活動變更之權利。</li>
+                <li>貼心提醒：現場冷氣稍強，請攜帶小外套。</li>
+            </ul>
+        </div>
+        <a class="btn btn_ticket" href="#">完成報名</a>
+    </div>
+    <!-- footer -->
+    <footer>
+        <p>Copyright &#169; 2018 MEDIA TECH ALL RIGHTS RESERVED</p>
+        <p class="phone">Copyright &#169; 2018 MEDIA TECH
+            <br>ALL RIGHTS RESERVED</p>
+    </footer>
+    <!-- <script src="js/nav.js"></script>
+    <script src="js/select.js"></script> -->
+    <script src="js/init.js"></script>
+
+</body>
+
+</html>
