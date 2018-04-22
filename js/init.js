@@ -8,6 +8,7 @@ var ticketCtr = {
                 .on('click', '.placeholder', ticketCtr.selectShowHandler)
                 .on('click', 'ul>li', ticketCtr.selectchooseHandler);
             $(".menu-toggle").on('click', ticketCtr.menuHandler);
+            $('.btn_ticket').on('click', ticketCtr.formPost);
         })
         ticketCtr.countryDataInit();
 
@@ -49,6 +50,50 @@ var ticketCtr = {
             // console.log(index, value)
             districtUl.append('<li>' + index + '</li>');
         });
+    },
+    formPost(e) {
+        // console.log(e);
+        // return false;
+        var jsonBody = {
+            "Company": {
+                "name": "Company_name",
+                "taxid": "Company_taxid",
+                "receipt": "Company_receipt"
+            },
+            "Contact": {
+                "name": "Contact_name",
+                "phone": "Contact_phone",
+                "ext": "Contact_ext",
+                "email": "Contact_email",
+                "city": "Contact_city",
+                "district": "Contact_district",
+                "address": "Contact_address"
+            },
+            "Tickets": [{
+                    "type": 0,
+                    "count": 1
+                },
+                {
+                    "type": 1,
+                    "count": 2
+                },
+                {
+                    "type": 2,
+                    "count": 0
+                }
+            ],
+            "remarks": "備註備註備註備註備註備註備註備註",
+            "payment_method": "swift",
+            "payment_account": 0
+        };
+        axios
+            .post('https://mediatech2018.webgene.com.tw/api/Submit', qs.stringify(jsonBody))
+            .then(function(response) {
+                console.log(response.data);
+            })
+            .catch(function(error) {
+                console.log(error);
+            });
     }
 
 }
