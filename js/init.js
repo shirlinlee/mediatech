@@ -3,14 +3,18 @@ var countryUl = $('#country ul'),
 
 var ticketCtr = {
     init() {
+
+        ticketCtr.countryDataInit();
+
         $(window).ready(function() {
             $('.select')
                 .on('click', '.placeholder', ticketCtr.selectShowHandler)
                 .on('click', 'ul>li', ticketCtr.selectchooseHandler);
             $(".menu-toggle").on('click', ticketCtr.menuHandler);
             $('.btn_ticket').on('click', ticketCtr.formPost);
+            $('a').attr('href').replace('#', 'javascript:void(0)');
         })
-        ticketCtr.countryDataInit();
+
 
     },
     selectShowHandler() {
@@ -86,14 +90,28 @@ var ticketCtr = {
             "payment_method": "swift",
             "payment_account": 0
         };
-        axios
-            .post('https://mediatech2018.webgene.com.tw/api/Submit', qs.stringify(jsonBody))
-            .then(function(response) {
-                console.log(response.data);
-            })
-            .catch(function(error) {
-                console.log(error);
-            });
+        // axios
+        //     .post('https://mediatech2018.webgene.com.tw/api/Submit', qs.stringify(jsonBody))
+        //     .then(function(response) {
+        //         console.log(response.data);
+        //     })
+        //     .catch(function(error) {
+        //         console.log(error);
+        // });
+
+        $.ajax({
+            type: 'POST',
+            url: 'https://mediatech2018.webgene.com.tw/api/Submit',
+            data: JSON.stringify(jsonBody),
+            headers: { "Content-Type": "application/json" },
+            // dataType: dataType,
+            success: function(response) {
+                console.log(response);
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                console.log(textStatus);
+            },
+        });
     }
 
 }
