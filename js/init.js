@@ -10,7 +10,9 @@ var ticketCtr = {
             $('.select')
                 .on('click', '.placeholder', ticketCtr.selectShowHandler)
                 .on('click', 'ul>li', ticketCtr.selectchooseHandler);
-            $(".menu-toggle").on('click', ticketCtr.menuHandler);
+            $(".menu-toggle").on('click', function(){
+                ticketCtr.menuHandler()
+            });
             $('.btn_ticket').on('click', ticketCtr.formPost);
             $('a').attr('href').replace('#', 'javascript:void(0)');
         })
@@ -19,6 +21,9 @@ var ticketCtr = {
     },
     selectShowHandler() {
         var parent = $(this).closest('.select');
+        if ($(this).parents('.select').attr('id') === 'district' && $('#country .placeholder').html() === '選擇縣市' ) {
+            return 
+        } 
         if (!parent.hasClass('is-open')) {
             parent.addClass('is-open');
             $('.select.is-open').not(parent).removeClass('is-open');
@@ -27,11 +32,12 @@ var ticketCtr = {
         }
     },
     selectchooseHandler() {
-        console.log($(this).parents('.select').attr('id'));
+        if ($(this).parents('.select').attr('id') === 'country') {
+            $('#district .placeholder').html('選擇行政區');
+        } 
         var item = $(this).text();
         var parent = $(this).closest('.select');
         parent.removeClass('is-open').find('.placeholder').text($(this).text());
-        if ($(this).parents('.select').attr('id') === 'country') $('#district .placeholder').html('選擇行政區');
         // console.log(areaData[item]);
         ticketCtr.districtDataInit(item);
 
@@ -58,20 +64,39 @@ var ticketCtr = {
     formPost(e) {
         // console.log(e);
         // return false;
+        var Company_name = $('#company').val(),
+            Company_taxid = $('#EIN').val(),
+            Company_receipt = $('input[name=radio-group]:checked').val(),
+            Contact_name = $('#name').val(),
+            Contact_phone = $('#tel').val(),
+            Contact_ext = $('#port').val(),
+            Contact_email = $('#email').val(),
+            Contact_city = $('#country .placeholder').text(),
+            Contact_district = $('#district .placeholder').text(),
+            Contact_address = $('#add').val(),
+            remarks = $('#ps').val(),
+            payment_method = $('input[name=payment]:checked').val(),
+            payment_account = $('#5num').val();
+
+        console.log(payment_method,Company_receipt,payment_account)
+        return false;
+
+
+
         var jsonBody = {
             "Company": {
-                "name": "Company_name",
-                "taxid": "Company_taxid",
-                "receipt": "Company_receipt"
+                "name": Company_name,
+                "taxid": Company_taxid,
+                "receipt": Company_receipt
             },
             "Contact": {
-                "name": "Contact_name",
-                "phone": "Contact_phone",
-                "ext": "Contact_ext",
-                "email": "Contact_email",
-                "city": "Contact_city",
-                "district": "Contact_district",
-                "address": "Contact_address"
+                "name": Contact_name,
+                "phone": Contact_phone,
+                "ext": Contact_ext,
+                "email": Contact_email,
+                "city": Contact_city,
+                "district": Contact_district,
+                "address": Contact_address
             },
             "Tickets": [{
                     "type": 0,
@@ -79,16 +104,16 @@ var ticketCtr = {
                 },
                 {
                     "type": 1,
-                    "count": 2
+                    "count": 0
                 },
                 {
                     "type": 2,
                     "count": 0
                 }
             ],
-            "remarks": "備註備註備註備註備註備註備註備註",
-            "payment_method": "swift",
-            "payment_account": 0
+            "remarks": remarks,
+            "payment_method": payment_method,
+            "payment_account": null
         };
         // axios
         //     .post('https://mediatech2018.webgene.com.tw/api/Submit', qs.stringify(jsonBody))
@@ -100,11 +125,12 @@ var ticketCtr = {
         // });
 
         $.ajax({
+            // processData: false, //可省
             type: 'POST',
             url: 'https://mediatech2018.webgene.com.tw/api/Submit',
             data: JSON.stringify(jsonBody),
-            headers: { "Content-Type": "application/json" },
-            // dataType: dataType,
+            // dataType: 'json', //可省
+            contentType: 'application/json; charset=utf-8',
             success: function(response) {
                 console.log(response);
             },
@@ -112,6 +138,7 @@ var ticketCtr = {
                 console.log(textStatus);
             },
         });
+
     }
 
 }

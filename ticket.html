@@ -15,8 +15,7 @@
     <!-- favicon -->
     <link rel="icon" href="img/favicon.ico">
     <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js'></script>
-    <script src='js/jquery.twzipcode.min.js'></script>
+
     <!-- css style -->
     <link rel="stylesheet" href="css/style.css">
     <!--[if gt IE 9]>
@@ -97,9 +96,9 @@
             </div>
             <div class="payment_wrap">
                 <b>發票形式</b>
-                <input id="radio-1" class="radio-custom" name="radio-group" type="radio" checked>
+                <input id="radio-1" class="radio-custom" value="double" name="radio-group" type="radio" checked>
                 <label for="radio-1" class="radio-custom-label">二聯式</label>
-                <input id="radio-2" class="radio-custom" name="radio-group" type="radio">
+                <input id="radio-2" class="radio-custom" value="triple" name="radio-group" type="radio">
                 <label for="radio-2" class="radio-custom-label">三聯式</label>
             </div>
         </div>
@@ -212,7 +211,7 @@
         </div>
         <h2>選擇付款方式</h2>
         <div class="form_line1">
-            <input id="radio-3" class="radio-custom" name="payment" type="radio" checked>
+            <input id="radio-3" class="radio-custom" value="remit" name="payment" type="radio" checked>
             <label for="radio-3" class="radio-custom-label">現金匯款</label>
             <div class="input-container input-container9">
                 <input id="5num" class="input" type="text" pattern=".+" required />
@@ -237,7 +236,7 @@
             </div>
         </div>
         <div class="form_line1">
-            <input id="radio-4" class="radio-custom" name="payment" type="radio" checked>
+            <input id="radio-4" class="radio-custom" value="credit" name="payment" type="radio" checked>
             <label for="radio-4" class="radio-custom-label">信用卡</label>
             <p><a href="#">下載刷卡單</a>，填妥資料並傳真至02-2775 1132 </p>
         </div>
