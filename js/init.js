@@ -1,29 +1,51 @@
 var countryUl = $('#country ul'),
     districtUl = $('#district ul');
 
+     
+
 var ticketCtr = {
+    ticket_0 : 0,
+    ticket_1 : 0,
+    ticket_2 : 0,
     init() {
 
         ticketCtr.countryDataInit();
 
         $(window).ready(function() {
-            $('.select')
-                .on('click', '.placeholder', ticketCtr.selectShowHandler)
-                .on('click', 'ul>li', ticketCtr.selectchooseHandler);
-            $(".menu-toggle").on('click', function(){
-                ticketCtr.menuHandler()
+            $('body').on('click',function(e){
+                e.stopPropagation();
+                $('.select.is-open').removeClass('is-open');
+            })
+            $('.select').on('click', '.placeholder', function(e){ 
+                e.stopPropagation(); 
+                ticketCtr.selectShowHandler($(this)) 
             });
-            $('.btn_ticket').on('click', ticketCtr.formPost);
-            $('a').attr('href').replace('#', 'javascript:void(0)');
+            $('.select').on('click', 'li', function(e){ 
+                e.stopPropagation(); 
+                ticketCtr.selectchooseHandler($(this)) 
+            });
+            $(".menu-toggle").on('click', function(){
+                ticketCtr.menuHandler();
+            });
+            $('.btn_ticket').on('click', function(e){
+                ticketCtr.formPost(e);
+            });
+
+            $("a").each(function( index ) {
+                if($(this).attr('href')==='#') $(this).attr('href',"javascript:void(0)");
+            //    $(this).attr('href').replace(/#/, "W3School");
+            });
         })
 
 
     },
-    selectShowHandler() {
-        var parent = $(this).closest('.select');
-        if ($(this).parents('.select').attr('id') === 'district' && $('#country .placeholder').html() === '選擇縣市' ) {
+    selectShowHandler(ele) {
+        var parent = ele.closest('.select');
+        //判斷若程式沒選，區域不會展開
+        if (ele.parents('.select').attr('id') === 'district' && $('#country .placeholder').html() === '選擇縣市' ) {
             return 
         } 
+        
         if (!parent.hasClass('is-open')) {
             parent.addClass('is-open');
             $('.select.is-open').not(parent).removeClass('is-open');
@@ -31,13 +53,31 @@ var ticketCtr = {
             parent.removeClass('is-open');
         }
     },
-    selectchooseHandler() {
-        if ($(this).parents('.select').attr('id') === 'country') {
+    selectchooseHandler(ele) {
+        var which_select = ele.parents('.select').attr('id');
+        if (which_select === 'country') {
             $('#district .placeholder').html('選擇行政區');
         } 
-        var item = $(this).text();
-        var parent = $(this).closest('.select');
-        parent.removeClass('is-open').find('.placeholder').text($(this).text());
+        var item = ele.text();
+        // console.log(which_select);
+        
+        var parent = ele.closest('.select');
+        parent.removeClass('is-open').find('.placeholder').text(item);
+
+        //判斷是票種
+        if ( which_select.indexOf('ticket') === 0) {
+            var price = Number(ele.attr('data-cost'));
+            // var which_ticket = which_select.substring(-1,1);
+            ticketCtr[which_select] = Number(item);
+
+            console.log(ticketCtr.ticket_0);
+            console.log(ticketCtr.ticket_1);
+   
+            $('.total_person').text( ticketCtr.ticket_0 + ticketCtr.ticket_1 + ticketCtr.ticket_2); 
+            $('.total_cost').text((ticketCtr.ticket_0*6000 + ticketCtr.ticket_1*8000 + ticketCtr.ticket_2*1000).toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")); 
+            
+        } 
+
         // console.log(areaData[item]);
         ticketCtr.districtDataInit(item);
 
@@ -62,8 +102,8 @@ var ticketCtr = {
         });
     },
     formPost(e) {
-        // console.log(e);
-        // return false;
+        e.preventDefault();
+
         var Company_name = $('#company').val(),
             Company_taxid = $('#EIN').val(),
             Company_receipt = $('input[name=radio-group]:checked').val(),
@@ -77,67 +117,69 @@ var ticketCtr = {
             remarks = $('#ps').val(),
             payment_method = $('input[name=payment]:checked').val(),
             payment_account = $('#5num').val();
-
-        console.log(payment_method,Company_receipt,payment_account)
-        return false;
+        
 
 
-
-        var jsonBody = {
-            "Company": {
-                "name": Company_name,
-                "taxid": Company_taxid,
-                "receipt": Company_receipt
-            },
-            "Contact": {
-                "name": Contact_name,
-                "phone": Contact_phone,
-                "ext": Contact_ext,
-                "email": Contact_email,
-                "city": Contact_city,
-                "district": Contact_district,
-                "address": Contact_address
-            },
-            "Tickets": [{
-                    "type": 0,
-                    "count": 1
+            var jsonBody = {
+                "Company": {
+                    "name": Company_name,
+                    "taxid": Company_taxid,
+                    "receipt": Company_receipt
                 },
-                {
-                    "type": 1,
-                    "count": 0
+                "Contact": {
+                    "name": Contact_name,
+                    "phone": Contact_phone,
+                    "ext": Contact_ext,
+                    "email": Contact_email,
+                    "city": Contact_city,
+                    "district": Contact_district,
+                    "address": Contact_address
                 },
-                {
-                    "type": 2,
-                    "count": 0
-                }
-            ],
-            "remarks": remarks,
-            "payment_method": payment_method,
-            "payment_account": null
-        };
-        // axios
-        //     .post('https://mediatech2018.webgene.com.tw/api/Submit', qs.stringify(jsonBody))
-        //     .then(function(response) {
-        //         console.log(response.data);
-        //     })
-        //     .catch(function(error) {
-        //         console.log(error);
-        // });
+                "Tickets": [{
+                        "type": 0,
+                        "count": 1
+                    },
+                    {
+                        "type": 1,
+                        "count": 0
+                    },
+                    {
+                        "type": 2,
+                        "count": 0
+                    }
+                ],
+                "remarks": remarks,
+                "payment_method": payment_method,
+                "payment_account": null
+            };
+            // axios
+            //     .post('https://mediatech2018.webgene.com.tw/api/Submit', qs.stringify(jsonBody))
+            //     .then(function(response) {
+            //         console.log(response.data);
+            //     })
+            //     .catch(function(error) {
+            //         console.log(error);
+            // });
+    
+            $.ajax({
+                // processData: false, //可省
+                type: 'POST',
+                url: 'https://mediatech2018.webgene.com.tw/api/Submit',
+                data: JSON.stringify(jsonBody),
+                // dataType: 'json', //可省
+                contentType: 'application/json; charset=utf-8',
+                success: function(response) {
+                    console.log(response);
+                },
+                error: function(data) {
+                    console.log(data.responseJSON);
+                    swal("", "...and here's the text!");
+                },
+            });
 
-        $.ajax({
-            // processData: false, //可省
-            type: 'POST',
-            url: 'https://mediatech2018.webgene.com.tw/api/Submit',
-            data: JSON.stringify(jsonBody),
-            // dataType: 'json', //可省
-            contentType: 'application/json; charset=utf-8',
-            success: function(response) {
-                console.log(response);
-            },
-            error: function(jqXHR, textStatus, errorThrown) {
-                console.log(textStatus);
-            },
-        });
+
+        
+    
 
     }
 
