@@ -1,0 +1,82 @@
+
+// variables - colors
+$background: #e7eaf0; // body background color
+// rem fallback - credits: http://zerosixthree.se/
+// @function calculateRem($size) {
+//     $remSize: $size / 16px;
+//     @return $remSize * 1rem;
+// }
+
+// @mixin font-size($size) {
+//     font-size: $size;
+//     font-size: calculateRem($size);
+// }
+
+// layout - breakpoints
+$S: 320px;
+$M: 768px;
+$L: 1170px;
+$mango: #43a046;
+
+// layout - media queries
+@mixin MQ($canvas) {
+    @if $canvas==S {
+        @media only screen and (min-width: $S) {
+            @content;
+        }
+    }
+    @else if $canvas==M {
+        @media only screen and (min-width: $M) {
+            @content;
+        }
+    }
+    @else if $canvas==L {
+        @media only screen and (min-width: $L) {
+            @content;
+        }
+    }
+}
+
+#cd-google-map {
+    position: relative;
+    max-width: 1170px;
+    width: 100%;
+    margin: 60px auto 0 auto;
+    height: 430px;
+    background-color: $background;
+    @include MQ(M) {
+        height: 400px;
+    }
+    @include MQ(L) {
+        height: 430px;
+    }
+}
+
+#google-container {
+    width: 100%;
+    height: 100%;
+}
+#cd-zoom-in,
+#cd-zoom-out {
+    height: 3rem;
+    width: 3rem;
+    cursor: pointer;
+    margin-left: 25px;
+    background-color: rgba(#363636, 1);
+    background-repeat: no-repeat;
+    background-size: 32px 64px;
+    background-image: url(../img/map/cd-icon-controller.svg);
+    @media screen and (max-device-width: 767px) {
+       display: none;
+    }
+}
+
+#cd-zoom-in {
+    background-position: 50% 8px;
+    margin-top: 25px;
+    margin-bottom: 0.5rem;
+}
+
+#cd-zoom-out {
+    background-position: 50% -25px;
+}

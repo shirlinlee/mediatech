@@ -1,0 +1,29 @@
+/***** ticket *****/
+input.keyIn + label{
+      color: #43a046;
+      font-size: 14px;
+      top: -30px;
+      pointer-events: none; 
+}
+input.keyIn {
+    border-bottom: 1px solid #505050; 
+}
+
+.swal-modal{
+    width: 300px;
+    /* height: 250px; */
+}
+
+.swal-button {
+    display: block;
+    width: 100%;
+    margin: 0 0 10px;
+    background-color: #43a046;
+    border-radius: 5px;
+}
+
+.swal-button-container {
+    width: 100%;
+    margin: 0 0 7px;
+    
+}

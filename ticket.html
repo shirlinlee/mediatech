@@ -19,6 +19,8 @@
 
     <!-- css style -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/init.css">
+    
     <!--[if gt IE 9]>
     <script src="js/vendor/html5shiv.js"></script>
     <![endif]-->
@@ -54,10 +56,10 @@
             <ul>
                 <li><a href="">聯絡我們</a></li>
                 <li><a href="">交通資訊</a></li>
-                <li><a href="">立即報名</a></li>
+                <li><a href="ticket.html">立即報名</a></li>
                 <li><a href="">講師介紹</a></li>
                 <li><a href="">大會議程</a></li>
-                <li><a href="">大會首頁</a></li>
+                <li><a href="index.html">大會首頁</a></li>
             </ul>
         </nav>
         <!-- ======================= 手機選單結束 ========================= -->
@@ -72,10 +74,10 @@
             <div class="menu-m">
                 <img src="img/navi_logo.png" alt="">
                 <ul>
-                    <li><a href="">大會首頁</a></li>
+                    <li><a href="index.html">大會首頁</a></li>
                     <li><a href="">大會議程</a></li>
                     <li><a href="">講師介紹</a></li>
-                    <li><a href="">立即報名</a></li>
+                    <li><a href="ticket.html">立即報名</a></li>
                     <li><a href="">交通資訊</a></li>
                     <li><a href="">聯絡我們</a></li>
                 </ul>
@@ -89,7 +91,7 @@
         <div class="form_line1">
             <div class="input-container">
                 <input id="company" class="input" type="text" pattern=".+" required />
-                <label class="label" for="company" data-error="Company_name">公司抬頭</label>
+                <label class="label" for="company">公司抬頭</label>
             </div>
             <div class="input-container input-container2">
                 <input id="EIN" class="input" type="tel" pattern=".+" />
@@ -107,11 +109,11 @@
         <div class="form_line1">
             <div class="input-container input-container3">
                 <input id="name" class="input" type="text" pattern=".+" required />
-                <label class="label" for="name" data-error="Contact_name">姓名</label>
+                <label class="label Contact_name" for="name" data-error="">姓名</label>
             </div>
             <div class="input-container input-container4">
                 <input id="tel" class="input" type="tel" pattern=".+" required />
-                <label class="label" for="tel" data-error="Contact_phone">聯絡電話</label>
+                <label class="label Contact_phone" for="tel" data-error="">聯絡電話</label>
             </div>
             <div class="input-container input-container5">
                 <input id="port" class="input" type="tel" pattern=".+" />
@@ -119,13 +121,13 @@
             </div>
             <div class="input-container input-container6">
                 <input id="email" class="input" type="email" pattern=".+" required />
-                <label class="label" for="email" data-error="Contact_email">電子郵件</label>
+                <label class="label Contact_email" for="email" data-error="">電子郵件</label>
             </div>
         </div>
         <div class="form_line1">
             <!-- <div id="twzipcode"></div> -->
             <div class="select select--white" id="country">
-                <span class="placeholder" data-error="Contact_city">選擇縣市</span>
+                <span class="placeholder Contact_city" data-error="">選擇縣市</span>
                 <ul>
                     <li>台北市</li>
                     <li>新北市</li>
@@ -136,7 +138,7 @@
                 </ul>
             </div>
             <div class="select select--white select--white2" id="district">
-                <span class="placeholder" data-error="Contact_district">選擇行政區</span>
+                <span class="placeholder Contact_district" data-error="">選擇行政區</span>
                 <ul>
                     <li>大安區</li>
                     <li>信義區</li>
@@ -148,10 +150,11 @@
             </div>
             <div class="input-container input-container7">
                 <input id="add" class="input" type="text" pattern=".+" required />
-                <label class="label" for="add" data-error="Contact_address">完整街道地址</label>
+                <label class="label Contact_address" for="add" data-error="">完整街道地址</label>
             </div>
+            <input type="text" class="zipcode" hidden>
         </div>
-        <h2>購買票種</h2>
+        <h2 class="">購買票種</h2>
         <div class="form_line1">
             <div class="ticket_wrap1">
                 早鳥票 : 6000元
@@ -165,6 +168,21 @@
                         <li>4</li>
                         <li>5</li>
                         <li>6</li>
+                        <li>0</li>
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                        <li>6</li>
+                        <li>0</li>
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                        <li>6</li>
+
                     </ul>
                 </div>
                 張
@@ -218,8 +236,8 @@
             <input id="radio-3" class="radio-custom" value="remit" name="payment" type="radio" checked>
             <label for="radio-3" class="radio-custom-label">現金匯款</label>
             <div class="input-container input-container9">
-                <input id="5num" class="input" type="text" pattern=".+" />
-                <label class="label" for="5num">帳號後五碼</label>
+                <input id="5num" class="input" type="number" pattern=".+" />
+                <label class="label payment_account" for="5num">帳號後五碼</label>
             </div>
             <p>請於三日內匯款至如下帳戶，匯款完成後請回覆Mail 至 <a href="mailto:service@media-tech.com.tw">service@media-tech.com.tw</a></p>
             <div class="bank_wrap_l">

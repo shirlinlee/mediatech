@@ -35,6 +35,10 @@ var ticketCtr = {
                 if($(this).attr('href')==='#') $(this).attr('href',"javascript:void(0)");
             //    $(this).attr('href').replace(/#/, "W3School");
             });
+
+            $('input:not([type=checkbox]):not([type=radio]').on('blur focus',function(e){
+                ticketCtr.inputHandler($(this),e); 
+            })
         })
 
 
@@ -59,10 +63,15 @@ var ticketCtr = {
             $('#district .placeholder').html('選擇行政區');
         } 
         var item = ele.text();
-        // console.log(which_select);
+        var zipcode = ele.attr('data-zip');
+        
+        console.log(which_select);
         
         var parent = ele.closest('.select');
         parent.removeClass('is-open').find('.placeholder').text(item);
+        $('.zipcode').val(zipcode);
+
+        // $()
 
         //判斷是票種
         if ( which_select.indexOf('ticket') === 0) {
@@ -98,27 +107,43 @@ var ticketCtr = {
         districtUl.html('');
         $.each(areaData[item], function(index, value) {
             // console.log(index, value)
-            districtUl.append('<li>' + index + '</li>');
+            districtUl.append('<li data-zip='+ value +'>' + index + '</li>');
         });
+    },
+    inputHandler(ele,e) {
+        // console.log(ele.val());
+        // console.log(e.type);
+        if(e.type === 'focus') {
+            ele.addClass('keyIn');
+            return;
+        } else {
+            var val = ele.val().trim();
+            if(val.length===0){
+                ele.removeClass('keyIn');
+                ele.val('');
+            } else {
+                ele.addClass('keyIn');
+            }
+        }
     },
     formPost(e) {
         e.preventDefault();
+        $('.btn_ticket').off('click');
 
-        var Company_name = $('#company').val(),
-            Company_taxid = $('#EIN').val(),
+        var Company_name = ($('#company').val().trim().length !== 0 ) ? $('#company').val() : null,
+            Company_taxid = ($('#EIN').val().trim().length !== 0 ) ? $('#EIN').val() : null,
             Company_receipt = $('input[name=radio-group]:checked').val(),
             Contact_name = $('#name').val(),
             Contact_phone = $('#tel').val(),
-            Contact_ext = $('#port').val(),
+            Contact_ext = ($('#port').val().trim().length !== 0 ) ? $('#port').val() : null,
             Contact_email = $('#email').val(),
+            Contact_code = $('input.zipcode').val(),
             Contact_city = $('#country .placeholder').text(),
             Contact_district = $('#district .placeholder').text(),
-            Contact_address = $('#add').val(),
-            remarks = $('#ps').val(),
+            Contact_address =  Contact_code + $('#add').val(),
+            remarks = ($('#ps').val().trim().length !== 0 ) ? $('#ps').val() : null,
             payment_method = $('input[name=payment]:checked').val(),
-            payment_account = $('#5num').val();
-        
-
+            payment_account = ($('#5num').val().trim().length !== 0 ) ? $('#5num').val() : null ;
 
             var jsonBody = {
                 "Company": {
@@ -137,15 +162,15 @@ var ticketCtr = {
                 },
                 "Tickets": [{
                         "type": 0,
-                        "count": 1
+                        "count": ticketCtr.ticket_0
                     },
                     {
                         "type": 1,
-                        "count": 0
+                        "count": ticketCtr.ticket_1
                     },
                     {
                         "type": 2,
-                        "count": 0
+                        "count": ticketCtr.ticket_2
                     }
                 ],
                 "remarks": remarks,
@@ -160,6 +185,23 @@ var ticketCtr = {
             //     .catch(function(error) {
             //         console.log(error);
             // });
+
+            if(ticketCtr.ticket_0 + ticketCtr.ticket_1 + ticketCtr.ticket_2 === 0 ){
+                swal('請選擇票種',{ icon: "error" }).then(function(result) { 
+                    $('.btn_ticket').on('click', function(e){ ticketCtr.formPost(e); });
+                });
+                
+                return;
+            }
+            if(Contact_city === '選擇縣市' || Contact_district === '選擇行政區') {
+                swal('請選擇正確縣市及行政區',{ icon: "error" }).then(function(result) { 
+                    $('.btn_ticket').on('click', function(e){ ticketCtr.formPost(e); });
+                });
+                
+                return;
+            }
+
+            console.log(Contact_address);
     
             $.ajax({
                 // processData: false, //可省
@@ -170,15 +212,22 @@ var ticketCtr = {
                 contentType: 'application/json; charset=utf-8',
                 success: function(response) {
                     console.log(response);
+                    swal('報名成功','請留意email通知',{ icon: "success" }).then(function(result) { 
+                        window.location.href = '/index.html';
+                    });
+                    
                 },
                 error: function(data) {
-                    console.log(data.responseJSON);
-                    swal("", "...and here's the text!");
+                    
+                    var get_feild = data.responseJSON.field.replace('.','_'); 
+                    var text = $('body').find('.'+get_feild).text();
+                    console.log(get_feild,text);
+                    
+                    swal('請正確填寫'+ text +'欄位',{ icon: "error" }).then(function(result) { 
+                        $('.btn_ticket').on('click', function(e){ ticketCtr.formPost(e); });
+                    });
                 },
             });
-
-
-        
     
 
     }

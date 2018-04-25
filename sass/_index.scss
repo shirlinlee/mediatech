@@ -1,0 +1,714 @@
+@charset "UTF-8";
+// 首頁 =============================================================================================
+section.index {
+    height: 100%;
+    background-color: black;
+    .wording {
+        @include pos-mid;
+        width: 40%;
+        max-width: 590px;
+        text-align: center;
+        h2 {
+            @include img-scale;
+            margin: 0 auto;
+        }
+        p {
+            color: white;
+            border: 1px solid white;
+            padding: 15px 20px;
+            display: inline-block;
+            margin-top: 55px;
+            span {
+                padding: 0 20px;
+            }
+            br {
+                display: none;
+            }
+        } //ipad 打橫
+        @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+            width: 60%;
+            h2 {
+                width: 80%;
+            }
+            p {
+                margin-top: 40px;
+            }
+        } //mobile
+        @media screen and (max-width: 768px) {
+            width: 80%;
+            h2 {
+                width: 95%;
+            }
+            p {
+                padding: 10px 15px;
+                font-size: 16px;
+                margin-top: 40px;
+                span {
+                    padding: 0 0 0 10px;
+                }
+                br {
+                    display: block;
+                }
+            }
+        } //i6
+        @media screen and (max-width: 413px) {
+            p {
+                padding: 15px 10px;
+            }
+        } //i5
+        @media screen and (max-width: 374px) {
+            p {
+                padding: 10px 30px;
+                br {
+                    display: none;
+                }
+                span {
+                    display: block;
+                    padding: 0;
+                }
+            }
+        }
+    }
+    a.scroll {
+        display: inline-block;
+        position: absolute;
+        bottom: 0px;
+        left: 50%;
+        color: white;
+        @include translateX(-50%);
+        p {
+            padding-bottom: 5px;
+        }
+        .con {
+            height: 50px;
+            overflow: hidden;
+            span {
+                display: block;
+                width: 2px;
+                height: 50px; // position: absolute;
+                // top: 50%;
+                // left: 50px;
+                margin: 0 auto;
+                background-color: white; // @include translateX(-50%);
+                animation: scroll-line 1700ms cubic-bezier(.58, .8, .46, .93) infinite forwards;
+                @include rotate(90deg);
+            }
+        }
+    }
+}
+
+//活動介紹 =============================================================================================
+section.introduce {
+    background-color: white;
+    text-align: center;
+    padding-bottom: 340px;
+    .wording {
+        font-size: 0;
+        letter-spacing: 0;
+        margin-bottom: 70px;
+        span,
+        p {
+            display: inline-block;
+            vertical-align: middle;
+        }
+        span {
+            @include img-scale;
+            width: 385px;
+        }
+        p {
+            width: calc(100% - 385px);
+            font-size: 18px;
+            letter-spacing: 1px;
+            padding-left: 55px;
+            @include text-pretty;
+        }
+    }
+    .general,
+    .curate {
+        display: inline-block;
+        vertical-align: top;
+        >p {
+            margin-bottom: 25px;
+            text-align: left;
+        }
+    }
+    .general {
+        margin-right: 7%;
+    }
+    .curate {
+        width: 611px;
+    }
+    ul.photo {
+        display: inline-block;
+        li {
+            width: 200px;
+            margin-bottom: 35px;
+        }
+    } //ipad
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+        .curate {
+            width: 630px;
+        }
+    } //mobile
+    @media only screen and (max-width: 1000px) {
+        .wording {
+            margin: 50px 0;
+            span,
+            p {
+                display: block;
+                width: 100%;
+                padding: 0;
+            }
+            span {
+                width: 60%;
+                margin: 0 auto 30px auto;
+            }
+        }
+        .general,
+        .curate {
+            display: block;
+            width: 100%;
+        }
+        .general {
+            margin-right: 0;
+        }
+        ul.photo {
+            display: block;
+            width: 100%;
+        }
+    } //i6
+    @media screen and (max-width: 413px) {
+        .general {
+            ul.photo {
+                li {
+                    width: 55%;
+                    p {
+                        width: 80%;
+                    }
+                }
+            }
+        }
+    } //i5
+    @media screen and (max-width: 374px) {
+        .general {
+            ul.photo {
+                li {
+                    width: 70%;
+                    p {
+                        width: 68%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+//議程介紹 =============================================================================================
+section.agenda {
+    background-color: $black;
+    h1 {
+        color: white;
+        margin-bottom: 60px;
+    }
+    .dayBlock {
+        width: 100%;
+        font-size: 0;
+        letter-spacing: 0;
+        padding: 65px 25px;
+        border-bottom: 1px solid $h-grey;
+        .time,
+        .des {
+            display: inline-block;
+            vertical-align: top;
+            color: white;
+            font-size: 18px;
+        }
+        .time {
+            width: 25%;
+            span {
+                vertical-align: top;
+                width: 25%;
+                font-size: 65px;
+                font-weight: 100;
+                line-height: 1;
+                b {
+                    display: block;
+                    font-size: 28px;
+                    margin-bottom: 5px;
+                    color: $l-green;
+                }
+            }
+        }
+        .des {
+            width: 75%;
+            font-size: 0;
+            letter-spacing: 0;
+            p,
+            .btnBox {
+                display: inline-block;
+                vertical-align: middle;
+            }
+            p {
+                width: 75%;
+                padding-right: 8%;
+                font-size: 18px;
+                @include text-pretty;
+            }
+            .btnBox {
+                width: 25%;
+                text-align: right;
+                a.btn {
+                    display: inline-block;
+                    width: 100%;
+                    max-width: 200px;
+                    height: 60px;
+                    line-height: 60px;
+                    font-size: 16px;
+                    font-weight: 500;
+                }
+            }
+        }
+
+        &:last-child {
+            border-bottom: none;
+        }
+        @media screen and (max-width: 1000px) {
+            padding: 65px 0px;
+            .time {
+                width: 25%;
+                margin-right: 5%;
+            }
+            .des {
+                width: 70%;
+                p,
+                .btnBox {
+                    display: block;
+                }
+                p {
+                    width: 100%;
+                    padding-right: 0;
+                }
+                .btnBox {
+                    margin-top: 20px;
+                    width: 200px;
+                }
+            }
+        } //mobile
+        @media screen and (max-width: 768px) {
+            .time,
+            .des {
+                display: block;
+                width: 100%;
+            }
+            .des {
+                margin-top: 20px;
+                .btnBox {
+                    margin-top: 20px;
+                    width: 100%;
+                    text-align: center;
+                    a.btn {
+                        max-width: 100%;
+                    }
+                }
+            }
+        }
+    }
+    @media screen and (max-width: 768px) {
+        h1 {
+            margin-bottom: 0;
+        }
+    }
+}
+
+//講師介紹 =============================================================================================
+section.lecturer {
+    h1 {
+        margin-bottom: 100px;
+    } //mobile
+    @media screen and (max-width: 768px) {
+        padding-bottom: 100px;
+        padding-top: 100px;
+        h1 {
+            margin-bottom: 50px;
+        }
+    }
+}
+
+//報名資訊 =============================================================================================
+section.signUp {
+    background-color: $m-grey;
+    ul.priceForm {
+        max-width: 970px;
+        width: 100%;
+        margin: 0 auto;
+        li {
+            @include radius(5px);
+            height: 100px;
+        }
+        li:nth-of-type(1) {
+            background-color: $black;
+            border-radius: 5px 5px 0px 0px;
+        }
+        li:nth-of-type(2) {
+            background-color: $h-grey;
+            border-radius: 0px;
+        }
+        li:nth-of-type(3) {
+            background-color: $h-green;
+            border-radius: 0px 0px 5px 5px;
+        }
+        p {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            float: left;
+            color: $m-grey;
+            padding: 0 20px;
+        }
+        p.w-1 {
+            width: 33.3%;
+            height: 100%;
+        }
+        p.w-2 {
+            width: 66.6%;
+            height: 100%;
+        }
+        p.green {
+            color: $h-green;
+            font-size: 24px;
+            b {
+                display: block;
+                color: white;
+                font-size: 16px;
+                color: $m-grey;
+            }
+        } //mobile
+        @media screen and (max-width: 768px) {
+            li:nth-of-type(2),
+            li:nth-of-type(3) {
+                p:first-child {
+                    text-align: left;
+                }
+            }
+            p {
+                font-size: 16px;
+                letter-spacing: 0;
+            }
+            p.green {
+                font-size: 18px;
+                b {
+                    font-size: 13px;
+                }
+            }
+        } //i5
+        @media screen and (max-width: 374px) {
+            li:nth-of-type(2),
+            li:nth-of-type(3) {
+                height: 120px;
+            }
+            p {
+                padding: 20px 15px;
+            }
+        }
+    }
+    ul.schedule {
+        text-align: center;
+        position: relative;
+        max-width: 970px;
+        margin: 70px auto 0 auto;
+        width: 100%;
+        &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 40px;
+            left: 0px;
+            width: 100%;
+            height: 6px;
+            background-color: $h-green;
+            z-index: 1;
+        }
+        li {
+            display: inline-block;
+            width: 15%;
+            text-align: center;
+            vertical-align: top;
+            position: relative;
+            z-index: 2;
+            p {
+                @include circle(80px);
+                background-color: $h-green;
+                display: block;
+                margin: 0 auto;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                padding-top: 5px;
+                >span {
+                    font-size: 25px;
+                    line-height: 0.9;
+                    letter-spacing: 0;
+                    color: white;
+                    font-weight: 900;
+                    text-indent: 2px;
+                    b {
+                        display: block;
+                        font-size: 32px;
+                        text-indent: -2px;
+                    }
+                }
+            }
+            >span {
+                margin-top: 10px;
+                display: inline-block;
+                b {
+                    display: block;
+                    color: $h-green;
+                }
+            }
+        } //mobile
+        @media screen and (max-width: 768px) {
+            padding: 10px 0;
+            margin-top: 25px;
+            &:after {
+                width: 5px;
+                height: 100%;
+                top: 0;
+                left: 25px;
+            }
+            li {
+                display: block;
+                width: 100%;
+                margin: 25px 0;
+                text-align: left;
+                padding-left: 50px;
+                p,
+                span {
+                    display: inline-block;
+                    vertical-align: top;
+                }
+                >span {
+                    margin-top: 4px;
+                    width: calc(100% - 140px);
+                    b {
+                        display: inline;
+                    }
+                }
+                p {
+                    background-color: $m-grey;
+                    @include circle(120px);
+                    height: auto;
+                    border-radius: 0;
+                    text-align: left;
+                    >span {
+                        font-size: 30px;
+                        color: $h-green;
+                        b {
+                            display: inline;
+                            font-size: 30px;
+                        }
+                    }
+                }
+                &:before {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    top: 10px;
+                    left: 20px;
+                    background-color: $h-green;
+                    @include circle(15px);
+                }
+            }
+        }
+        @media screen and (max-width: 500px) {
+            li {
+                >span {
+                    b {
+                        display: block;
+                    }
+                }
+            }
+        }
+        @media screen and (max-width: 413px) {
+            li p {
+                width: 100px;
+            }
+        }
+        @media screen and (max-width: 374px) {
+            &:after {
+                left: 10px;
+                top: 8px;
+            }
+            li {
+                padding-left: 35px;
+                &:before {
+                    left: 5px;
+                }
+                >span {
+                    width: calc(100% - 100px);
+                    margin-top: 2px;
+                }
+                p {
+                    width: 85px;
+                    >span {
+                        font-size: 25px;
+                        b {
+                            font-size: 25px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    a.btn {
+        margin-top: 70px;
+    }
+}
+
+//交通資訊 =================================================================================
+section.traffic {
+    .address {
+        text-align: center;
+        span {
+            @include img-scale;
+            width: 35px;
+            display: inline-block;
+        }
+        p {
+            font-size: 30px;
+            b {
+                display: block;
+                font-size: 18px;
+            }
+        }
+    }
+    .map {
+        width: 100%;
+        overflow: hidden;
+        margin-bottom: 100px;
+    }
+    .routeBlock {
+        border-bottom: 1px solid $black;
+        padding-bottom: 65px;
+        margin-bottom: 65px;
+        padding-left: 180px;
+        &:nth-of-type(3) {
+            border-bottom: none;
+            padding-bottom: 0px;
+            margin-bottom: 0px;
+        }
+        p.way {
+            position: relative;
+            font-size: 24px;
+            font-weight: 500;
+            margin-bottom: 5px;
+            span {
+                position: absolute;
+                @include circle(130px);
+                background-color: $h-green;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                left: -160px;
+                top: -10px;
+            }
+        }
+        ul {
+            margin-left: 30px;
+            li {
+                list-style: decimal;
+            }
+        }
+        .line {
+            margin-bottom: 20px;
+            p {
+                color: $h-green;
+            }
+        } //mobile
+        @media screen and (max-width: 768px) {
+            padding-left: 10px;
+            padding-right: 10px;
+            p.way {
+                span {
+                    position: relative;
+                    top: auto;
+                    left: auto;
+                    @include circle(60px);
+                    display: inline-block;
+                    vertical-align: middle;
+                    text-align: center;
+                    margin-right: 10px;
+                    margin-bottom: 10px;
+                    b {
+                        width: 50%;
+                        display: inline-block;
+                        @include pos-mid;
+                        @include img-scale;
+                    }
+                }
+            }
+            ul {
+                li {
+                    @include text-pretty;
+                }
+            }
+            .line {
+                @include text-pretty;
+            }
+        }
+    }
+}
+
+//聯絡我們 =================================================================================
+section.contact {
+    background-color: $m-grey;
+    text-align: center;
+    .fbPlugin,
+    ul.wording {
+        display: inline-block;
+        vertical-align: top;
+    }
+    .fbPlugin {
+        padding: 10px;
+        background-color: white;
+    }
+    ul.wording {
+        width: calc(100% - 350px);
+        padding-left: 10%;
+        text-align: left;
+        li {
+            margin-bottom: 50px;
+            padding-bottom: 50px;
+            p {
+                font-size: 30px;
+                color: $h-green;
+            }
+            a{
+                color:$black;            }
+        }
+        li:nth-of-type(1) {
+            border-bottom: 1px solid $black;
+        }
+    }
+    @media screen and (max-width: 1200px) {
+        ul.wording {
+            padding-left: 5%;
+            width: calc(100% - 430px);
+        }
+    } //mobile
+    @media screen and (max-width: 768px) {
+        .fbPlugin,
+        ul.wording {
+            display: block;
+        }
+        ul.wording {
+            width: 100%;
+            padding-left: 0%;
+        }
+        .fbPlugin {
+            display: none;
+        }
+    }
+}

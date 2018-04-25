@@ -1,0 +1,14 @@
+@charset "UTF-8";
+// index scroll
+@keyframes scroll-line {
+  0%, 10% {
+    transform: translateY(50px);
+  }
+  50% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-50px);
+    
+  }
+}
