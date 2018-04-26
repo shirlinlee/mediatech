@@ -15,6 +15,13 @@
     <!-- favicon -->
     <link rel="icon" href="img/favicon.ico">
     <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/86/three.min.js"></script>
+    <script src="https://rawgit.com/mrdoob/three.js/master/examples/js/renderers/Projector.js"></script>
+    <script src="https://rawgit.com/mrdoob/three.js/master/examples/js/renderers/CanvasRenderer.js"></script>
+    <script src="js/lottie.js"></script>
+    
     <!-- css style -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/init.css">
@@ -24,7 +31,7 @@
     <![endif]-->
 </head>
 
-<body>
+<body class="load">
     <!-- only fot ipad-->
     <div class="trans_bg">
         <div class="trans_ipad">
@@ -78,6 +85,45 @@
     <div class="wrap">
         <!-- 首頁 -->
         <section class="index">
+            <div id="kv"> 
+                <div class="bg_logo">
+                    <div class="item_row">
+                        <div class="item"><img src="images/frame_02.png" alt=""></div>
+                        <div class="item"><img src="images/frame_02.png" alt=""></div>
+                    </div>
+                    <div class="item_row">
+                        <div class="item"><img src="images/frame_02.png" alt=""></div>
+                        <div class="item"><img src="images/frame_02.png" alt=""></div>
+                    </div>
+                    <div class="item_row">
+                        <div class="item"><img src="images/frame_02.png" alt=""></div>
+                        <div class="item"><img src="images/frame_02.png" alt=""></div>
+                        <div class="item circle"><img src="images/frame_02.png" alt=""></div>
+                        <div class="item"><img src="images/frame_02.png" alt=""></div>
+                        <div class="item"><img src="images/frame_02.png" alt=""></div>
+                        <div class="item"><img src="images/frame_02.png" alt=""></div>
+                    </div>
+                    <div class="item_row">
+                        <div class="item"><img src="images/frame_02.png" alt=""></div>
+                        <div class="item"><img src="images/frame_02.png" alt=""></div>
+                        <div class="item"><img src="images/frame_02.png" alt=""></div>
+                        <div class="item"><img src="images/frame_02.png" alt=""></div>
+                        <div class="item"><img src="images/frame_02.png" alt=""></div>
+                        <div class="item"><img src="images/frame_02.png" alt=""></div>
+                    </div>
+                    <div class="item_row">
+                        <div class="item"><img src="images/frame_02.png" alt=""></div>
+                        <div class="item"><img src="images/frame_02.png" alt=""></div>
+                    </div>
+                    <div class="item_row">
+                        <div class="item"><img src="images/frame_02.png" alt=""></div>
+                        <div class="item"><img src="images/frame_02.png" alt=""></div>
+                    </div>
+                    
+                </div>
+        
+            </div>
+                     
             <div class="wording">
                 <h2><img src="img/BigTitle.png" alt=""></h2>
                 <p>7/10-7/11<span>TICC台北國際會議中心</span>
@@ -87,9 +133,15 @@
                 <p>Scroll</p>
                 <div class="con"><span></span></div>
             </a>
+            <div class="lottie_frame">
+                <img src="images/frame.png" class="lottie_img" alt="">
+                <div id="lottie"></div>
+            </div>
+
         </section>
         <!-- 活動介紹 -->
         <section class="introduce">
+            <div id="canvasHeader"></div>
             <div class="main">
                 <div class="wording">
                     <span><img src="img/MT.png" alt=""></span>
@@ -146,6 +198,7 @@
         </section>
         <!-- 議程介紹 -->
         <section class="agenda">
+            <canvas id="canvas"></canvas>
             <div class="main">
                 <h1>議程介紹</h1>
                 <div class="dayBlock">
@@ -341,7 +394,11 @@
     </div>
     <!-- footer -->
     <footer></footer>
+    <script>
+        var page = 'index';
+    </script>
     <script src="js/init.js"></script>
+    <script src="js/all_particle.js?v=0419"></script>
 </body>
 
 </html>

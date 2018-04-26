@@ -1,5 +1,8 @@
 var countryUl = $('#country ul'),
-    districtUl = $('#district ul');
+    districtUl = $('#district ul'),
+    submitTicketBtn = $('.btn_ticket'),
+    $body = $('body'),
+    anim;
 
      
 
@@ -10,9 +13,10 @@ var ticketCtr = {
     init() {
 
         ticketCtr.countryDataInit();
+        $body.append('<div id="loadPage"><div class="loader"></div></div>');
 
         $(window).ready(function() {
-            $('body').on('click',function(e){
+            $body.on('click',function(e){
                 e.stopPropagation();
                 $('.select.is-open').removeClass('is-open');
             })
@@ -27,7 +31,7 @@ var ticketCtr = {
             $(".menu-toggle").on('click', function(){
                 ticketCtr.menuHandler();
             });
-            $('.btn_ticket').on('click', function(e){
+            submitTicketBtn.on('click', function(e){
                 ticketCtr.formPost(e);
             });
 
@@ -58,20 +62,21 @@ var ticketCtr = {
         }
     },
     selectchooseHandler(ele) {
+        //判斷是縣市
         var which_select = ele.parents('.select').attr('id');
-        if (which_select === 'country') {
-            $('#district .placeholder').html('選擇行政區');
-        } 
         var item = ele.text();
         var zipcode = ele.attr('data-zip');
-        
-        console.log(which_select);
-        
         var parent = ele.closest('.select');
+
+        console.log(which_select);
+
+        if (which_select === 'country') {
+            $('#district .placeholder').html('選擇行政區');
+            ticketCtr.districtDataInit(item);
+        } 
         parent.removeClass('is-open').find('.placeholder').text(item);
         $('.zipcode').val(zipcode);
 
-        // $()
 
         //判斷是票種
         if ( which_select.indexOf('ticket') === 0) {
@@ -86,9 +91,8 @@ var ticketCtr = {
             $('.total_cost').text((ticketCtr.ticket_0*6000 + ticketCtr.ticket_1*8000 + ticketCtr.ticket_2*1000).toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")); 
             
         } 
-
-        // console.log(areaData[item]);
-        ticketCtr.districtDataInit(item);
+        
+        
 
     },
     menuHandler() {
@@ -126,9 +130,16 @@ var ticketCtr = {
             }
         }
     },
+    removeLoadFunc(){
+        console.log('remove');
+        $body.find('#loadPage').removeClass('show');
+
+    },
     formPost(e) {
         e.preventDefault();
-        $('.btn_ticket').off('click');
+        submitTicketBtn.off('click');
+        $body.find('#loadPage').addClass('show');
+        
 
         var Company_name = ($('#company').val().trim().length !== 0 ) ? $('#company').val() : null,
             Company_taxid = ($('#EIN').val().trim().length !== 0 ) ? $('#EIN').val() : null,
@@ -139,8 +150,8 @@ var ticketCtr = {
             Contact_email = $('#email').val(),
             Contact_code = $('input.zipcode').val(),
             Contact_city = $('#country .placeholder').text(),
-            Contact_district = $('#district .placeholder').text(),
-            Contact_address =  Contact_code + $('#add').val(),
+            Contact_district = Contact_code + $('#district .placeholder').text(),
+            Contact_address = $('#add').val(),
             remarks = ($('#ps').val().trim().length !== 0 ) ? $('#ps').val() : null,
             payment_method = $('input[name=payment]:checked').val(),
             payment_account = ($('#5num').val().trim().length !== 0 ) ? $('#5num').val() : null ;
@@ -162,20 +173,20 @@ var ticketCtr = {
                 },
                 "Tickets": [{
                         "type": 0,
-                        "count": ticketCtr.ticket_0
+                        "count": ticketCtr.ticket_0,
                     },
                     {
                         "type": 1,
-                        "count": ticketCtr.ticket_1
+                        "count": ticketCtr.ticket_1,
                     },
                     {
                         "type": 2,
-                        "count": ticketCtr.ticket_2
+                        "count": ticketCtr.ticket_2,
                     }
                 ],
                 "remarks": remarks,
                 "payment_method": payment_method,
-                "payment_account": null
+                "payment_account": payment_account
             };
             // axios
             //     .post('https://mediatech2018.webgene.com.tw/api/Submit', qs.stringify(jsonBody))
@@ -185,23 +196,28 @@ var ticketCtr = {
             //     .catch(function(error) {
             //         console.log(error);
             // });
+            console.log(jsonBody);
 
             if(ticketCtr.ticket_0 + ticketCtr.ticket_1 + ticketCtr.ticket_2 === 0 ){
                 swal('請選擇票種',{ icon: "error" }).then(function(result) { 
-                    $('.btn_ticket').on('click', function(e){ ticketCtr.formPost(e); });
+                    ticketCtr.removeLoadFunc();
+                    submitTicketBtn.on('click', function(e){ ticketCtr.formPost(e); });
                 });
-                
+               
                 return;
             }
             if(Contact_city === '選擇縣市' || Contact_district === '選擇行政區') {
                 swal('請選擇正確縣市及行政區',{ icon: "error" }).then(function(result) { 
-                    $('.btn_ticket').on('click', function(e){ ticketCtr.formPost(e); });
+                    ticketCtr.removeLoadFunc();
+                    submitTicketBtn.on('click', function(e){ ticketCtr.formPost(e); });
                 });
                 
                 return;
             }
 
-            console.log(Contact_address);
+            // console.log(Contact_address);
+           
+
     
             $.ajax({
                 // processData: false, //可省
@@ -213,18 +229,20 @@ var ticketCtr = {
                 success: function(response) {
                     console.log(response);
                     swal('報名成功','請留意email通知',{ icon: "success" }).then(function(result) { 
+                        ticketCtr.removeLoadFunc();
                         window.location.href = '/index.html';
                     });
-                    
                 },
                 error: function(data) {
-                    
                     var get_feild = data.responseJSON.field.replace('.','_'); 
-                    var text = $('body').find('.'+get_feild).text();
-                    console.log(get_feild,text);
+                    var text = $body.find('.'+get_feild).text();
+                    console.log(data.responseJSON);
+                    console.log(data);
                     
                     swal('請正確填寫'+ text +'欄位',{ icon: "error" }).then(function(result) { 
-                        $('.btn_ticket').on('click', function(e){ ticketCtr.formPost(e); });
+                        ticketCtr.removeLoadFunc();
+                        submitTicketBtn.on('click', function(e){ ticketCtr.formPost(e); });
+
                     });
                 },
             });
@@ -607,7 +625,96 @@ var areaData = {
 }
 
 
+
+var indexCtrl = {
+    load : false,
+    kvAniDone : false,
+    $lottie : $("#lottie"),
+    $lottie_frame : $("#lottie, .lottie_frame, .lottie_img"),
+    windowWidth : $(window).innerWidth(),
+    windowHeight : $(window).innerHeight(),
+    animData : {
+        container: document.getElementById('lottie'),
+        renderer: 'svg',
+        loop: true,
+        // loop: false,
+        autoplay: false,
+        rendererSettings: {
+            progressiveLoad:true,
+            preserveAspectRatio:'xMidYMid meet'
+        },
+        path: 'js/data.json'
+        
+    },
+    init() {
+        // $body.addClass('load');
+        anim = lottie.loadAnimation(indexCtrl.animData);
+        anim.setSubframe(false);
+        this.resize();
+        this.kv_ani();
+        anim.play();
+        anim.addEventListener('loopComplete',this.kv_complete);
+        window.addEventListener('resize', this.resize, false);
+        window.addEventListener('load', this.loadEnd, false);
+        
+        
+    },
+    kv_complete() {
+        console.log('loopcomplete');
+        if(indexCtrl.load) {
+            anim.pause();
+            $body.removeClass('load');
+            $('section.index').addClass('show');
+            indexCtrl.kvAniDone = true;
+            setTimeout(function(){
+                // $('.lottie_frame').remove();
+            },2000)
+        }
+    },
+    kv_ani() {
+        $('.item').css({'marginTop':windowWidth*.02,'marginBottom':windowWidth*.02})
+
+    },
+    resize() {
+        windowWidth = $(window).innerWidth(),
+        windowHeight = $(window).innerHeight();
+
+        if( windowWidth >= windowHeight ) {
+            indexCtrl.$lottie_frame.css({width:'100vw', marginLeft: 0});
+            indexCtrl.$lottie.css( "margin-top", function() {
+                var topVal = ( windowWidth*1.05 - windowHeight )/2 -10;
+                // console.log('寬扁');
+                return -topVal;
+            });
+        } else {
+            indexCtrl.$lottie_frame.css({ height:'100vh', marginTop: 0});
+            
+            indexCtrl.$lottie.css( "margin-left", function() {
+                var leftVal = ( windowHeight/1.05 - windowWidth) -10;
+                // console.log('長直');
+                return -leftVal;
+            });
+        }
+        
+        
+
+    },
+    loadEnd(){
+        indexCtrl.load = true;
+        
+    }
+
+}
+
+
 $(function() {
-    ticketCtr.init();
+    if( page==='index' ){
+        indexCtrl.init();
+
+    } else if( page==='ticket' ){
+        ticketCtr.init();
+    }
+    console.log(page);
+    
 
 })
