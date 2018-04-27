@@ -2,6 +2,7 @@ var countryUl = $('#country ul'),
     districtUl = $('#district ul'),
     submitTicketBtn = $('.btn_ticket'),
     $body = $('body'),
+    bodyScroll = (window.opera) ? (document.compatMode == "CSS1Compat" ? $('html') : $('body')) : $('html,body'),
     anim;
 
      
@@ -36,7 +37,7 @@ var ticketCtr = {
             });
 
             $("a").each(function( index ) {
-                if($(this).attr('href')==='#') $(this).attr('href',"javascript:void(0)");
+                if($(this).attr('href')==='#' || $(this).attr('href')==='' ) $(this).attr('href',"javascript:void(0)");
             //    $(this).attr('href').replace(/#/, "W3School");
             });
 
@@ -656,6 +657,14 @@ var indexCtrl = {
         anim.addEventListener('loopComplete',this.kv_complete);
         window.addEventListener('resize', this.resize, false);
         window.addEventListener('load', this.loadEnd, false);
+
+        $("a").each(function( index ) {
+            if($(this).attr('href')==='#' || $(this).attr('href')==='' ) $(this).attr('href',"javascript:void(0)");
+        });
+
+        $('.scroll').on('click touchstart',function(){
+            bodyScroll.animate({scrollTop:$(window).innerHeight()}, 500);
+        })
         
         
     },
@@ -664,6 +673,8 @@ var indexCtrl = {
         if(indexCtrl.load) {
             anim.pause();
             $body.removeClass('load');
+            $('html').removeClass('load');
+            
             $('section.index').addClass('show');
             indexCtrl.kvAniDone = true;
             setTimeout(function(){

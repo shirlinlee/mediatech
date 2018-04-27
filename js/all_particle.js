@@ -28,6 +28,8 @@ var windowHalfX = window.innerWidth / 2;
 var windowHalfY = window.innerHeight / 2;
 
 var INTERSECTED;
+
+
 // 	wave start 波浪開始
 
 init();
@@ -90,8 +92,8 @@ function onWindowResize() {
 
 
 function animate() {
-	// console.log('wave', pause);
-	if(!wave_pause) return;
+	// console.log('wave');
+	if(wave_pause) return;
 	requestAnimationFrame( animate );
 	render();
 }
@@ -142,7 +144,7 @@ function Canvas(options) {
 }
 
 Canvas.prototype.updateDimensions = function() {
-  console.log('grenn_resize');
+  // console.log('grenn_resize');
   this.width = this.el.width = _.result(this.options, 'width') * this.dpr;
   this.height = this.el.height = _.result(this.options, 'height') * this.dpr;
   this.el.style.width = _.result(this.options, 'width') + 'px';
@@ -367,18 +369,21 @@ var newc= new Canvas({
   speed: 1.5,
   radius: 15,
   width: function() { return window.innerWidth; },
-  height: function() { return window.innerHeight; },
+  height: function() { return window.innerHeight*1.2; },
   size: 35,
   color: '30, 180, 1',
   maxDistance: 160,
   background: ['54, 54, 54']
 });
 
-
-var bodyHeight = window.innerHeight,
-    intro_top = $('.introduce').offset().top,
-    intro_bottom = $('.introduce').height(),
-    agenda_end = $('.agenda').offset().top + $('.agenda').height();
+var scroll_val = 0,
+    scrolling = false,
+    bodyHeight = window.innerHeight,
+    $introduce = $('.introduce'),
+    $agenda = $('.agenda'),
+    intro_top = $introduce.offset().top,
+    intro_bottom = $introduce.height(),
+    agenda_end = $agenda.offset().top + $agenda.height();
     
 
 
@@ -390,43 +395,46 @@ window.addEventListener('resize', onWindowResize, false);
 function onWindowResize(e){
   e.preventDefault();
   bodyHeight = window.innerHeight;
-  intro_top = $('.introduce').offset().top,
-  intro_bottom = intro_top + $('.introduce').height();
-  agenda_end = $('.agenda').offset().top + $('.agenda').height();
-  // console.log(bodyHeight,intro_top,intro_bottom,agenda_end);
-
-  
+  intro_top = $introduce.offset().top,
+  intro_bottom = $introduce.height()+ intro_top,
+  agenda_end = $agenda.offset().top + $agenda.height();
 }
+
 function onWindowScroll(e) {
-  
   e.preventDefault();
-	// console.log(this.scrollY,this.innerHeight);
-  var scroll_val = this.scrollY;
-  console.log(intro_bottom,agenda_end,scroll_val);
-	if( scroll_val > intro_top && scroll_val < intro_bottom ) {
-      if(firstLoad) {
-        animate();
-        firstLoad= false;
-      }
-			if(wave_pause){
-        console.log('wave start');
-        green_pause = true;
-        wave_pause = false;
-        
-        animate();
-      }
+  if(scrolling) return;
+  scrolling = true;
+	
+  scroll_val = this.scrollY;
+  intro_top = $introduce.offset().top,
+  intro_bottom = $introduce.height()+ intro_top,
+  agenda_end = $agenda.offset().top + $agenda.height();
+
+  // console.log(intro_top, scroll_val, intro_bottom);
+ 
+  
+  if( scroll_val >= intro_top && scroll_val < intro_bottom ) { 
+        if(wave_pause){
+            console.log('wave start');
+            green_pause = true;
+            wave_pause = false;
+            animate();
+        }
 	} else if ( scroll_val >= intro_bottom && scroll_val < agenda_end ){
-    if(green_pause){
-			console.log('green start');
-      wave_pause = true;
-      green_pause = false;
-			newc.loop();
-		}
+        console.log('green start');
+        if(green_pause){
+          wave_pause = true;
+          green_pause = false;
+          newc.loop();
+        }
 	} else {
-    wave_pause = true;
-    green_pause = true;
-    console.log('none start');
-    
+      wave_pause = true;
+      green_pause = true;
+      console.log('none start');
   }
+
+  setTimeout(function(){
+    scrolling = false;
+  },80)
 
 }

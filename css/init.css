@@ -1,4 +1,9 @@
+html, body {
+    /* overflow-x: hidden; */
+}
+
 /***** ticket *****/
+
 input.keyIn + label{
     color: #43a046;
     font-size: 14px;
@@ -76,7 +81,7 @@ input.keyIn {
 
 /******  index  ******/
 
-body.load{
+body.load, html.load{
     width: 100vw;
     height: 100vh;
     overflow: hidden;
@@ -102,15 +107,27 @@ body.load a.scroll{
     -moz-transition:all .6s .5s;
     transition:all .6s .5s
 }
-
+section.index a.scroll{
+    z-index: 80;
+}
 body.load .wording{
     opacity: 0;
+}
+
+
+section.agenda .main {
+    margin: 150px auto 100px;
+}
+
+section.agenda {
+    padding: 0;
+    display: inline-block;
 }
 
 canvas#canvas {
     position: absolute;
     z-index: 2;
-    top: 0;
+    bottom: 0;
     left: 0;
     height: 100%;
 }
