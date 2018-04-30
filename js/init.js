@@ -630,8 +630,9 @@ var areaData = {
 var indexCtrl = {
     load : false,
     kvAniDone : false,
+    $lootie_frame : $(".lottie_frame"),
     $lottie : $("#lottie"),
-    $lottie_frame : $("#lottie, .lottie_frame, .lottie_img"),
+    $lottie_all : $("#lottie, .lottie_frame, .lottie_img"),
     windowWidth : $(window).innerWidth(),
     windowHeight : $(window).innerHeight(),
     animData : {
@@ -663,7 +664,7 @@ var indexCtrl = {
         });
 
         $('.scroll').on('click touchstart',function(){
-            bodyScroll.animate({scrollTop:$(window).innerHeight()}, 500);
+            bodyScroll.animate({scrollTop:$(window).innerHeight()}, 800);
         })
         
         
@@ -672,10 +673,9 @@ var indexCtrl = {
         console.log('loopcomplete');
         if(indexCtrl.load) {
             anim.pause();
-            $body.removeClass('load');
+            $('.lottie_frame').remove();
+            $body.removeClass('load').addClass('show');
             $('html').removeClass('load');
-            
-            $('section.index').addClass('show');
             indexCtrl.kvAniDone = true;
             setTimeout(function(){
                 // $('.lottie_frame').remove();
@@ -691,17 +691,19 @@ var indexCtrl = {
         windowHeight = $(window).innerHeight();
 
         if( windowWidth >= windowHeight ) {
-            indexCtrl.$lottie_frame.css({width:'100vw', marginLeft: 0});
+            indexCtrl.$lottie_all.css({width:'100vw'});
             indexCtrl.$lottie.css( "margin-top", function() {
-                var topVal = ( windowWidth*1.05 - windowHeight )/2 -10;
+                var topVal = ( windowWidth - windowHeight )/2 -10;
                 // console.log('寬扁');
                 return -topVal;
             });
         } else {
-            indexCtrl.$lottie_frame.css({ height:'100vh', marginTop: 0});
+            indexCtrl.$lottie_all.css({ height:'100vh'});
+
+            console.log(windowHeight, windowWidth, indexCtrl.$lottie_all.width())
             
             indexCtrl.$lottie.css( "margin-left", function() {
-                var leftVal = ( windowHeight/1.05 - windowWidth) -10;
+                var leftVal = ( windowHeight - windowWidth)/2;
                 // console.log('長直');
                 return -leftVal;
             });

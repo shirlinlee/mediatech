@@ -2,6 +2,10 @@ html, body {
     /* overflow-x: hidden; */
 }
 
+section{
+    overflow: hidden;
+}
+
 /***** ticket *****/
 
 input.keyIn + label{
@@ -64,7 +68,6 @@ input.keyIn {
 #loadPage.show .loader {
     transform: scale(1);
     opacity: 1;
-  
 }
 
 .swal-overlay {
@@ -77,8 +80,6 @@ input.keyIn {
 }
 
 
-
-
 /******  index  ******/
 
 body.load, html.load{
@@ -88,30 +89,40 @@ body.load, html.load{
 
 }
 
-body.load nav{
+body nav{
     top: -120px;
     opacity: 0;
-
-}
-a.scroll{
-    -moz-transition: 0.5s;
-    transition: 0.5s
 }
 
-body.load a.scroll{
+body.show nav{
+    -moz-transition:all  0.5s;
+    transition:all  0.5s;
+    opacity: 1;
+    top: 0;
+}
+
+section.index a.scroll{
+    -moz-transition:all 0.5s;
+    transition:all 0.5s;
     bottom: -90px;
     opacity: 0;
-    
 }
-.wording{
-    -moz-transition:all .6s .5s;
-    transition:all .6s .5s
-}
-section.index a.scroll{
+
+body.show section.index a.scroll{
     z-index: 80;
+    bottom: 0;
+    opacity: 1;
 }
+
+
 body.load .wording{
     opacity: 0;
+}
+
+body.show .wording{
+    opacity: 1;
+    -moz-transition:all .6s .5s;
+    transition:all .6s .5s
 }
 
 
@@ -150,44 +161,40 @@ canvas#canvas {
 }
 
 #lottie{
-    /* width: 100%; */
     background-color: #000;
-    
-    transition: opacity .5s;
     position: absolute;
     top: 0;
     left: 0;
-}
-
-body.load .lottie_frame{
-    opacity: 1;
+    width: 100%;
+    height: 100%;
 }
 
 .lottie_frame{
-    /* width: 100vw; */
     position: absolute;
     top: 0;
     left: 0;
-    opacity: 0;
-    /* transition: opacity .5s; */
 }
 
-body.load .bg_logo{
-    bottom: -70vw;
-    opacity: 0;
-}
+
 
 
 .bg_logo{
     width: 85%;
     position: absolute;
-    opacity: 1;
-    bottom: -14vw;
-    left: 3%;
-    transition: bottom 2s 1s cubic-bezier(0.215, 0.61, 0.355, 1), opacity 1s 1s;
+    opacity: 0;
+    bottom: -70vw;
+    left: 3%; 
+    opacity: 0;
     transform: skewX(37deg) rotate(-11deg) rotateX(-42deg);
 }
 
+
+body.show .bg_logo{
+    transition: bottom 2s 1s cubic-bezier(0.215, 0.61, 0.355, 1), opacity 1s 1s;
+    
+    bottom: -14vw;
+    opacity: 1;
+}
 
 .item_row{
     text-align: center;
@@ -200,6 +207,11 @@ body.load .bg_logo{
     position: relative;
     transform: skew(0deg);
 }
+
+.bg_logo *{
+    background-color: transparent;
+    
+    }
 
 
 .item:before{
@@ -253,5 +265,14 @@ body.load .bg_logo{
     background: linear-gradient(to bottom right,rgb(21, 21, 21), rgb(11, 11, 11));
     position: relative;
     z-index: 10;
+}
+
+@media only screen and (max-width: 414px) {
+
+    .bg_logo {
+        width: 140%;
+        left: -20%;
+        opacity: .8;
+    }
 }
 
