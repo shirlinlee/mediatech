@@ -29,7 +29,7 @@
 <body>
     <!-- ======================= 報名完成popup ========================= -->
     <div class="popup_ticket" style="display: none;">
-        <a class="close" href=""><img src="asset/svg/close.svg" alt="" width="100%"></a>
+        <a class="close" href="" data-anchor="index" data-page="traffic"><img src="asset/svg/close.svg" alt="" width="100%"></a>
         <div class="wrap">
             <div class="con">
                 <h1>線上報名完成！</h1> 感謝您的支持，
@@ -45,7 +45,7 @@
                     <br>
                 </div>
                 大會保留議程變動之權利，如有行程異動將公布於大會官網，並寄發EMAIL通知。
-                <a class="btn btn_popup_ticket" href="#">了解更多大會資訊</a>
+                <a class="btn btn_popup_ticket" data-anchor="introduce" data-page="ticket" href="#">了解更多大會資訊</a>
             </div>
         </div>
     </div>
@@ -55,12 +55,12 @@
         <nav>
             <a href="index.html"><img src="img/navi_logo.png"></a>
             <ul>
-                <li><a href="">聯絡我們</a></li>
-                <li><a href="">交通資訊</a></li>
-                <li><a href="ticket.html">立即報名</a></li>
-                <li><a href="">講師介紹</a></li>
-                <li><a href="">大會議程</a></li>
-                <li><a href="index.html">大會首頁</a></li>
+                <li data-anchor="contact" data-page="ticket"><a href="">聯絡我們</a></li>
+                <li data-anchor="traffic" data-page="ticket"><a href="">交通資訊</a></li>
+                <li data-anchor="signUp" data-page="ticket"><a href="">立即報名</a></li>
+                <li data-anchor="lecturer" data-page="ticket"><a href="">講師介紹</a></li>
+                <li data-anchor="agenda" data-page="ticket"><a href="">大會議程</a></li>
+                <li data-anchor="index" data-page="ticket"><a href="">大會首頁</a></li>
             </ul>
         </nav>
         <!-- ======================= 手機選單結束 ========================= -->
@@ -75,12 +75,12 @@
             <div class="menu-m">
                 <img src="img/navi_logo.png" alt="">
                 <ul>
-                    <li><a href="index.html">大會首頁</a></li>
-                    <li><a href="">大會議程</a></li>
-                    <li><a href="">講師介紹</a></li>
-                    <li><a href="ticket.html">立即報名</a></li>
-                    <li><a href="">交通資訊</a></li>
-                    <li><a href="">聯絡我們</a></li>
+                    <li data-anchor="index" data-page="ticket"><a href="">大會首頁</a></li>
+                    <li data-anchor="agenda" data-page="ticket"><a href="">大會議程</a></li>
+                    <li data-anchor="lecturer" data-page="ticket"><a href="">講師介紹</a></li>
+                    <li data-anchor="signUp" data-page="ticket"><a href="">立即報名</a></li>
+                    <li data-anchor="traffic" data-page="ticket"><a href="">交通資訊</a></li>
+                    <li data-anchor="contact" data-page="ticket"><a href="">聯絡我們</a></li>
                 </ul>
             </div>
         </div>

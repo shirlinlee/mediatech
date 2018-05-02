@@ -5,14 +5,11 @@ var countryUl = $('#country ul'),
     bodyScroll = (window.opera) ? (document.compatMode == "CSS1Compat" ? $('html') : $('body')) : $('html,body'),
     anim;
 
-     
-
 var ticketCtr = {
     ticket_0 : 0,
     ticket_1 : 0,
     ticket_2 : 0,
     init() {
-
         ticketCtr.countryDataInit();
         $('.popup_ticket').addClass('hide');
         $body.append('<div id="loadPage"><div class="loader"></div></div>');
@@ -30,10 +27,7 @@ var ticketCtr = {
                 e.stopPropagation(); 
                 ticketCtr.selectchooseHandler($(this)) 
             });
-            $(".menu-toggle").on('click', function(){
-                console.log('123');
-                ticketCtr.menuHandler();
-            });
+
             submitTicketBtn.on('click', function(e){
                 ticketCtr.formPost(e);
             });
@@ -93,11 +87,6 @@ var ticketCtr = {
             $('.total_cost').text((ticketCtr.ticket_0*6000 + ticketCtr.ticket_1*8000 + ticketCtr.ticket_2*1000).toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")); 
         } 
 
-    },
-    menuHandler() {
-        console.log('in');
-        $(this).toggleClass("on");
-        $('.menu-section').toggleClass("on");
     },
     countryDataInit() {
         countryUl.html('');
@@ -229,7 +218,6 @@ var ticketCtr = {
                 });
                 return;
             }
-            
     
             $.ajax({
                 // processData: false, //可省
@@ -243,7 +231,9 @@ var ticketCtr = {
                     $('.popup_ticket').fadeIn('400',function(){
                         $(this).removeClass('hide');
                         $(this).find('a').on('click',function(){
-                            window.location.href = '/index.html';
+                            var el = $(this).attr('data-anchor');
+                            var page = $(this).attr('data-page');
+                            menuCtrl.scrollPage(true, page, el);
                         });
                     });
                     // swal('報名成功','請留意email通知',{ icon: "success" }).then(function(result) { 
@@ -265,7 +255,6 @@ var ticketCtr = {
                 },
             });
     
-
     }
 
 }
@@ -642,6 +631,48 @@ var areaData = {
     }
 }
 
+
+var menuCtrl = {
+    init(){
+        $(".menu-toggle").on('click', function(){
+            menuCtrl.menuHandler();
+        });
+        $('.menu-m').on('click touchstart','li',function(){
+            var el = $(this).attr('data-anchor');
+            var page = $(this).attr('data-page');
+            menuCtrl.scrollPage(false, page, el);
+        });
+        $('nav').on('click','li',function(){
+            var el = $(this).attr('data-anchor');
+            var page = $(this).attr('data-page');
+            menuCtrl.scrollPage(true, page, el);
+        })
+    },
+    menuHandler() {
+        $('.menu-section,.menu-toggle').toggleClass("on");
+    },
+    scrollPage(pc, page, el){
+        if( page === 'index') {
+            if(pc){
+                console.log(pc, page, el);
+                bodyScroll.animate({scrollTop:$('.'+el).offset().top}, 800);
+                $('.menu-section,.menu-toggle').removeClass("on");
+            } else {
+                console.log(pc, page, el);
+                bodyScroll.animate({scrollTop:$('.'+el).offset().top}, 2);
+                $('.menu-section,.menu-toggle').removeClass("on");
+            }
+
+        } else {
+            window.location.href = '/index.html?anchor='+el;
+            
+        }
+        
+       
+
+    }
+}
+
 var indexCtrl = {
     load : false,
     kvAniDone : false,
@@ -650,6 +681,7 @@ var indexCtrl = {
     $lottie_all : $("#lottie, .lottie_frame, .lottie_img"),
     windowWidth : $(window).innerWidth(),
     windowHeight : $(window).innerHeight(),
+    param : null,
     animData : {
         container: document.getElementById('lottie'),
         renderer: 'svg',
@@ -664,13 +696,23 @@ var indexCtrl = {
         
     },
     init() {
-        // $body.addClass('load');
-        anim = lottie.loadAnimation(indexCtrl.animData);
-        anim.setSubframe(false);
         this.resize();
         this.kv_ani();
-        anim.play();
-        anim.addEventListener('loopComplete',this.kv_complete);
+
+        //來自次頁回來
+        var anchor = indexCtrl.getUrlParam("anchor");
+        if( anchor !== null ) {
+            indexCtrl.load = true;
+            indexCtrl.kv_complete();
+            bodyScroll.animate({scrollTop:$('.'+anchor).offset().top}, 1);
+        } else {
+            anim = lottie.loadAnimation(indexCtrl.animData);
+            anim.setSubframe(false); 
+            anim.addEventListener('loopComplete',this.kv_complete);
+            anim.play();
+        }
+
+       
         window.addEventListener('resize', this.resize, false);
         window.addEventListener('load', this.loadEnd, false);
 
@@ -679,19 +721,20 @@ var indexCtrl = {
         });
 
         $('.scroll').on('click touchstart',function(){
-            bodyScroll.animate({scrollTop:$(window).innerHeight()}, 800);
+            bodyScroll.animate({scrollTop:$('.introduce').offset().top}, 800);
         });
-
-        $(".menu-toggle").on('click', function(){
-            ticketCtr.menuHandler();
-        });
-        
-        
+    },
+    getUrlParam(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);  
+        if (r != null)
+            return unescape(r[2]);
+        return null; 
     },
     kv_complete() {
         console.log('loopcomplete');
         if(indexCtrl.load) {
-            anim.pause();
+            // anim.pause();
             $('.lottie_frame').remove();
             $body.removeClass('load').addClass('show');
             $('html').removeClass('load');
@@ -721,14 +764,8 @@ var indexCtrl = {
             });
         } else {
             indexCtrl.$lottie_all.css({ height:'100vh'});
-
-            console.log(windowHeight, windowWidth, indexCtrl.$lottie_all.width())
-            
-            indexCtrl.$lottie.css( "margin-left", function() {
-                var leftVal = ( windowHeight - windowWidth)/2;
-                // console.log('長直');
-                return -leftVal;
-            });
+            var leftVal = - ( indexCtrl.$lottie.width() - windowWidth)/2;
+            indexCtrl.$lottie.css({ marginLeft: leftVal, top:'-2vh' });
         }
         
         
@@ -750,6 +787,7 @@ $(function() {
         ticketCtr.init();
     }
     console.log(page);
+    menuCtrl.init();
     
 
 })
