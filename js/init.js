@@ -14,6 +14,7 @@ var ticketCtr = {
     init() {
 
         ticketCtr.countryDataInit();
+        $('.popup_ticket').addClass('hide');
         $body.append('<div id="loadPage"><div class="loader"></div></div>');
 
         $(window).ready(function() {
@@ -30,6 +31,7 @@ var ticketCtr = {
                 ticketCtr.selectchooseHandler($(this)) 
             });
             $(".menu-toggle").on('click', function(){
+                console.log('123');
                 ticketCtr.menuHandler();
             });
             submitTicketBtn.on('click', function(e){
@@ -41,9 +43,10 @@ var ticketCtr = {
             //    $(this).attr('href').replace(/#/, "W3School");
             });
 
-            $('input:not([type=checkbox]):not([type=radio]').on('blur focus',function(e){
+            $('.input').on('blur focus',function(e){
+                // alert('input');
                 ticketCtr.inputHandler($(this),e); 
-            })
+            });
         })
 
 
@@ -69,7 +72,7 @@ var ticketCtr = {
         var zipcode = ele.attr('data-zip');
         var parent = ele.closest('.select');
 
-        console.log(which_select);
+        // console.log(which_select);
 
         if (which_select === 'country') {
             $('#district .placeholder').html('選擇行政區');
@@ -84,20 +87,15 @@ var ticketCtr = {
             var price = Number(ele.attr('data-cost'));
             // var which_ticket = which_select.substring(-1,1);
             ticketCtr[which_select] = Number(item);
-
-            console.log(ticketCtr.ticket_0);
-            console.log(ticketCtr.ticket_1);
-   
+            // console.log(ticketCtr.ticket_0);
+            // console.log(ticketCtr.ticket_1);
             $('.total_person').text( ticketCtr.ticket_0 + ticketCtr.ticket_1 + ticketCtr.ticket_2); 
             $('.total_cost').text((ticketCtr.ticket_0*6000 + ticketCtr.ticket_1*8000 + ticketCtr.ticket_2*1000).toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")); 
-            
         } 
-        
-        
 
     },
     menuHandler() {
-        // console.log('in');
+        console.log('in');
         $(this).toggleClass("on");
         $('.menu-section').toggleClass("on");
     },
@@ -132,15 +130,13 @@ var ticketCtr = {
         }
     },
     removeLoadFunc(){
-        console.log('remove');
+        // console.log('remove');
         $body.find('#loadPage').removeClass('show');
-
     },
     formPost(e) {
         e.preventDefault();
         submitTicketBtn.off('click');
         $body.find('#loadPage').addClass('show');
-        
 
         var Company_name = ($('#company').val().trim().length !== 0 ) ? $('#company').val() : null,
             Company_taxid = ($('#EIN').val().trim().length !== 0 ) ? $('#EIN').val() : null,
@@ -199,26 +195,41 @@ var ticketCtr = {
             // });
             console.log(jsonBody);
 
-            if(ticketCtr.ticket_0 + ticketCtr.ticket_1 + ticketCtr.ticket_2 === 0 ){
-                swal('請選擇票種',{ icon: "error" }).then(function(result) { 
-                    ticketCtr.removeLoadFunc();
-                    submitTicketBtn.on('click', function(e){ ticketCtr.formPost(e); });
-                });
-               
-                return;
+            if( Company_receipt === 'triple' ) {
+                if( Company_name === null ) {
+                    swal('請填寫公司抬頭欄位',{ icon: "error" }).then(function(result) { 
+                        ticketCtr.removeLoadFunc();
+                        submitTicketBtn.on('click', function(e){ ticketCtr.formPost(e); });
+                    });
+                    return;
+                }
+                
+                if( Company_taxid === null ) {
+                    swal('請填寫統編欄位',{ icon: "error" }).then(function(result) { 
+                        ticketCtr.removeLoadFunc();
+                        submitTicketBtn.on('click', function(e){ ticketCtr.formPost(e); });
+                    });
+                    return;
+                }
+                
             }
+            
             if(Contact_city === '選擇縣市' || Contact_district === '選擇行政區') {
                 swal('請選擇正確縣市及行政區',{ icon: "error" }).then(function(result) { 
                     ticketCtr.removeLoadFunc();
                     submitTicketBtn.on('click', function(e){ ticketCtr.formPost(e); });
                 });
-                
                 return;
             }
 
-            // console.log(Contact_address);
-           
-
+            if(ticketCtr.ticket_0 + ticketCtr.ticket_1 + ticketCtr.ticket_2 === 0 ){
+                swal('請選擇票種',{ icon: "error" }).then(function(result) { 
+                    ticketCtr.removeLoadFunc();
+                    submitTicketBtn.on('click', function(e){ ticketCtr.formPost(e); });
+                });
+                return;
+            }
+            
     
             $.ajax({
                 // processData: false, //可省
@@ -229,10 +240,16 @@ var ticketCtr = {
                 contentType: 'application/json; charset=utf-8',
                 success: function(response) {
                     console.log(response);
-                    swal('報名成功','請留意email通知',{ icon: "success" }).then(function(result) { 
-                        ticketCtr.removeLoadFunc();
-                        window.location.href = '/index.html';
+                    $('.popup_ticket').fadeIn('400',function(){
+                        $(this).removeClass('hide');
+                        $(this).find('a').on('click',function(){
+                            window.location.href = '/index.html';
+                        });
                     });
+                    // swal('報名成功','請留意email通知',{ icon: "success" }).then(function(result) { 
+                    //     ticketCtr.removeLoadFunc();
+                    //     
+                    // });
                 },
                 error: function(data) {
                     var get_feild = data.responseJSON.field.replace('.','_'); 
@@ -625,8 +642,6 @@ var areaData = {
     }
 }
 
-
-
 var indexCtrl = {
     load : false,
     kvAniDone : false,
@@ -665,7 +680,11 @@ var indexCtrl = {
 
         $('.scroll').on('click touchstart',function(){
             bodyScroll.animate({scrollTop:$(window).innerHeight()}, 800);
-        })
+        });
+
+        $(".menu-toggle").on('click', function(){
+            ticketCtr.menuHandler();
+        });
         
         
     },
@@ -683,7 +702,10 @@ var indexCtrl = {
         }
     },
     kv_ani() {
-        $('.item').css({'marginTop':windowWidth*.02,'marginBottom':windowWidth*.02})
+        var marginVal = windowWidth*.02;
+        if(windowHeight > windowWidth ) marginVal = 10;
+
+        $('.item').css({ 'marginTop':marginVal, 'marginBottom':marginVal });
 
     },
     resize() {

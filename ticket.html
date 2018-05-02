@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- favicon -->
     <link rel="icon" href="img/favicon.ico">
-    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     <!-- css style -->
@@ -31,22 +31,23 @@
     <div class="popup_ticket" style="display: none;">
         <a class="close" href=""><img src="asset/svg/close.svg" alt="" width="100%"></a>
         <div class="wrap">
-            <h1>線上報名完成！</h1> 感謝您的支持，
-            <b>報名確認信</b>已寄發到您所填的信箱，請於5日內完成付款。我們將於活動前10日寄出入場證，再請您多加留意。<b>若於7/4(二)前未收到入場證，請立即與我們聯絡！</b>
-            <br>
-            <br>
-            <div class="nonphone">
-                2018媒體科技大會（Media Tech）&nbsp; &nbsp; 日期：2018年7月10日－7月11日
-                <br> 地點：台北國際會議中心201會議室 &nbsp; &nbsp; 地址：台北市信義區信義路五段1號2樓
-                <br> 如有任何問題請來信 <a href="mailto:vivian.hung@rock.com.tw">vivian.hung@rock.com.tw </a>
-                <br> 或電洽請於周一至周五上班時間撥打02-2721-6121，分機358，聯絡Vivian（洪小姐）
+            <div class="con">
+                <h1>線上報名完成！</h1> 感謝您的支持，
+                <b>報名確認信</b>已寄發到您所填的信箱，請於5日內完成付款。我們將於活動前10日寄出入場證，再請您多加留意。<b>若於7/4(二)前未收到入場證，請立即與我們聯絡！</b>
                 <br>
                 <br>
+                <div class="nonphone">
+                    2018媒體科技大會（Media Tech）&nbsp; &nbsp; 日期：2018年7月10日－7月11日
+                    <br> 地點：台北國際會議中心201會議室 &nbsp; &nbsp; 地址：台北市信義區信義路五段1號2樓
+                    <br> 如有任何問題請來信 <a href="mailto:vivian.hung@rock.com.tw">vivian.hung@rock.com.tw </a>
+                    <br> 或電洽請於周一至周五上班時間撥打02-2721-6121，分機358，聯絡Vivian（洪小姐）
+                    <br>
+                    <br>
+                </div>
+                大會保留議程變動之權利，如有行程異動將公布於大會官網，並寄發EMAIL通知。
+                <a class="btn btn_popup_ticket" href="#">了解更多大會資訊</a>
             </div>
-            大會保留議程變動之權利，如有行程異動將公布於大會官網，並寄發EMAIL通知。
-            <a class="btn btn_popup_ticket" href="#">了解更多大會資訊</a>
         </div>
-
     </div>
     <!-- ======================= 報名完成popup結束 ========================= -->
     <header>
@@ -94,7 +95,7 @@
                 <label class="label" for="company">公司抬頭</label>
             </div>
             <div class="input-container input-container2">
-                <input id="EIN" class="input" type="tel" pattern=".+" />
+                <input id="EIN" class="input" type="tel" pattern=".+" onKeyPress="if(this.value.length==8) return false;"/>
                 <label class="label" for="EIN">統一編號</label>
             </div>
             <div class="payment_wrap">
@@ -112,11 +113,11 @@
                 <label class="label Contact_name" for="name" data-error="">姓名</label>
             </div>
             <div class="input-container input-container4">
-                <input id="tel" class="input" type="tel" pattern=".+" required />
+                <input id="tel" class="input" type="tel" pattern=".+" onKeyPress="if(this.value.length==12) return false;" required />
                 <label class="label Contact_phone" for="tel" data-error="">聯絡電話</label>
             </div>
             <div class="input-container input-container5">
-                <input id="port" class="input" type="tel" pattern=".+" />
+                <input id="port" class="input" type="tel" pattern=".+" onKeyPress="if(this.value.length==5) return false;" />
                 <label class="label" for="port">分機</label>
             </div>
             <div class="input-container input-container6">
@@ -248,7 +249,7 @@
             <input id="radio-3" class="radio-custom" value="remit" name="payment" type="radio" checked>
             <label for="radio-3" class="radio-custom-label">現金匯款</label>
             <div class="input-container input-container9">
-                <input id="5num" class="input" type="number" pattern=".+" />
+                <input id="5num" class="input" type="number" pattern=".+" onKeyPress="if(this.value.length==5) return false;" />
                 <label class="label payment_account" for="5num">帳號後五碼</label>
             </div>
             <p>請於三日內匯款至如下帳戶，匯款完成後請回覆Mail 至 <a href="mailto:service@media-tech.com.tw">service@media-tech.com.tw</a></p>

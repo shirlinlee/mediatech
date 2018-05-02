@@ -373,7 +373,7 @@ var newc= new Canvas({
   size: 35,
   color: '30, 180, 1',
   maxDistance: 160,
-  background: ['54, 54, 54']
+  background: ['100, 100, 100']
 });
 
 var scroll_val = 0,
@@ -384,11 +384,11 @@ var scroll_val = 0,
     intro_top = $introduce.offset().top,
     intro_bottom = $introduce.height(),
     agenda_end = $agenda.offset().top + $agenda.height();
-    
-
 
 window.addEventListener('scroll', onWindowScroll, false);
 window.addEventListener('resize', onWindowResize, false);
+window.addEventListener('blur', onWindowBlur, false);
+window.addEventListener('focus', onWindowFocus, false);
 
 // console.log(indexCtrl.load);
 
@@ -400,28 +400,36 @@ function onWindowResize(e){
   agenda_end = $agenda.offset().top + $agenda.height();
 }
 
+function onWindowBlur(e) {
+  // console.log('blur',scroll_val);
+  green_pause = true;
+  wave_pause = true;
+}
+
+function onWindowFocus(e) {
+  console.log('focus',scroll_val);
+  $(window).scrollTop( scroll_val+.1 );
+}
+
 function onWindowScroll(e) {
   e.preventDefault();
   if(scrolling) return;
   scrolling = true;
-	
   scroll_val = this.scrollY;
   intro_top = $introduce.offset().top,
   intro_bottom = $introduce.height()+ intro_top,
   agenda_end = $agenda.offset().top + $agenda.height();
-
   // console.log(intro_top, scroll_val, intro_bottom);
- 
   
   if( scroll_val >= intro_top && scroll_val < intro_bottom ) { 
         if(wave_pause){
-            console.log('wave start');
+            // console.log('wave start');
             green_pause = true;
             wave_pause = false;
             animate();
         }
 	} else if ( scroll_val >= intro_bottom && scroll_val < agenda_end ){
-        console.log('green start');
+        // console.log('green start');
         if(green_pause){
           wave_pause = true;
           green_pause = false;
@@ -430,9 +438,8 @@ function onWindowScroll(e) {
 	} else {
       wave_pause = true;
       green_pause = true;
-      console.log('none start');
+      // console.log('none start');
   }
-
   setTimeout(function(){
     scrolling = false;
   },80)
