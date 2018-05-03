@@ -634,7 +634,8 @@ var areaData = {
 
 var menuCtrl = {
     init(){
-        $(".menu-toggle").on('click', function(){
+        $(".menu-toggle").on('click touchstart', function(e){
+            e.preventDefault();
             menuCtrl.menuHandler();
         });
         $('.menu-m').on('click touchstart','li',function(){
@@ -699,12 +700,13 @@ var indexCtrl = {
         this.resize();
         this.kv_ani();
 
-        //來自次頁回來
+        //來自次頁回首頁
         var anchor = indexCtrl.getUrlParam("anchor");
         if( anchor !== null ) {
             indexCtrl.load = true;
             indexCtrl.kv_complete();
             bodyScroll.animate({scrollTop:$('.'+anchor).offset().top}, 1);
+            window.history.pushState("", "", "index.html");
         } else {
             anim = lottie.loadAnimation(indexCtrl.animData);
             anim.setSubframe(false); 
