@@ -380,7 +380,7 @@ var scroll_val = 0,
     scrolling = false,
     bodyHeight = window.innerHeight,
     $introduce = $('.introduce'),
-    $agenda = $('.agenda'),
+    $agenda = (window.innerWidth >= 1366 )? $('.trans_for_agenda'): $('.agenda'),
     intro_top = $introduce.offset().top,
     intro_bottom = $introduce.height(),
     agenda_end = $agenda.offset().top + $agenda.height();
@@ -413,32 +413,49 @@ function onWindowFocus(e) {
 
 function onWindowScroll(e) {
   e.preventDefault();
+  scroll_val = this.scrollY;
+  intro_top = $introduce.offset().top;
+  
+  //切換fixed背景
+  if( scroll_val >= intro_top + 50){
+    // console.log('in');
+    $('.fix').addClass('indexPass');
+  } else{
+    // console.log('out');
+    // var half = window.innerHeight/2;
+    
+    // if( scroll_val > half && scroll_val < window.innerHeight) {
+    //   $('.index').find('h2,p').css({opacity:half/scroll_val });
+    //   $('.index').find('.wording').css({marginTop: (half- scroll_val)/2});
+    // }
+    $('.fix').removeClass('indexPass');
+  }
+
   if(scrolling) return;
   scrolling = true;
-  scroll_val = this.scrollY;
-  intro_top = $introduce.offset().top,
-  intro_bottom = $introduce.height()+ intro_top,
+  
+  intro_bottom = $introduce.height()+ intro_top;
   agenda_end = $agenda.offset().top + $agenda.height();
-  // console.log(intro_top, scroll_val, intro_bottom);
+  // console.log(intro_top, scroll_val);
   
   if( scroll_val >= intro_top && scroll_val < intro_bottom ) { 
-        if(wave_pause){
-            // console.log('wave start');
-            green_pause = true;
-            wave_pause = false;
-            animate();
-        }
+      if(wave_pause){
+          // console.log('wave start');
+          green_pause = true;
+          wave_pause = false;
+          animate();
+      }
 	} else if ( scroll_val >= intro_bottom && scroll_val < agenda_end ){
-        // console.log('green start');
-        if(green_pause){
-          wave_pause = true;
-          green_pause = false;
-          newc.loop();
-        }
+      // console.log('green start');
+      if(green_pause){
+        wave_pause = true;
+        green_pause = false;
+        newc.loop();
+      }
 	} else {
       wave_pause = true;
       green_pause = true;
-      // console.log('none start');
+      console.log('none start');
   }
   setTimeout(function(){
     scrolling = false;

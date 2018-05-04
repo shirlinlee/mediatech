@@ -137,12 +137,10 @@ input {
         font-size: 18px;
     }
     /* Interation */
-    input:valid,
     input:focus {
         border-bottom: 1px solid $h-grey;
     }
 
-    input:valid+label,
     input:focus+label {
         color: $h-green;
         font-size: 14px;

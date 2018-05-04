@@ -16,16 +16,16 @@
     <link rel="icon" href="img/favicon.ico">
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/0.1.12/wow.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/86/three.min.js"></script>
     <script src="https://rawgit.com/mrdoob/three.js/master/examples/js/renderers/Projector.js"></script>
     <script src="https://rawgit.com/mrdoob/three.js/master/examples/js/renderers/CanvasRenderer.js"></script>
     <script src="js/lottie.js"></script>
     
-    
+    <link rel="stylesheet" href="css/animate.min.css">
     <!-- css style -->
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/init.css">
+    <link rel="stylesheet" href="css/style.css?v=0503">
+    <link rel="stylesheet" href="css/init.css?v=0503">
     
     <!--[if gt IE 9]>
     <script src="js/vendor/html5shiv.js"></script>
@@ -83,77 +83,80 @@
         </div>
         <!-- ======================= 手機選單結束 ========================= -->
     </header>
+    
     <div class="wrap">
         <!-- 首頁 -->
-        <section class="index">
-            <div id="kv"> 
-                <div class="bg_logo">
-                    <div class="item_row">
-                        <div class="item"><img src="images/frame_index.png" alt=""></div>
-                        <div class="item"><img src="images/frame_index.png" alt=""></div>
+        <div class="trans_for_index transparent"></div>
+        <div class="fix">
+            <section class="index">
+                <div id="kv"> 
+                    <div class="bg_logo">
+                        <div class="item_row">
+                            <div class="item"><img src="images/frame_index.png" alt=""></div>
+                            <div class="item"><img src="images/frame_index.png" alt=""></div>
+                        </div>
+                        <div class="item_row">
+                            <div class="item"><img src="images/frame_index.png" alt=""></div>
+                            <div class="item"><img src="images/frame_index.png" alt=""></div>
+                        </div>
+                        <div class="item_row">
+                            <div class="item"><img src="images/frame_index.png" alt=""></div>
+                            <div class="item"><img src="images/frame_index.png" alt=""></div>
+                            <div class="item circle"><img src="images/frame_index.png" alt=""></div>
+                            <div class="item"><img src="images/frame_index.png" alt=""></div>
+                            <div class="item"><img src="images/frame_index.png" alt=""></div>
+                            <div class="item"><img src="images/frame_index.png" alt=""></div>
+                        </div>
+                        <div class="item_row">
+                            <div class="item"><img src="images/frame_index.png" alt=""></div>
+                            <div class="item"><img src="images/frame_index.png" alt=""></div>
+                            <div class="item"><img src="images/frame_index.png" alt=""></div>
+                            <div class="item"><img src="images/frame_index.png" alt=""></div>
+                            <div class="item"><img src="images/frame_index.png" alt=""></div>
+                            <div class="item"><img src="images/frame_index.png" alt=""></div>
+                        </div>
+                        <div class="item_row">
+                            <div class="item"><img src="images/frame_index.png" alt=""></div>
+                            <div class="item"><img src="images/frame_index.png" alt=""></div>
+                        </div>
+                        <div class="item_row">
+                            <div class="item"><img src="images/frame_index.png" alt=""></div>
+                            <div class="item"><img src="images/frame_index.png" alt=""></div>
+                        </div>
+                        
                     </div>
-                    <div class="item_row">
-                        <div class="item"><img src="images/frame_index.png" alt=""></div>
-                        <div class="item"><img src="images/frame_index.png" alt=""></div>
-                    </div>
-                    <div class="item_row">
-                        <div class="item"><img src="images/frame_index.png" alt=""></div>
-                        <div class="item"><img src="images/frame_index.png" alt=""></div>
-                        <div class="item circle"><img src="images/frame_index.png" alt=""></div>
-                        <div class="item"><img src="images/frame_index.png" alt=""></div>
-                        <div class="item"><img src="images/frame_index.png" alt=""></div>
-                        <div class="item"><img src="images/frame_index.png" alt=""></div>
-                    </div>
-                    <div class="item_row">
-                        <div class="item"><img src="images/frame_index.png" alt=""></div>
-                        <div class="item"><img src="images/frame_index.png" alt=""></div>
-                        <div class="item"><img src="images/frame_index.png" alt=""></div>
-                        <div class="item"><img src="images/frame_index.png" alt=""></div>
-                        <div class="item"><img src="images/frame_index.png" alt=""></div>
-                        <div class="item"><img src="images/frame_index.png" alt=""></div>
-                    </div>
-                    <div class="item_row">
-                        <div class="item"><img src="images/frame_index.png" alt=""></div>
-                        <div class="item"><img src="images/frame_index.png" alt=""></div>
-                    </div>
-                    <div class="item_row">
-                        <div class="item"><img src="images/frame_index.png" alt=""></div>
-                        <div class="item"><img src="images/frame_index.png" alt=""></div>
-                    </div>
-                    
                 </div>
+                <div class="wording">
+                    <h2><img src="img/BigTitle.png" alt=""></h2>
+                    <p>7/10-7/11<span>TICC台北國際會議中心</span>
+                        <br>201會議室</p>
+                </div>
+                <a href="" class="scroll">
+                    <p>Scroll</p>
+                    <div class="con"><span></span></div>
+                </a>
+                <div class="lottie_frame">
+                    <img src="images/frame.png" class="lottie_img" alt="">
+                    <div id="lottie"></div>
+                </div>
+            </section>
+           
+        </div>
         
-            </div>
-                     
-            <div class="wording">
-                <h2><img src="img/BigTitle.png" alt=""></h2>
-                <p>7/10-7/11<span>TICC台北國際會議中心</span>
-                    <br>201會議室</p>
-            </div>
-            <a href="" class="scroll">
-                <p>Scroll</p>
-                <div class="con"><span></span></div>
-            </a>
-            <div class="lottie_frame">
-                <img src="images/frame.png" class="lottie_img" alt="">
-                <div id="lottie"></div>
-            </div>
-
-        </section>
         <!-- 活動介紹 -->
         <section class="introduce">
             <div id="canvasHeader"></div>
             <div class="main">
-                <div class="wording">
+                <div class="wording wow fadeInUp">
                     <span><img src="img/MT.png" alt=""></span>
                     <p>2018《Media Tech》由滾石文化主辦，是一個匯集行銷創意與數位科技開發者的展示平台！《Media Tech》的任務是「發現、展示、媒合」，7月10日至11日，共2場主題演講、6場媒體科技趨勢報告、與8場開發者作品發表，《Media Tech》將催化文化創意與數位科技整合、成果展示及創新作品發表、媒合新創與行銷產業，創造出開發者作品交流應用機會！
                         <br>
                         <br>過去以傳統媒體作為廣告行銷核心競爭力的時代悄聲落幕，當前此刻，一個以「科技優先」的新時代已經降臨！不停推動科技創新的下一步，又是什麼？2018年《Media Tech》－「科技驅動行銷」，聚集產業焦點，以科技引爆「媒體＋科技」能量！</p>
                 </div>
                 <div class="general">
-                    <p>總策展人</p>
+                    <p class="wow fadeInUp" data-wow-delay=".1s">總策展人</p>
                     <ul class="photo">
-                        <li>
+                        <li class="wow fadeInUp" data-wow-delay=".1s">
                             <p><img src="img/photo/150x150_01.jpg" alt=""></p>
                             <span>段鍾沂</span>
                             <b>滾石文化董事長暨發行人</b>
@@ -161,34 +164,34 @@
                     </ul>
                 </div>
                 <div class="curate">
-                    <p>策展人</p>
+                    <p class="wow fadeInUp" data-wow-delay=".1s">策展人</p>
                     <ul class="photo">
-                        <li>
+                        <li class="wow fadeInUp" data-wow-delay=".1s">
                             <p><img src="img/photo/150x150_02.jpg" alt=""></p>
                             <span>李宗柱</span>
                             <b>夢之怪物創意總監</b>
                         </li>
-                        <li>
+                        <li class="wow fadeInUp" data-wow-delay=".1s">
                             <p><img src="img/photo/150x150_03.jpg" alt=""></p>
                             <span>施俊宇</span>
                             <b>網路基因總經理</b>
                         </li>
-                        <li>
+                        <li class="wow fadeInUp" data-wow-delay=".1s">
                             <p><img src="img/photo/150x150_04.jpg" alt=""></p>
                             <span>張詒銘</span>
                             <b>JWT智威湯遜數位長</b>
                         </li>
-                        <li>
+                        <li class="wow fadeInUp" data-wow-delay=".2s">
                             <p><img src="img/photo/150x150_05.jpg" alt=""></p>
                             <span>陳建銘</span>
                             <b>adGiz/adGeek執行長</b>
                         </li>
-                        <li>
+                        <li class="wow fadeInUp" data-wow-delay=".2s">
                             <p><img src="img/photo/150x150_06.jpg" alt=""></p>
                             <span>邱繼弘</span>
                             <b>聖洋科技執行長</b>
                         </li>
-                        <li>
+                        <li class="wow fadeInUp" data-wow-delay=".2s">
                             <p><img src="img/photo/150x150_07.jpg" alt=""></p>
                             <span>黃秀雅</span>
                             <b>Oath台灣企業行銷部總監</b>
@@ -198,84 +201,95 @@
             </div>
         </section>
         <!-- 議程介紹 -->
-        <section class="agenda">
-            <canvas id="canvas"></canvas>
-            <div class="poA"></div>
-            <div class="main">
-                <h1>議程介紹</h1>
-                <div class="dayBlock">
-                    <div class="time"><span><b>7/10 (二)</b>DAY1</span></div>
-                    <div class="des">
-                        <p>《Media Tech》揭開首日序幕，以「科技驅動行銷」為主軸創新概念！邀集重量級平台於這場盛會，探索迎向未來的所有可能性與發展！作為數位與媒體平台間的互動橋樑，《Media Tech》同時舉辦開發者作品發表，欲曝光交流創新作品，創造新媒體商機！</p>
-                        <div class="btnBox">
-                            <a href="" class="btn">MORE</a>
+        <div class="trans_for_agenda transparent"></div>
+        <div class="fix ag">
+            <div class="index_scroll"></div>
+            <section class="agenda">
+                <canvas id="canvas"></canvas>
+                <div class="poA"></div>
+                <div class="main">
+                    <h1>議程介紹</h1>
+                    <div class="dayBlock">
+                        <div class="time"><span><b>7/10 (二)</b>DAY1</span></div>
+                        <div class="des">
+                            <p>《Media Tech》揭開首日序幕，以「科技驅動行銷」為主軸創新概念！邀集重量級平台於這場盛會，探索迎向未來的所有可能性與發展！作為數位與媒體平台間的互動橋樑，《Media Tech》同時舉辦開發者作品發表，欲曝光交流創新作品，創造新媒體商機！</p>
+                            <div class="btnBox">
+                                <a href="" class="btn" id="agenda1">MORE</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dayBlock">
+                        <div class="time"><span><b>7/11 (三)</b>DAY2</span></div>
+                        <div class="des">
+                            <p>一場探索「媒體＋科技」之旅，就在《Media Tech》！第二天將邀請知名數位與媒體公司，透過跨界深入交流，激盪科技新知與創新技術，刺激產業發展！結束兩日交流後，將於台北君悅酒店舉辦大會晚宴，以佳餚盛宴完美落幕2018年《Media Tech》！</p>
+                            <div class="btnBox">
+                                <a href="" class="btn" id="agenda2">MORE</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="dayBlock">
-                    <div class="time"><span><b>7/11 (三)</b>DAY2</span></div>
-                    <div class="des">
-                        <p>一場探索「媒體＋科技」之旅，就在《Media Tech》！第二天將邀請知名數位與媒體公司，透過跨界深入交流，激盪科技新知與創新技術，刺激產業發展！結束兩日交流後，將於台北君悅酒店舉辦大會晚宴，以佳餚盛宴完美落幕2018年《Media Tech》！</p>
-                        <div class="btnBox">
-                            <a href="" class="btn">MORE</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+            </section>
+        </div>
         <!-- 講師介紹 -->
         <section class="lecturer">
             <div class="main">
-                <h1>講師介紹</h1>
+                <h1 class="wow fadeInUp">講師介紹</h1>
                 <ul class="photo">
-                    <li>
+                    <li class="wow fadeInUp" data-lect="0" data-wow-delay=".1s">
                         <a href="">
                             <p><img src="img/photo/150x150_02.jpg" alt=""></p>
                             <span>李宗柱</span>
                             <b>夢之怪物創意總監</b>
                         </a>
                     </li>
-                    <li>
+                    <li class="wow fadeInUp" data-lect="1" data-wow-delay=".1s">
                         <a href="">
                             <p><img src="img/photo/150x150_03.jpg" alt=""></p>
                             <span>施俊宇</span>
-                            <b>網路基因總經理</b></a>
+                            <b>網路基因總經理</b>
+                        </a>
                     </li>
-                    <li>
+                    <li class="wow fadeInUp" data-lect="2" data-wow-delay=".1s">
                         <a href="">
                             <p><img src="img/photo/150x150_04.jpg" alt=""></p>
                             <span>張詒銘</span>
-                            <b>JWT智威湯遜數位長</b></a>
+                            <b>JWT智威湯遜數位長</b>
+                        </a>
                     </li>
-                    <li>
+                    <li class="wow fadeInUp" data-lect="3" data-wow-delay=".1s">
                         <a href="">
                             <p><img src="img/photo/150x150_05.jpg" alt=""></p>
                             <span>陳建銘</span>
-                            <b>adGiz/adGeek執行長</b></a>
+                            <b>adGiz/adGeek執行長</b>
+                        </a>
                     </li>
-                    <li>
+                    <li class="wow fadeInUp" data-lect="4" data-wow-delay=".2s">
                         <a href="">
                             <p><img src="img/photo/150x150_06.jpg" alt=""></p>
                             <span>邱繼弘</span>
-                            <b>聖洋科技執行長</b></a>
+                            <b>聖洋科技執行長</b>
+                        </a>
                     </li>
-                    <li>
+                    <li class="wow fadeInUp" data-lect="5" data-wow-delay=".2s">
                         <a href="">
                             <p><img src="img/photo/150x150_07.jpg" alt=""></p>
                             <span>黃秀雅</span>
-                            <b>Oath台灣企業行銷部總監</b></a>
+                            <b>Oath台灣企業行銷部總監</b>
+                        </a>
                     </li>
-                    <li>
+                    <li class="wow fadeInUp" data-lect="6" data-wow-delay=".2s">
                         <a href="">
                             <p><img src="img/photo/150x150_06.jpg" alt=""></p>
                             <span>邱繼弘</span>
-                            <b>聖洋科技執行長</b></a>
+                            <b>聖洋科技執行長</b>
+                        </a>
                     </li>
-                    <li>
+                    <li class="wow fadeInUp" data-lect="7" data-wow-delay=".2s">
                         <a href="">
                             <p><img src="img/photo/150x150_07.jpg" alt=""></p>
                             <span>黃秀雅</span>
-                            <b>Oath台灣企業行銷部總監</b></a>
+                            <b>Oath台灣企業行銷部總監</b>
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -283,8 +297,8 @@
         <!-- 報名資訊 -->
         <section class="signUp">
             <div class="main">
-                <h1>報名資訊</h1>
-                <ul class="priceForm">
+                <h1 class="wow fadeInUp">報名資訊</h1>
+                <ul class="priceForm wow fadeInUp" data-wow-delay=".1s">
                     <li>
                         <p class="w-1 green"><span>分類</span></p>
                         <p class="w-1 green"><span>早鳥費用<b>(2018/05/20前)</b></span></p>
@@ -300,7 +314,7 @@
                         <p class="w-2"><span>NTD 2,000</span></p>
                     </li>
                 </ul>
-                <ul class="schedule">
+                <ul class="schedule wow fadeInUp" data-wow-delay=".2s">
                     <li>
                         <p><span>5月<b>07</b></span></p>
                         <span>開放線上報名<b>(早鳥優惠開放)</b></span></li>
@@ -320,7 +334,7 @@
                         <p><span>7月<b>09</b></span></p>
                         <span>活動開始</span></li>
                 </ul>
-                <a href="/ticket.html" class="btn">線上報名</a>
+                <a href="/ticket.html" class="btn wow fadeInUp" data-wow-delay=".3s">線上報名</a>
             </div>
         </section>
         <!-- 交通資訊 -->
@@ -396,12 +410,214 @@
     </div>
     <!-- footer -->
     <footer></footer>
+
+    <!-- ======================= 議程 ========================= -->
+    <section class="schedule">
+        <a class="close" href="" data-anchor="index" data-page="traffic"><img src="asset/svg/close_green.svg" alt="" width="100%"></a>
+        <div class="main main_schedule">
+            <div class="scrollHeight">
+                <h1>大會議程</h1>
+                <!--第一天-->
+                <div class="day">
+                    DAY1<span>7/10(二)</span>
+                </div>
+                <ul class="timetable">
+                    <li>
+                        <p>
+                            <span class="time greenColor">09:40<b>-</b>10:05</span><span class="title">貴賓主題演講1</span>
+                        </p>
+                        <p>行銷科技領域的新興企業</p>
+                        <p>
+                            <span class="greenColor">李倩玲</span> / 碚曦投資協作體創始人兼首席執行官
+                        </p>
+                    </li>
+                    <li>
+                        <p><span class="time greenColor">10:20<b>-</b>10:45</span><span class="title">貴賓主題演講1貴賓主題演講1</span></p>
+                        <p>行銷科技領域的新興企業行銷科技領域的新興企業行銷科技領域的新興企業行銷科技領域的新興企業</p>
+                        <p><span class="greenColor">李倩玲</span> / 碚曦投資協作體創始人兼首席執行官</p>
+                    </li>
+                    <li>
+                        <p><span class="time greenColor">10:45<b>-</b>11:10</span><span class="title">貴賓主題演講1</span></p>
+                        <p>行銷科技領域的新興企業</p>
+                        <p><span class="greenColor">李倩玲</span> / 碚曦投資協作體創始人兼首席執行官</p>
+                    </li>
+                    <li>
+                        <p><span class="time greenColor">14:00<b>-</b>14:25</span><span class="title">貴賓主題演講1</span></p>
+                        <p>行銷科技領域的新興企業</p>
+                        <p><span class="greenColor">李倩玲</span> / 碚曦投資協作體創始人兼首席執行官</p>
+                    </li>
+                    <li>
+                        <p><span class="time greenColor">14:25<b>-</b>14:50</span><span class="title">貴賓主題演講1</span></p>
+                        <p>行銷科技領域的新興企業</p>
+                        <p><span class="greenColor">李倩玲</span> / 碚曦投資協作體創始人兼首席執行官</p>
+                    </li>
+                    <li>
+                        <p><span class="time greenColor">14:50<b>-</b>15:15</span><span class="title">貴賓主題演講1</span></p>
+                        <p>行銷科技領域的新興企業</p>
+                        <p><span class="greenColor">李倩玲</span> / 碚曦投資協作體創始人兼首席執行官</p>
+                    </li>
+                    <li>
+                        <p><span class="time greenColor">15:15<b>-</b>15:40</span><span class="title">貴賓主題演講1</span></p>
+                        <p>行銷科技領域的新興企業</p>
+                        <p><span class="greenColor">李倩玲</span> / 碚曦投資協作體創始人兼首席執行官</p>
+                    </li>
+                </ul>
+            </div>
+            <!--第二天-->
+            <div class="day" id="agenda2_timetable">
+                DAY2<span>7/11(三)</span>
+            </div>
+            <ul class="timetable">
+                <li>
+                    <p>
+                        <span class="time greenColor">09:40<b>-</b>10:05</span><span class="title">貴賓主題演講1</span>
+                    </p>
+                    <p>行銷科技領域的新興企業</p>
+                    <p>
+                        <span class="greenColor">李倩玲</span> / 碚曦投資協作體創始人兼首席執行官
+                    </p>
+                </li>
+                <li>
+                    <p><span class="time greenColor">10:20<b>-</b>10:45</span><span class="title">貴賓主題演講1貴賓主題演講1</span></p>
+                    <p>行銷科技領域的新興企業行銷科技領域的新興企業行銷科技領域的新興企業行銷科技領域的新興企業</p>
+                    <p><span class="greenColor">李倩玲</span> / 碚曦投資協作體創始人兼首席執行官</p>
+                </li>
+                <li>
+                    <p><span class="time greenColor">10:45<b>-</b>11:10</span><span class="title">貴賓主題演講1</span></p>
+                    <p>行銷科技領域的新興企業</p>
+                    <p><span class="greenColor">李倩玲</span> / 碚曦投資協作體創始人兼首席執行官</p>
+                </li>
+                <li>
+                    <p><span class="time greenColor">14:00<b>-</b>14:25</span><span class="title">貴賓主題演講1</span></p>
+                    <p>行銷科技領域的新興企業</p>
+                    <p><span class="greenColor">李倩玲</span> / 碚曦投資協作體創始人兼首席執行官</p>
+                </li>
+                <li>
+                    <p><span class="time greenColor">14:25<b>-</b>14:50</span><span class="title">貴賓主題演講1</span></p>
+                    <p>行銷科技領域的新興企業</p>
+                    <p><span class="greenColor">李倩玲</span> / 碚曦投資協作體創始人兼首席執行官</p>
+                </li>
+                <li>
+                    <p><span class="time greenColor">14:50<b>-</b>15:15</span><span class="title">貴賓主題演講1</span></p>
+                    <p>行銷科技領域的新興企業</p>
+                    <p><span class="greenColor">李倩玲</span> / 碚曦投資協作體創始人兼首席執行官</p>
+                </li>
+                <li>
+                    <p><span class="time greenColor">15:15<b>-</b>15:40</span><span class="title">貴賓主題演講1</span></p>
+                    <p>行銷科技領域的新興企業</p>
+                    <p><span class="greenColor">李倩玲</span> / 碚曦投資協作體創始人兼首席執行官</p>
+                </li>
+            </ul>
+            <div class="btnBlock">
+                <a href="" class="btn">議程介紹</a><a href="ticket.html" class="btn">立即報名</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================= 講師 ========================= -->
+
+    <section class="speaker">
+        <a class="close" href="" data-anchor="index" data-page="traffic"><img src="asset/svg/close_green.svg" alt="" width="100%"></a>
+        <div class="main">
+            <h1>講師介紹</h1>
+            <div class="speakerBlock" id="lect_0">
+                <div class="photo"><img src="img/photo/speaker_210x210.jpg" alt=""></div>
+                <div class="intro">
+                    <p class="name">李倩玲</p>
+                    <p class="job">碚曦投資協作體創始人兼首席執行官</p>
+                    <p class="des">擁有 28 年大中華區媒體傳播資歷，曾任群邑集團中國首席執行官，並於 2013 年起任職 WPP 集團中國區首席執行官。作為中國傳媒界和行銷科技界領軍人物之一，李倩玲曾於坎城國際廣告節、金融時報 Future of Marketing 峰會以及RISE論壇擔任演講嘉賓，更擔任 2017 年 Spikes Asia 創新類獎項評審主席。她也在家庭服務機器人品牌 Ecovacs Robotics 任職獨立董事。作為中國無線行銷聯盟（Mobile Marketing Association）的創始人之一，李倩玲更當選為該聯盟聯合主席。目前，李倩玲所帶領的碚曦投資協作體專注在行銷科技領域的新興企業孵化器和早期風險投資機構，旨在協助中國媒體傳播行業發展。</p>
+                    <p class="agendaBlock">
+                        <span class="time">07/09(二) 10:30~11:00</span>
+                        <span class="topic">媒體科技趨勢報告 5：講師題目</span>
+                    </p>
+                    <p class="agendaBlock">
+                        <span class="time">07/09(二) 10:30~11:00</span>
+                        <span class="topic">媒體科技趨勢報告 5：講師題目</span>
+                    </p>
+
+                </div>
+            </div>
+            <div class="speakerBlock" id="lect_1">
+                <div class="photo"><img src="img/photo/speaker_210x210.jpg" alt=""></div>
+                <div class="intro">
+                    <p class="name">李倩玲</p>
+                    <p class="job">碚曦投資協作體創始人兼首席執行官</p>
+                    <p class="des">擁有 28 年大中華區媒體傳播資歷，曾任群邑集團中國首席執行官，並於 2013 年起任職 WPP 集團中國區首席執行官。作為中國傳媒界和行銷科技界領軍人物之一，李倩玲曾於坎城國際廣告節、金融時報 Future of Marketing 峰會以及RISE論壇擔任演講嘉賓，更擔任 2017 年 Spikes Asia 創新類獎項評審主席。她也在家庭服務機器人品牌 Ecovacs Robotics 任職獨立董事。作為中國無線行銷聯盟（Mobile Marketing Association）的創始人之一，李倩玲更當選為該聯盟聯合主席。目前，李倩玲所帶領的碚曦投資協作體專注在行銷科技領域的新興企業孵化器和早期風險投資機構，旨在協助中國媒體傳播行業發展。</p>
+                    <p class="agendaBlock">
+                        <span class="time">07/09(二) 10:30~11:00</span>
+                        <span class="topic">媒體科技趨勢報告 5：講師題目</span>
+                    </p>
+                    <p class="agendaBlock">
+                        <span class="time">07/09(二) 10:30~11:00</span>
+                        <span class="topic">媒體科技趨勢報告 5：講師題目</span>
+                    </p>
+
+                </div>
+            </div>
+            <div class="speakerBlock" id="lect_2">
+                <div class="photo"><img src="img/photo/speaker_210x210.jpg" alt=""></div>
+                <div class="intro">
+                    <p class="name">李倩玲</p>
+                    <p class="job">碚曦投資協作體創始人兼首席執行官</p>
+                    <p class="des">擁有 28 年大中華區媒體傳播資歷，曾任群邑集團中國首席執行官，並於 2013 年起任職 WPP 集團中國區首席執行官。作為中國傳媒界和行銷科技界領軍人物之一，李倩玲曾於坎城國際廣告節、金融時報 Future of Marketing 峰會以及RISE論壇擔任演講嘉賓，更擔任 2017 年 Spikes Asia 創新類獎項評審主席。她也在家庭服務機器人品牌 Ecovacs Robotics 任職獨立董事。作為中國無線行銷聯盟（Mobile Marketing Association）的創始人之一，李倩玲更當選為該聯盟聯合主席。目前，李倩玲所帶領的碚曦投資協作體專注在行銷科技領域的新興企業孵化器和早期風險投資機構，旨在協助中國媒體傳播行業發展。</p>
+                    <p class="agendaBlock">
+                        <span class="time">07/09(二) 10:30~11:00</span>
+                        <span class="topic">媒體科技趨勢報告 5：講師題目</span>
+                    </p>
+                    <p class="agendaBlock">
+                        <span class="time">07/09(二) 10:30~11:00</span>
+                        <span class="topic">媒體科技趨勢報告 5：講師題目</span>
+                    </p>
+
+                </div>
+            </div>
+            <div class="speakerBlock" id="lect_3">
+                <div class="photo"><img src="img/photo/speaker_210x210.jpg" alt=""></div>
+                <div class="intro">
+                    <p class="name">李倩玲</p>
+                    <p class="job">碚曦投資協作體創始人兼首席執行官</p>
+                    <p class="des">擁有 28 年大中華區媒體傳播資歷，曾任群邑集團中國首席執行官，並於 2013 年起任職 WPP 集團中國區首席執行官。作為中國傳媒界和行銷科技界領軍人物之一，李倩玲曾於坎城國際廣告節、金融時報 Future of Marketing 峰會以及RISE論壇擔任演講嘉賓，更擔任 2017 年 Spikes Asia 創新類獎項評審主席。她也在家庭服務機器人品牌 Ecovacs Robotics 任職獨立董事。作為中國無線行銷聯盟（Mobile Marketing Association）的創始人之一，李倩玲更當選為該聯盟聯合主席。目前，李倩玲所帶領的碚曦投資協作體專注在行銷科技領域的新興企業孵化器和早期風險投資機構，旨在協助中國媒體傳播行業發展。</p>
+                    <p class="agendaBlock">
+                        <span class="time">07/09(二) 10:30~11:00</span>
+                        <span class="topic">媒體科技趨勢報告 5：講師題目</span>
+                    </p>
+                    <p class="agendaBlock">
+                        <span class="time">07/09(二) 10:30~11:00</span>
+                        <span class="topic">媒體科技趨勢報告 5：講師題目</span>
+                    </p>
+
+                </div>
+            </div>
+            <div class="speakerBlock" id="lect_4">
+                <div class="photo"><img src="img/photo/speaker_210x210.jpg" alt=""></div>
+                <div class="intro">
+                    <p class="name">李倩玲</p>
+                    <p class="job">碚曦投資協作體創始人兼首席執行官</p>
+                    <p class="des">擁有 28 年大中華區媒體傳播資歷，曾任群邑集團中國首席執行官，並於 2013 年起任職 WPP 集團中國區首席執行官。作為中國傳媒界和行銷科技界領軍人物之一，李倩玲曾於坎城國際廣告節、金融時報 Future of Marketing 峰會以及RISE論壇擔任演講嘉賓，更擔任 2017 年 Spikes Asia 創新類獎項評審主席。她也在家庭服務機器人品牌 Ecovacs Robotics 任職獨立董事。作為中國無線行銷聯盟（Mobile Marketing Association）的創始人之一，李倩玲更當選為該聯盟聯合主席。目前，李倩玲所帶領的碚曦投資協作體專注在行銷科技領域的新興企業孵化器和早期風險投資機構，旨在協助中國媒體傳播行業發展。</p>
+                    <p class="agendaBlock">
+                        <span class="time">07/09(二) 10:30~11:00</span>
+                        <span class="topic">媒體科技趨勢報告 5：講師題目</span>
+                    </p>
+                    <p class="agendaBlock">
+                        <span class="time">07/09(二) 10:30~11:00</span>
+                        <span class="topic">媒體科技趨勢報告 5：講師題目</span>
+                    </p>
+
+                </div>
+            </div>
+            <div class="btnBlock">
+                <a href="" class="btn">議程介紹</a><a href="" class="btn">立即報名</a>
+            </div>
+        </div>
+    </section>
+
+
     <script>
         var page = 'index';
         $('html,body').addClass('load');
     </script>
-    <script src="js/init.js"></script>
-    <script src="js/all_particle.js?v=0419"></script>
+    <script src="js/init.js?v=0503"></script>
+    <script src="js/all_particle.js?v=0503"></script>
 </body>
 
 </html>

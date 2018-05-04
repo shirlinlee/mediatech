@@ -313,9 +313,17 @@ section.agenda {
             }
         }
     }
+    @media screen and (min-width: 1366px) {
+        h1{
+            margin-bottom: 0px;
+        }
+    }
     @media screen and (max-width: 768px) {
         h1 {
             margin-bottom: 0;
+        }
+        .dayBlock{
+            padding: 45px 25px;
         }
     }
 }

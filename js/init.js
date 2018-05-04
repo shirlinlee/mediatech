@@ -697,8 +697,8 @@ var indexCtrl = {
         
     },
     init() {
-        this.resize();
-        this.kv_ani();
+        indexCtrl.resize();
+        indexCtrl.kv_ani();
 
         //來自次頁回首頁
         var anchor = indexCtrl.getUrlParam("anchor");
@@ -710,11 +710,22 @@ var indexCtrl = {
         } else {
             anim = lottie.loadAnimation(indexCtrl.animData);
             anim.setSubframe(false); 
-            anim.addEventListener('loopComplete',this.kv_complete);
+            anim.addEventListener('loopComplete',indexCtrl.kv_complete);
             anim.play();
         }
 
-       
+        var wow = new WOW(
+            {
+              boxClass:     'wow',      // 要套用WOW.js縮需要的動畫class(預設是wow)
+              animateClass: 'animated', // 要"動起來"的動畫(預設是animated, 因此如果你有其他動畫library要使用也可以在這裡調整)
+              mobile:       true,       // 手機上是否要套用動畫 (預設是true)
+              live:         true,       // 非同步產生的內容是否也要套用 (預設是true, 非常適合搭配SPA)
+            }
+          );
+        
+        wow.init();
+
+
         window.addEventListener('resize', this.resize, false);
         window.addEventListener('load', this.loadEnd, false);
 
@@ -722,9 +733,26 @@ var indexCtrl = {
             if($(this).attr('href')==='#' || $(this).attr('href')==='' ) $(this).attr('href',"javascript:void(0)");
         });
 
+        $('.index_scroll').on('click',function(){
+            $('.scroll').trigger('click');
+        })
+
         $('.scroll').on('click touchstart',function(){
             bodyScroll.animate({scrollTop:$('.introduce').offset().top}, 800);
         });
+
+        $('.dayBlock').on('click','a.btn',function(){
+            indexCtrl.openAgenda($(this));
+        })
+
+        $('.lecturer').on('click','li',function(){
+            indexCtrl.openLecturer($(this));
+        })
+    },
+    afterReveal (el) {
+        // el.addEventListener('animationend', function () {
+            console.log('This runs once finished!');
+        // });
     },
     getUrlParam(name) {
         var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
@@ -734,7 +762,7 @@ var indexCtrl = {
         return null; 
     },
     kv_complete() {
-        console.log('loopcomplete');
+        // console.log('loopcomplete');
         if(indexCtrl.load) {
             // anim.pause();
             $('.lottie_frame').remove();
@@ -775,9 +803,42 @@ var indexCtrl = {
     },
     loadEnd(){
         indexCtrl.load = true;
-        
-    }
+    },
+    openAgenda(el){
+        var which = el.attr('id');
+        var $schedule = $('.schedule');
+        console.log(which);
+        bodyScroll.addClass('popup');
+        $schedule.addClass('show'); 
 
+        if(which === 'agenda2') {
+            $schedule.animate({ scrollTop: $body.find('div.scrollHeight').height() + 90 })
+        }
+     
+        $schedule.find('a.close').on('click',function(){
+            bodyScroll.removeClass('popup');
+            $schedule.removeClass('show');
+        });
+    },
+    openLecturer(el){
+        var index = el.attr('data-lect');
+        var $speaker = $('.speaker');
+        console.log(index);
+        bodyScroll.addClass('popup');
+        $speaker.addClass('show');
+
+        if(index !==0 ) {
+            
+
+
+        }
+        
+        $speaker.find('a.close').on('click',function(){
+            bodyScroll.removeClass('popup');
+            $speaker.removeClass('show');
+        });
+
+    }
 }
 
 

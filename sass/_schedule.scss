@@ -1,0 +1,124 @@
+@charset "UTF-8";
+section.schedule {
+    .main_schedule {
+        max-width: 1170px;
+    }
+    .day {
+        font-size: 36px;
+        span {
+            color: $h-green;
+            display: inline-block;
+            margin-left: 10px;
+        }
+    }
+    ul.timetable {
+        margin-bottom: 50px;
+        li {
+            font-size: 0;
+            letter-spacing: 0;
+            border-bottom: 1px solid $black;
+            padding: 30px 0;
+        }
+        li:last-child{
+            border-bottom:none;
+        }
+        p {
+            display: inline-block;
+            font-size: 18px;
+            letter-spacing: 1px;
+            vertical-align: top;
+            >span {
+                display: inline-block;
+            }
+        }
+        p:nth-of-type(1) {
+            width: 25%;
+            padding-right: 20px;
+            span{
+                vertical-align: top;
+            }
+            span.title {
+                padding-left: 20px;
+                width: 59%;
+            }
+            span.time{
+                width: 41%;
+            }
+        }
+        p:nth-of-type(2) {
+            width: 40%;
+        }
+        p:nth-of-type(3) {
+            width: 35%;
+            padding-left: 20px;
+        }
+    }
+    @media screen and (max-width: 1200px) {
+        .main_schedule{
+            padding: 0 20px;
+        }
+        ul.timetable{
+            p:nth-of-type(1) {
+                span.time{
+                    text-align: center;
+                    b{
+                        display: block;
+                        text-align: center;
+                        @include rotate(90deg);
+                    }
+                }
+            }
+        }
+    }
+    //mobile
+    @media screen and (max-width: 768px) {
+        ul.timetable{
+            p{
+                display: block;
+                font-size: 18px;
+                letter-spacing: 0;
+            }
+            p:nth-of-type(1), p:nth-of-type(2), p:nth-of-type(3) {
+                width: 100%;
+                padding: 0;
+            }
+            p:nth-of-type(1) {
+                span{
+                    display: inline-block;
+                }
+                span.time{
+                    text-align: left;
+                    width: 30%;
+                    b{
+                        display: inline;
+                        text-align: left;
+                        @include rotate(-90deg);
+                    }
+                }
+                span.title{
+                    width: 70%;
+                    padding-left: 10px;
+                }
+            }
+            p:nth-of-type(2){
+                margin: 10px 0;
+            }
+            p:nth-of-type(2), p:nth-of-type(3) {
+                padding-left: calc(30% + 10px);
+            }
+        }
+    }//i6
+    @media screen and (max-width: 413px) {
+        // ul.timetable{
+        //      p:nth-of-type(1) {
+        //         span.time{
+        //             text-align: center;
+        //             b{
+        //                 display: block;
+        //                 text-align: center;
+        //             }
+        //         }
+        //     }
+        // }
+    }
+}

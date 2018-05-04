@@ -26,6 +26,11 @@ h1 {
     font-weight: 300;
     text-align: center;
     margin-bottom: 50px;
+    @media only screen and (min-width: 1366px) {
+        h1 {
+            margin-bottom: 0;
+        }
+    }
     @media only screen and (min-width: 320px) and (max-width: 780px) {
         font-size: 56px;
     }
@@ -78,6 +83,9 @@ nav {
     }
     li:first-child a {
         margin-right: 0px;
+    }
+    li a.focus {
+        color: $l-green;
     }
 }
 
@@ -279,11 +287,11 @@ section.lecturer {
             line-height: 1.2;
             display: inline-block;
             vertical-align: top;
-            p{
+            p {
                 @include circle(70%);
                 @include img-scale;
                 overflow: hidden;
-                margin: 0 auto 20px auto; 
+                margin: 0 auto 20px auto;
                 position: relative;
                 -webkit-mask-image: -webkit-radial-gradient(white, black);
             }
@@ -342,7 +350,7 @@ section.lecturer {
             li {
                 width: 49%;
             }
-            a{
+            a {
                 p {
                     @include circle(80%);
                     margin-bottom: 15px;
@@ -361,14 +369,14 @@ section.lecturer {
             li {
                 width: 48%;
             }
-            a{
+            a {
                 p {
                     @include circle(85%);
                 }
             }
         } //i5
         @media screen and (max-width: 374px) {
-            a{
+            a {
                 p {
                     @include circle(90%);
                 }
