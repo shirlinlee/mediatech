@@ -6,40 +6,40 @@ var countryUl = $('#country ul'),
     anim;
 
 var ticketCtr = {
-    ticket_0 : 0,
-    ticket_1 : 0,
-    ticket_2 : 0,
+    ticket_0: 0,
+    ticket_1: 0,
+    ticket_2: 0,
     init() {
         ticketCtr.countryDataInit();
         $('.popup_ticket').addClass('hide');
         $body.append('<div id="loadPage"><div class="loader"></div></div>');
 
         $(window).ready(function() {
-            $body.on('click',function(e){
+            $body.on('click', function(e) {
                 e.stopPropagation();
                 $('.select.is-open').removeClass('is-open');
             })
-            $('.select').on('click', '.placeholder', function(e){ 
-                e.stopPropagation(); 
-                ticketCtr.selectShowHandler($(this)) 
+            $('.select').on('click', '.placeholder', function(e) {
+                e.stopPropagation();
+                ticketCtr.selectShowHandler($(this))
             });
-            $('.select').on('click', 'li', function(e){ 
-                e.stopPropagation(); 
-                ticketCtr.selectchooseHandler($(this)) 
+            $('.select').on('click', 'li', function(e) {
+                e.stopPropagation();
+                ticketCtr.selectchooseHandler($(this))
             });
 
-            submitTicketBtn.on('click', function(e){
+            submitTicketBtn.on('click', function(e) {
                 ticketCtr.formPost(e);
             });
 
-            $("a").each(function( index ) {
-                if($(this).attr('href')==='#' || $(this).attr('href')==='' ) $(this).attr('href',"javascript:void(0)");
-            //    $(this).attr('href').replace(/#/, "W3School");
+            $("a").each(function(index) {
+                if ($(this).attr('href') === '#' || $(this).attr('href') === '') $(this).attr('href', "javascript:void(0)");
+                //    $(this).attr('href').replace(/#/, "W3School");
             });
 
-            $('.input').on('blur focus',function(e){
+            $('.input').on('blur focus', function(e) {
                 // alert('input');
-                ticketCtr.inputHandler($(this),e); 
+                ticketCtr.inputHandler($(this), e);
             });
         })
 
@@ -48,10 +48,10 @@ var ticketCtr = {
     selectShowHandler(ele) {
         var parent = ele.closest('.select');
         //判斷若程式沒選，區域不會展開
-        if (ele.parents('.select').attr('id') === 'district' && $('#country .placeholder').html() === '選擇縣市' ) {
-            return 
-        } 
-        
+        if (ele.parents('.select').attr('id') === 'district' && $('#country .placeholder').html() === '選擇縣市') {
+            return
+        }
+
         if (!parent.hasClass('is-open')) {
             parent.addClass('is-open');
             $('.select.is-open').not(parent).removeClass('is-open');
@@ -71,21 +71,21 @@ var ticketCtr = {
         if (which_select === 'country') {
             $('#district .placeholder').html('選擇行政區');
             ticketCtr.districtDataInit(item);
-        } 
+        }
         parent.removeClass('is-open').find('.placeholder').text(item);
         $('.zipcode').val(zipcode);
 
 
         //判斷是票種
-        if ( which_select.indexOf('ticket') === 0) {
+        if (which_select.indexOf('ticket') === 0) {
             var price = Number(ele.attr('data-cost'));
             // var which_ticket = which_select.substring(-1,1);
             ticketCtr[which_select] = Number(item);
             // console.log(ticketCtr.ticket_0);
             // console.log(ticketCtr.ticket_1);
-            $('.total_person').text( ticketCtr.ticket_0 + ticketCtr.ticket_1 + ticketCtr.ticket_2); 
-            $('.total_cost').text((ticketCtr.ticket_0*6000 + ticketCtr.ticket_1*8000 + ticketCtr.ticket_2*1000).toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")); 
-        } 
+            $('.total_person').text(ticketCtr.ticket_0 + ticketCtr.ticket_1 + ticketCtr.ticket_2);
+            $('.total_cost').text((ticketCtr.ticket_0 * 6000 + ticketCtr.ticket_1 * 8000 + ticketCtr.ticket_2 * 1000).toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+        }
 
     },
     countryDataInit() {
@@ -99,18 +99,18 @@ var ticketCtr = {
         districtUl.html('');
         $.each(areaData[item], function(index, value) {
             // console.log(index, value)
-            districtUl.append('<li data-zip='+ value +'>' + index + '</li>');
+            districtUl.append('<li data-zip=' + value + '>' + index + '</li>');
         });
     },
-    inputHandler(ele,e) {
+    inputHandler(ele, e) {
         // console.log(ele.val());
         // console.log(e.type);
-        if(e.type === 'focus') {
+        if (e.type === 'focus') {
             ele.addClass('keyIn');
             return;
         } else {
             var val = ele.val().trim();
-            if(val.length===0){
+            if (val.length === 0) {
                 ele.removeClass('keyIn');
                 ele.val('');
             } else {
@@ -118,7 +118,7 @@ var ticketCtr = {
             }
         }
     },
-    removeLoadFunc(){
+    removeLoadFunc() {
         // console.log('remove');
         $body.find('#loadPage').removeClass('show');
     },
@@ -127,134 +127,134 @@ var ticketCtr = {
         submitTicketBtn.off('click');
         $body.find('#loadPage').addClass('show');
 
-        var Company_name = ($('#company').val().trim().length !== 0 ) ? $('#company').val() : null,
-            Company_taxid = ($('#EIN').val().trim().length !== 0 ) ? $('#EIN').val() : null,
+        var Company_name = ($('#company').val().trim().length !== 0) ? $('#company').val() : null,
+            Company_taxid = ($('#EIN').val().trim().length !== 0) ? $('#EIN').val() : null,
             Company_receipt = $('input[name=radio-group]:checked').val(),
             Contact_name = $('#name').val(),
             Contact_phone = $('#tel').val(),
-            Contact_ext = ($('#port').val().trim().length !== 0 ) ? $('#port').val() : null,
+            Contact_ext = ($('#port').val().trim().length !== 0) ? $('#port').val() : null,
             Contact_email = $('#email').val(),
             Contact_code = $('input.zipcode').val(),
             Contact_city = $('#country .placeholder').text(),
             Contact_district = Contact_code + $('#district .placeholder').text(),
             Contact_address = $('#add').val(),
-            remarks = ($('#ps').val().trim().length !== 0 ) ? $('#ps').val() : null,
+            remarks = ($('#ps').val().trim().length !== 0) ? $('#ps').val() : null,
             payment_method = $('input[name=payment]:checked').val(),
-            payment_account = ($('#5num').val().trim().length !== 0 ) ? $('#5num').val() : null ;
+            payment_account = ($('#5num').val().trim().length !== 0) ? $('#5num').val() : null;
 
-            var jsonBody = {
-                "Company": {
-                    "name": Company_name,
-                    "taxid": Company_taxid,
-                    "receipt": Company_receipt
+        var jsonBody = {
+            "Company": {
+                "name": Company_name,
+                "taxid": Company_taxid,
+                "receipt": Company_receipt
+            },
+            "Contact": {
+                "name": Contact_name,
+                "phone": Contact_phone,
+                "ext": Contact_ext,
+                "email": Contact_email,
+                "city": Contact_city,
+                "district": Contact_district,
+                "address": Contact_address
+            },
+            "Tickets": [{
+                    "type": 0,
+                    "count": ticketCtr.ticket_0,
                 },
-                "Contact": {
-                    "name": Contact_name,
-                    "phone": Contact_phone,
-                    "ext": Contact_ext,
-                    "email": Contact_email,
-                    "city": Contact_city,
-                    "district": Contact_district,
-                    "address": Contact_address
+                {
+                    "type": 1,
+                    "count": ticketCtr.ticket_1,
                 },
-                "Tickets": [{
-                        "type": 0,
-                        "count": ticketCtr.ticket_0,
-                    },
-                    {
-                        "type": 1,
-                        "count": ticketCtr.ticket_1,
-                    },
-                    {
-                        "type": 2,
-                        "count": ticketCtr.ticket_2,
-                    }
-                ],
-                "remarks": remarks,
-                "payment_method": payment_method,
-                "payment_account": payment_account
-            };
-            // axios
-            //     .post('https://mediatech2018.webgene.com.tw/api/Submit', qs.stringify(jsonBody))
-            //     .then(function(response) {
-            //         console.log(response.data);
-            //     })
-            //     .catch(function(error) {
-            //         console.log(error);
-            // });
-            console.log(jsonBody);
+                {
+                    "type": 2,
+                    "count": ticketCtr.ticket_2,
+                }
+            ],
+            "remarks": remarks,
+            "payment_method": payment_method,
+            "payment_account": payment_account
+        };
+        // axios
+        //     .post('https://mediatech2018.webgene.com.tw/api/Submit', qs.stringify(jsonBody))
+        //     .then(function(response) {
+        //         console.log(response.data);
+        //     })
+        //     .catch(function(error) {
+        //         console.log(error);
+        // });
+        console.log(jsonBody);
 
-            if( Company_receipt === 'triple' ) {
-                if( Company_name === null ) {
-                    swal('請填寫公司抬頭欄位',{ icon: "error" }).then(function(result) { 
-                        ticketCtr.removeLoadFunc();
-                        submitTicketBtn.on('click', function(e){ ticketCtr.formPost(e); });
-                    });
-                    return;
-                }
-                
-                if( Company_taxid === null ) {
-                    swal('請填寫統編欄位',{ icon: "error" }).then(function(result) { 
-                        ticketCtr.removeLoadFunc();
-                        submitTicketBtn.on('click', function(e){ ticketCtr.formPost(e); });
-                    });
-                    return;
-                }
-                
-            }
-            
-            if(Contact_city === '選擇縣市' || Contact_district === '選擇行政區') {
-                swal('請選擇正確縣市及行政區',{ icon: "error" }).then(function(result) { 
+        if (Company_receipt === 'triple') {
+            if (Company_name === null) {
+                swal('請填寫公司抬頭欄位', { icon: "error" }).then(function(result) {
                     ticketCtr.removeLoadFunc();
-                    submitTicketBtn.on('click', function(e){ ticketCtr.formPost(e); });
+                    submitTicketBtn.on('click', function(e) { ticketCtr.formPost(e); });
                 });
                 return;
             }
 
-            if(ticketCtr.ticket_0 + ticketCtr.ticket_1 + ticketCtr.ticket_2 === 0 ){
-                swal('請選擇票種',{ icon: "error" }).then(function(result) { 
+            if (Company_taxid === null) {
+                swal('請填寫統編欄位', { icon: "error" }).then(function(result) {
                     ticketCtr.removeLoadFunc();
-                    submitTicketBtn.on('click', function(e){ ticketCtr.formPost(e); });
+                    submitTicketBtn.on('click', function(e) { ticketCtr.formPost(e); });
                 });
                 return;
             }
-    
-            $.ajax({
-                // processData: false, //可省
-                type: 'POST',
-                url: 'https://mediatech2018.webgene.com.tw/api/Submit',
-                data: JSON.stringify(jsonBody),
-                // dataType: 'json', //可省
-                contentType: 'application/json; charset=utf-8',
-                success: function(response) {
-                    console.log(response);
-                    $('.popup_ticket').fadeIn('400',function(){
-                        $(this).removeClass('hide');
-                        $(this).find('a').on('click',function(){
-                            var el = $(this).attr('data-anchor');
-                            var page = $(this).attr('data-page');
-                            menuCtrl.scrollPage(true, page, el);
-                        });
-                    });
-                    // swal('報名成功','請留意email通知',{ icon: "success" }).then(function(result) { 
-                    //     ticketCtr.removeLoadFunc();
-                    //     
-                    // });
-                },
-                error: function(data) {
-                    var get_feild = data.responseJSON.field.replace('.','_'); 
-                    var text = $body.find('.'+get_feild).text();
-                    console.log(data.responseJSON);
-                    console.log(data);
-                    
-                    swal('請正確填寫'+ text +'欄位',{ icon: "error" }).then(function(result) { 
-                        ticketCtr.removeLoadFunc();
-                        submitTicketBtn.on('click', function(e){ ticketCtr.formPost(e); });
 
-                    });
-                },
+        }
+
+        if (Contact_city === '選擇縣市' || Contact_district === '選擇行政區') {
+            swal('請選擇正確縣市及行政區', { icon: "error" }).then(function(result) {
+                ticketCtr.removeLoadFunc();
+                submitTicketBtn.on('click', function(e) { ticketCtr.formPost(e); });
             });
-    
+            return;
+        }
+
+        if (ticketCtr.ticket_0 + ticketCtr.ticket_1 + ticketCtr.ticket_2 === 0) {
+            swal('請選擇票種', { icon: "error" }).then(function(result) {
+                ticketCtr.removeLoadFunc();
+                submitTicketBtn.on('click', function(e) { ticketCtr.formPost(e); });
+            });
+            return;
+        }
+
+        $.ajax({
+            // processData: false, //可省
+            type: 'POST',
+            url: 'https://mediatech2018.webgene.com.tw/api/Submit',
+            data: JSON.stringify(jsonBody),
+            // dataType: 'json', //可省
+            contentType: 'application/json; charset=utf-8',
+            success: function(response) {
+                console.log(response);
+                $('.popup_ticket').fadeIn('400', function() {
+                    $(this).removeClass('hide');
+                    $(this).find('a').on('click', function() {
+                        var el = $(this).attr('data-anchor');
+                        var page = $(this).attr('data-page');
+                        menuCtrl.scrollPage(true, page, el);
+                    });
+                });
+                // swal('報名成功','請留意email通知',{ icon: "success" }).then(function(result) { 
+                //     ticketCtr.removeLoadFunc();
+                //     
+                // });
+            },
+            error: function(data) {
+                var get_feild = data.responseJSON.field.replace('.', '_');
+                var text = $body.find('.' + get_feild).text();
+                console.log(data.responseJSON);
+                console.log(data);
+
+                swal('請正確填寫' + text + '欄位', { icon: "error" }).then(function(result) {
+                    ticketCtr.removeLoadFunc();
+                    submitTicketBtn.on('click', function(e) { ticketCtr.formPost(e); });
+
+                });
+            },
+        });
+
     }
 
 }
@@ -633,17 +633,17 @@ var areaData = {
 
 
 var menuCtrl = {
-    init(){
-        $(".menu-toggle").on('click touchstart', function(e){
+    init() {
+        $(".menu-toggle").on('click touchstart', function(e) {
             e.preventDefault();
             menuCtrl.menuHandler();
         });
-        $('.menu-m').on('click touchstart','li',function(){
+        $('.menu-m').on('click touchstart', 'li', function() {
             var el = $(this).attr('data-anchor');
             var page = $(this).attr('data-page');
             menuCtrl.scrollPage(false, page, el);
         });
-        $('nav').on('click','li',function(){
+        $('nav').on('click', 'li', function() {
             var el = $(this).attr('data-anchor');
             var page = $(this).attr('data-page');
             menuCtrl.scrollPage(true, page, el);
@@ -652,49 +652,49 @@ var menuCtrl = {
     menuHandler() {
         $('.menu-section,.menu-toggle').toggleClass("on");
     },
-    scrollPage(pc, page, el){
-        if( page === 'index') {
-            if(pc){
+    scrollPage(pc, page, el) {
+        if (page === 'index') {
+            if (pc) {
                 console.log(pc, page, el);
-                bodyScroll.animate({scrollTop:$('.'+el).offset().top}, 800);
+                bodyScroll.animate({ scrollTop: $('.' + el).offset().top }, 800);
                 $('.menu-section,.menu-toggle').removeClass("on");
             } else {
                 console.log(pc, page, el);
-                bodyScroll.animate({scrollTop:$('.'+el).offset().top}, 2);
+                bodyScroll.animate({ scrollTop: $('.' + el).offset().top }, 2);
                 $('.menu-section,.menu-toggle').removeClass("on");
             }
 
         } else {
-            window.location.href = '/index.html?anchor='+el;
-            
+            window.location.href = '/index.html?anchor=' + el;
+
         }
-        
-       
+
+
 
     }
 }
 
 var indexCtrl = {
-    load : false,
-    kvAniDone : false,
-    $lootie_frame : $(".lottie_frame"),
-    $lottie : $("#lottie"),
-    $lottie_all : $("#lottie, .lottie_frame, .lottie_img"),
-    windowWidth : $(window).innerWidth(),
-    windowHeight : $(window).innerHeight(),
-    param : null,
-    animData : {
+    load: false,
+    kvAniDone: false,
+    $lootie_frame: $(".lottie_frame"),
+    $lottie: $("#lottie"),
+    $lottie_all: $("#lottie, .lottie_frame, .lottie_img"),
+    windowWidth: $(window).innerWidth(),
+    windowHeight: $(window).innerHeight(),
+    param: null,
+    animData: {
         container: document.getElementById('lottie'),
         renderer: 'svg',
         loop: true,
         // loop: false,
         autoplay: false,
         rendererSettings: {
-            progressiveLoad:true,
-            preserveAspectRatio:'xMidYMid meet'
+            progressiveLoad: true,
+            preserveAspectRatio: 'xMidYMid meet'
         },
         path: 'js/data.json'
-        
+
     },
     init() {
         indexCtrl.resize();
@@ -702,155 +702,158 @@ var indexCtrl = {
 
         //來自次頁回首頁
         var anchor = indexCtrl.getUrlParam("anchor");
-        if( anchor !== null ) {
+        if (anchor !== null) {
             indexCtrl.load = true;
             indexCtrl.kv_complete();
-            bodyScroll.animate({scrollTop:$('.'+anchor).offset().top}, 1);
+            bodyScroll.animate({ scrollTop: $('.' + anchor).offset().top }, 1);
             window.history.pushState("", "", "index.html");
         } else {
             anim = lottie.loadAnimation(indexCtrl.animData);
-            anim.setSubframe(false); 
-            anim.addEventListener('loopComplete',indexCtrl.kv_complete);
+            anim.setSubframe(false);
+            anim.addEventListener('loopComplete', indexCtrl.kv_complete);
             anim.play();
         }
 
-        var wow = new WOW(
-            {
-              boxClass:     'wow',      // 要套用WOW.js縮需要的動畫class(預設是wow)
-              animateClass: 'animated', // 要"動起來"的動畫(預設是animated, 因此如果你有其他動畫library要使用也可以在這裡調整)
-              mobile:       true,       // 手機上是否要套用動畫 (預設是true)
-              live:         true,       // 非同步產生的內容是否也要套用 (預設是true, 非常適合搭配SPA)
-            }
-          );
-        
-        wow.init();
+        // var wow = new WOW(
+        //     {
+        //       boxClass:     'wow',      // 要套用WOW.js縮需要的動畫class(預設是wow)
+        //       animateClass: 'animated', // 要"動起來"的動畫(預設是animated, 因此如果你有其他動畫library要使用也可以在這裡調整)
+        //       mobile:       true,       // 手機上是否要套用動畫 (預設是true)
+        //       live:         true,       // 非同步產生的內容是否也要套用 (預設是true, 非常適合搭配SPA)
+        //     }
+        //   );
+
+        // wow.init();
 
 
         window.addEventListener('resize', this.resize, false);
         window.addEventListener('load', this.loadEnd, false);
 
-        $("a").each(function( index ) {
-            if($(this).attr('href')==='#' || $(this).attr('href')==='' ) $(this).attr('href',"javascript:void(0)");
+        $("a").each(function(index) {
+            if ($(this).attr('href') === '#' || $(this).attr('href') === '') $(this).attr('href', "javascript:void(0)");
         });
 
-        $('.index_scroll').on('click',function(){
+        $('.index_scroll').on('click', function() {
             $('.scroll').trigger('click');
         })
 
-        $('.scroll').on('click touchstart',function(){
-            bodyScroll.animate({scrollTop:$('.introduce').offset().top}, 800);
+        $('.scroll').on('click touchstart', function() {
+            bodyScroll.animate({ scrollTop: $('.introduce').offset().top }, 800);
         });
 
-        $('.dayBlock').on('click','a.btn',function(){
+        $('.dayBlock').on('click', 'a.btn', function() {
             indexCtrl.openAgenda($(this));
         })
 
-        $('.lecturer').on('click','li',function(){
+        $('.lecturer').on('click', 'li', function() {
             indexCtrl.openLecturer($(this));
         })
     },
-    afterReveal (el) {
+    afterReveal(el) {
         // el.addEventListener('animationend', function () {
-            console.log('This runs once finished!');
+        console.log('This runs once finished!');
         // });
     },
     getUrlParam(name) {
         var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
-        var r = window.location.search.substr(1).match(reg);  
+        var r = window.location.search.substr(1).match(reg);
         if (r != null)
             return unescape(r[2]);
-        return null; 
+        return null;
     },
     kv_complete() {
         // console.log('loopcomplete');
-        if(indexCtrl.load) {
+        if (indexCtrl.load) {
             // anim.pause();
             $('.lottie_frame').remove();
             $body.removeClass('load').addClass('show');
             $('html').removeClass('load');
             indexCtrl.kvAniDone = true;
-            setTimeout(function(){
+            setTimeout(function() {
                 // $('.lottie_frame').remove();
-            },2000)
+            }, 2000)
         }
     },
     kv_ani() {
-        var marginVal = windowWidth*.02;
-        if(windowHeight > windowWidth ) marginVal = 10;
+        var marginVal = windowWidth * .02;
+        if (windowHeight > windowWidth) marginVal = 10;
 
-        $('.item').css({ 'marginTop':marginVal, 'marginBottom':marginVal });
+        $('.item').css({ 'marginTop': marginVal, 'marginBottom': marginVal });
 
     },
     resize() {
         windowWidth = $(window).innerWidth(),
-        windowHeight = $(window).innerHeight();
+            windowHeight = $(window).innerHeight();
 
-        if( windowWidth >= windowHeight ) {
-            indexCtrl.$lottie_all.css({width:'100vw'});
-            indexCtrl.$lottie.css( "margin-top", function() {
-                var topVal = ( windowWidth - windowHeight )/2 -10;
+        if (windowWidth >= windowHeight) {
+            indexCtrl.$lottie_all.css({ width: '100vw' });
+            indexCtrl.$lottie.css("margin-top", function() {
+                var topVal = (windowWidth - windowHeight) / 2 - 10;
                 // console.log('寬扁');
                 return -topVal;
             });
         } else {
-            indexCtrl.$lottie_all.css({ height:'100vh'});
-            var leftVal = - ( indexCtrl.$lottie.width() - windowWidth)/2;
-            indexCtrl.$lottie.css({ marginLeft: leftVal, top:'-2vh' });
+            indexCtrl.$lottie_all.css({ height: '100vh' });
+            var leftVal = -(indexCtrl.$lottie.width() - windowWidth) / 2;
+            indexCtrl.$lottie.css({ marginLeft: leftVal, top: '-2vh' });
         }
-        
-        
+
+
 
     },
-    loadEnd(){
+    loadEnd() {
         indexCtrl.load = true;
     },
-    openAgenda(el){
+    openAgenda(el) {
         var which = el.attr('id');
         var $schedule = $('.schedule');
         console.log(which);
         bodyScroll.addClass('popup');
-        $schedule.addClass('show'); 
+        $schedule.addClass('show');
 
-        if(which === 'agenda2') {
+        if (which === 'agenda2') {
             $schedule.animate({ scrollTop: $body.find('div.scrollHeight').height() + 90 })
         }
-     
-        $schedule.find('a.close').on('click',function(){
+
+        $schedule.find('a.close').on('click', function() {
             bodyScroll.removeClass('popup');
             $schedule.removeClass('show');
         });
     },
-    openLecturer(el){
+    openLecturer(el) {
         var index = el.attr('data-lect');
         var $speaker = $('.speaker');
         console.log(index);
         bodyScroll.addClass('popup');
         $speaker.addClass('show');
 
-        if(index !==0 ) {
-            
-
-
+        if (index !== 0) {
+            var i,
+                totalScroll = 200;
+            for (i = 0; i < index; i++) {
+                totalScroll = $('#lect_' + i).height() + 100 + totalScroll;
+                console.log($('#lect_' + i).height());
+            }
+            $speaker.animate({ scrollTop: totalScroll }, 600);
         }
-        
-        $speaker.find('a.close').on('click',function(){
+
+        $speaker.find('a.close').on('click', function() {
             bodyScroll.removeClass('popup');
             $speaker.removeClass('show');
         });
-
     }
 }
 
 
 $(function() {
-    if( page==='index' ){
+    if (page === 'index') {
         indexCtrl.init();
 
-    } else if( page==='ticket' ){
+    } else if (page === 'ticket') {
         ticketCtr.init();
     }
     console.log(page);
     menuCtrl.init();
-    
+
 
 })

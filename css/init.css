@@ -2,16 +2,17 @@ body.index {
     background: #000;
 }
 
-*{
+* {
     -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 }
 
-section{
+section {
     overflow: hidden;
     background: #fff;
     vertical-align: top;
 }
-.fix{
+
+.fix {
     position: fixed;
     height: 100%;
     width: 100%;
@@ -19,23 +20,26 @@ section{
     top: 0;
     left: 0;
 }
-.fix section{
+
+.fix section {
     position: absolute;
     z-index: 0;
     /* opacity: 1; */
-
 }
+
 section.agenda {
     min-height: 100vh;
 }
-.fix .agenda{
+
+.fix .agenda {
     opacity: 0;
 }
-.fix.indexPass .agenda{
+
+.fix.indexPass .agenda {
     opacity: 1;
 }
 
-.index_scroll{
+.index_scroll {
     cursor: pointer;
     position: fixed;
     width: 80px;
@@ -45,84 +49,92 @@ section.agenda {
     margin-left: -40px;
     z-index: 15;
 }
-   
-.indexPass .index_scroll{
+
+.indexPass .index_scroll {
     display: none;
 }
-.transparent{
+
+.transparent {
     height: 100%;
     width: 100%;
 }
+
+
 /***** ticket *****/
 
-input.keyIn + label{
+input.keyIn+label {
     color: #43a046;
     font-size: 14px;
     top: -30px;
-    pointer-events: none; 
-}
-input.keyIn {
-  border-bottom: 1px solid #505050; 
+    pointer-events: none;
 }
 
-.popup_ticket.hide .wrap .con{
+input.keyIn {
+    border-bottom: 1px solid #505050;
+}
+
+.popup_ticket.hide .wrap .con {
     opacity: 0;
     top: 70%;
 }
 
-.popup_ticket .wrap .con{
+.popup_ticket .wrap .con {
     transition: all .6s;
 }
 
-.wrap{
+.wrap {
     z-index: 15;
 }
 
-.swal-modal{
-  width: 300px;
-  /* height: 250px; */
+.swal-modal {
+    width: 300px;
+    /* height: 250px; */
 }
 
 .swal-button {
-  display: block;
-  width: 100%;
-  margin: 0 0 10px;
-  background-color: #43a046;
-  border-radius: 5px;
+    display: block;
+    width: 100%;
+    margin: 0 0 10px;
+    background-color: #43a046;
+    border-radius: 5px;
 }
 
 .swal-button-container {
-  width: 100%;
-  margin: 0 0 7px;
-  
+    width: 100%;
+    margin: 0 0 7px;
 }
+
 #loadPage {
-  position: fixed;
-  z-index: 9999;
-  width: 0;
-  height: 100vh;
-  background-color: rgba(0,0,0,.5);
-  top: 0;
-  left: 0;
-  overflow: hidden;
+    position: fixed;
+    z-index: 9999;
+    width: 0;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, .5);
+    top: 0;
+    left: 0;
+    overflow: hidden;
 }
-#loadPage.show{
+
+#loadPage.show {
     width: 100%;
 }
+
 .loader {
-  transform: scale(0);
-  opacity: 0;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  margin: -15px;
-  border: 3px solid #fff; /* Light grey */
-  border-top: 3px solid #43a046; /* Blue */
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  animation: spin 2s linear infinite;
-  /* transition: opacity .3s ; */
+    transform: scale(0);
+    opacity: 0;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin: -15px;
+    border: 3px solid #fff;
+    /* Light grey */
+    border-top: 3px solid #43a046;
+    /* Blue */
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 2s linear infinite;
+    /* transition: opacity .3s ; */
 }
 
 #loadPage.show .loader {
@@ -131,80 +143,88 @@ input.keyIn {
 }
 
 .swal-overlay {
-    background-color: rgba(0,0,0,0);
+    background-color: rgba(0, 0, 0, 0);
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
+
 
 /******  index  ******/
 
-body.load, html.load{
+body.load,
+html.load {
     width: 100vw;
     height: 100vh;
     overflow: hidden;
-
 }
 
-body.load .menu-toggle{
+body.load .menu-toggle {
     opacity: 0;
     top: -100px;
 }
-.menu-toggle{
-    -moz-transition:all  0.5s;
-    transition:all  0.5s;
+
+.menu-toggle {
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
 }
-body#index nav{
+
+body#index nav {
     top: -120px;
     opacity: 0;
 }
 
-body#index.show nav{
-    -moz-transition:all  0.5s;
-    transition:all  0.5s;
+body#index.show nav {
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
     opacity: 1;
     top: 0;
 }
 
-section.index a.scroll{
-    -moz-transition:all 0.5s;
-    transition:all 0.5s;
+section.index a.scroll {
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
     bottom: -90px;
     opacity: 0;
 }
 
-body.show section.index a.scroll{
+body.show section.index a.scroll {
     z-index: 80;
     bottom: 0;
     opacity: 1;
 }
 
-body.load .index .wording{
+body.load .index .wording {
     opacity: 0;
 }
 
-body.show .index .wording{
+body.show .index .wording {
     opacity: 1;
     /* -moz-transition:all .2s,opacity .6s .5s;
     transition:all .2s,opacity .6s .5s */
-    -moz-transition:opacity .6s .5s;
-    transition:opacity .6s .5s;
+    -moz-transition: opacity .6s .5s;
+    transition: opacity .6s .5s;
     z-index: 3;
 }
+
 
 /* .index h2, .index p{
     -moz-transition:all .2s;
     transition:all .2s
 } */
 
-.agenda .poA{
+.agenda .poA {
     position: absolute;
     height: 100%;
     width: 100%;
     z-index: 3;
-    background-color: rgba(0,0,0,.5);
+    background-color: rgba(0, 0, 0, .5);
 }
 
 section.agenda .main {
@@ -224,10 +244,12 @@ canvas#canvas {
     left: 0;
     height: 100%;
 }
+
 section.introduce {
     z-index: 5;
 }
-.introduce .main{
+
+.introduce .main {
     background-color: #fff;
 }
 
@@ -236,19 +258,19 @@ section.introduce {
     position: relative;
 }
 
-.blank{
+.blank {
     width: 100vw;
     height: 100vh;
 }
 
-#canvasHeader{
+#canvasHeader {
     position: absolute;
     z-index: 2;
     bottom: 0;
     left: 0
 }
 
-#lottie{
+#lottie {
     background-color: #000;
     position: absolute;
     top: 0;
@@ -257,34 +279,34 @@ section.introduce {
     height: 100%;
 }
 
-.lottie_frame{
+.lottie_frame {
     position: absolute;
     top: 0;
     left: 0;
 }
 
-.bg_logo{
+.bg_logo {
     width: 82%;
     position: absolute;
     opacity: 0;
     z-index: 1;
     bottom: -30vw;
-    left: 2%; 
+    left: 2%;
     opacity: 0;
     transform: skewX(37deg) rotate(-11deg) rotateX(-42deg);
 }
 
-body.show .bg_logo{
+body.show .bg_logo {
     transition: bottom 1.5s 1s, opacity 1.2s 1s;
     bottom: -16vw;
     opacity: 1;
 }
 
-.item_row{
+.item_row {
     text-align: center;
 }
 
-.item{
+.item {
     width: 7%;
     margin: 4.333%;
     display: inline-block;
@@ -292,12 +314,11 @@ body.show .bg_logo{
     transform: skew(0deg);
 }
 
-.bg_logo *{
+.bg_logo * {
     background-color: transparent;
 }
 
-
-.item:before{
+.item:before {
     content: "";
     display: block;
     position: absolute;
@@ -308,11 +329,13 @@ body.show .bg_logo{
     height: 93%;
     top: 13px;
     left: 13px;
-    -webkit-filter: blur(5px); /* Safari */
+    -webkit-filter: blur(5px);
+    /* Safari */
     filter: blur(11px);
     animation-delay: 2s;
     animation: opa 10s infinite;
 }
+
 
 /* .item:before{
     animation-delay: 2s;
@@ -320,42 +343,55 @@ body.show .bg_logo{
 } */
 
 @-webkit-keyframes opa {
-    0%   {opacity: .2;}
-    50%  {opacity: .5;}
-    100% {opacity: .2;}
+    0% {
+        opacity: .2;
+    }
+    50% {
+        opacity: .5;
+    }
+    100% {
+        opacity: .2;
+    }
 }
+
 
 /* Standard syntax */
+
 @keyframes opa {
-    0%   {opacity: .2;}
-    50%  {opacity: .5;}
-    100% {opacity: .2;}
+    0% {
+        opacity: .2;
+    }
+    50% {
+        opacity: .5;
+    }
+    100% {
+        opacity: .2;
+    }
 }
 
-.item.circle img{
+.item.circle img {
     border-radius: 50%;
     overflow: hidden;
 }
 
-.item.circle:before{
+.item.circle:before {
     border-radius: 50%;
     overflow: hidden;
 }
 
-.item img{
+.item img {
     width: 100%;
     /* background: linear-gradient(to bottom right,rgb(21, 21, 21), rgb(11, 11, 11)); */
     position: relative;
     z-index: 10;
 }
 
-
-body.popup{
+body.popup {
     overflow: hidden;
-
 }
 
-.speaker, .schedule {
+section.speaker,
+section.schedule {
     /* display: none; */
     position: fixed;
     background: #fff;
@@ -369,19 +405,21 @@ body.popup{
     width: 0;
     transition: opacity .3s;
 }
-.speaker.show, .schedule.show {
+
+.speaker.show,
+.schedule.show {
     opacity: 1;
     width: 100%;
     z-index: 11000;
-    
 }
-.main_schedule{
+
+.main_schedule {
     opacity: 0;
     transform: translate(0, 15%);
     transition: all .6s .2s;
 }
 
-.schedule.show .main_schedule{
+.schedule.show .main_schedule {
     opacity: 1;
     transform: translate(0, 0);
 }
@@ -396,49 +434,47 @@ a.close {
     -o-transition: 0.3s;
     -webkit-transition: 0.3s;
     -moz-transition: 0.3s;
-    transition: 0.3s; 
+    transition: 0.3s;
 }
+
 a.close img {
-    display: block; 
+    display: block;
 }
 
 a.close:hover {
     opacity: 0.5;
-    filter: alpha(opacity=50); 
+    filter: alpha(opacity=50);
 }
 
-
 @media only screen and (max-width: 1365px) {
-    .fix.ag{
+    .fix.ag {
         position: relative;
         height: fit-content;
     }
     .fix.ag section {
         position: relative;
     }
-    .trans_for_agenda.transparent{
+    .trans_for_agenda.transparent {
         height: 0;
     }
-} 
+}
 
 @media only screen and (max-width: 780px) {
     .popup_ticket a.close {
         width: 24px;
         height: 24px;
         top: 20px;
-        right: 15px; 
-    } 
+        right: 15px;
+    }
 }
 
-
 @media only screen and (max-width: 414px) {
-        
     .bg_logo {
         width: 160%;
         left: -32%;
         bottom: -40vw;
     }
-    body.show .bg_logo{
+    body.show .bg_logo {
         bottom: -15vh;
     }
     .item {
@@ -456,12 +492,11 @@ a.close:hover {
     }
 }
 
-@media only screen and (max-width: 780px) and (min-width: 320px){
+@media only screen and (max-width: 780px) and (min-width: 320px) {
     .form_line1 {
         margin-bottom: 40px;
     }
     h2 {
         margin-bottom: 35px;
-    }  
+    }
 }
-
