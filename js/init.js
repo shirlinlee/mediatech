@@ -682,6 +682,8 @@ var indexCtrl = {
     $lottie_all: $("#lottie, .lottie_frame, .lottie_img"),
     windowWidth: $(window).innerWidth(),
     windowHeight: $(window).innerHeight(),
+    $speaker : $('.speaker'),
+    $schedule : $('.schedule'),
     param: null,
     animData: {
         container: document.getElementById('lottie'),
@@ -706,13 +708,14 @@ var indexCtrl = {
             indexCtrl.load = true;
             indexCtrl.kv_complete();
             bodyScroll.animate({ scrollTop: $('.' + anchor).offset().top }, 1);
-            window.history.pushState("", "", "index.html");
         } else {
             anim = lottie.loadAnimation(indexCtrl.animData);
             anim.setSubframe(false);
             anim.addEventListener('loopComplete', indexCtrl.kv_complete);
             anim.play();
         }
+        window.history.pushState("", "", "index.html");
+        
 
         // var wow = new WOW(
         //     {
@@ -741,12 +744,19 @@ var indexCtrl = {
             bodyScroll.animate({ scrollTop: $('.introduce').offset().top }, 800);
         });
 
-        $('.dayBlock').on('click', 'a.btn', function() {
+        $body.on('click', 'a.see_agenda', function() {
+            // console.log('see_agenda');
             indexCtrl.openAgenda($(this));
         })
 
-        $('.lecturer').on('click', 'li', function() {
+        $body.on('click', '.see_lecturer', function() {
             indexCtrl.openLecturer($(this));
+        });
+
+        $body.on('click', '.timeClick', function(e) {
+            e.preventDefault();
+            console.log('timeClick');
+            indexCtrl.timeTableSeelect($(this));
         })
     },
     afterReveal(el) {
@@ -806,41 +816,64 @@ var indexCtrl = {
     },
     openAgenda(el) {
         var which = el.attr('id');
-        var $schedule = $('.schedule');
         console.log(which);
         bodyScroll.addClass('popup');
-        $schedule.addClass('show');
+        indexCtrl.$schedule.addClass('show');
+        indexCtrl.$speaker.removeClass('show');
 
         if (which === 'agenda2') {
-            $schedule.animate({ scrollTop: $body.find('div.scrollHeight').height() + 90 })
+            indexCtrl.$schedule.animate({ scrollTop: $body.find('div.scrollHeight').height() + 90 })
+        } else {
+            indexCtrl.$schedule.animate({ scrollTop: 0 },1)
         }
 
-        $schedule.find('a.close').on('click', function() {
+        indexCtrl.$schedule.find('a.close').on('click', function() {
             bodyScroll.removeClass('popup');
-            $schedule.removeClass('show');
+            indexCtrl.$schedule.removeClass('show');
+            indexCtrl.$schedule.find('.speakerBlock').slideUp(200);
         });
+
     },
     openLecturer(el) {
         var index = el.attr('data-lect');
-        var $speaker = $('.speaker');
-        console.log(index);
         bodyScroll.addClass('popup');
-        $speaker.addClass('show');
+        indexCtrl.$speaker.addClass('show');
+        indexCtrl.$schedule.removeClass('show');
 
-        if (index !== 0) {
+        if (index >= 1) {
             var i,
                 totalScroll = 200;
             for (i = 0; i < index; i++) {
-                totalScroll = $('#lect_' + i).height() + 100 + totalScroll;
-                console.log($('#lect_' + i).height());
+                totalScroll = $('.speakerBlock#lect_' + i).height() + 100 + totalScroll;
+                console.log($('.speakerBlock#lect_' + i).height());
             }
-            $speaker.animate({ scrollTop: totalScroll }, 600);
+            indexCtrl.$speaker.animate({ scrollTop: totalScroll }, 600);
+        } else {
+            indexCtrl.$speaker.animate({ scrollTop:  0 },1);
+            
         }
 
-        $speaker.find('a.close').on('click', function() {
+        indexCtrl.$speaker.find('a.close').on('click', function() {
             bodyScroll.removeClass('popup');
-            $speaker.removeClass('show');
+            indexCtrl.$speaker.removeClass('show');
+            totalScroll = 0;
+        
         });
+
+          
+    },
+    timeTableSeelect(el) {
+        var which = el.attr('data-lect');
+        // console.log(el.hasClass('show'))
+        if (el.hasClass('show')) {
+            el.removeClass('show').find('.speakerBlock').slideUp(700);
+            return;
+        } else {
+            var content = $body.find('.speakerBlock#lect_'+which);
+            el.addClass('show').append(content);
+            el.find('.speakerBlock').attr('id','').slideDown(700);
+        }
+        
     }
 }
 

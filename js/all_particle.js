@@ -407,7 +407,7 @@ function onWindowBlur(e) {
 }
 
 function onWindowFocus(e) {
-  console.log('focus',scroll_val);
+  // console.log('focus',scroll_val);
   $(window).scrollTop( scroll_val+.1 );
 }
 
@@ -455,7 +455,7 @@ function onWindowScroll(e) {
 	} else {
       wave_pause = true;
       green_pause = true;
-      console.log('none start');
+      // console.log('none start');
   }
   setTimeout(function(){
     scrolling = false;
