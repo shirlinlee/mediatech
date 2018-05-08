@@ -1932,69 +1932,6 @@ section.contact {
         line-height: 1.2;
         text-align: center;
         margin-top: 10px; } }
-section.speaker .speakerBlock {
-  width: 100%;
-  text-align: center;
-  margin-bottom: 100px; }
-  section.speaker .speakerBlock .photo, section.speaker .speakerBlock .intro {
-    display: inline-block;
-    vertical-align: top; }
-  section.speaker .speakerBlock .photo {
-    width: 210px;
-    height: 210px;
-    border-radius: 100%;
-    -webkit-border-radius: 100%;
-    -moz-border-radius: 100%;
-    -o-border-radius: 100%;
-    overflow: hidden; }
-    section.speaker .speakerBlock .photo > img {
-      width: 100%;
-      height: auto;
-      display: block; }
-  section.speaker .speakerBlock .intro {
-    width: calc(100% - 220px);
-    padding-left: 8%;
-    text-align: left; }
-    section.speaker .speakerBlock .intro p {
-      margin-bottom: 10px; }
-    section.speaker .speakerBlock .intro p.name {
-      font-size: 30px;
-      color: #43a046;
-      margin-bottom: 5px; }
-    section.speaker .speakerBlock .intro p.des {
-      text-align: justify;
-      text-justify: inter-ideograph;
-      word-wrap: break-word;
-      word-break: break-all; }
-    section.speaker .speakerBlock .intro p.job {
-      font-weight: 500; }
-    section.speaker .speakerBlock .intro p.agendaBlock span {
-      display: inline-block; }
-    section.speaker .speakerBlock .intro p.agendaBlock span.time {
-      color: #43a046;
-      margin-right: 20px;
-      font-weight: 500; }
-  @media screen and (max-width: 1024px) {
-    section.speaker .speakerBlock .intro {
-      padding-left: 3%; } }
-  @media screen and (max-width: 768px) {
-    section.speaker .speakerBlock {
-      margin-bottom: 50px; }
-      section.speaker .speakerBlock .photo, section.speaker .speakerBlock .intro {
-        display: block; }
-      section.speaker .speakerBlock .photo {
-        margin: 0 auto;
-        width: 60%;
-        height: 60%;
-        border-radius: 100%;
-        -webkit-border-radius: 100%;
-        -moz-border-radius: 100%;
-        -o-border-radius: 100%;
-        margin-bottom: 30px; }
-      section.speaker .speakerBlock .intro {
-        width: 100%;
-        padding-left: 0; } }
-
 .btnBlock {
   text-align: center; }
   .btnBlock a.btn {
@@ -2007,6 +1944,72 @@ section.speaker .speakerBlock {
       margin: 15px auto;
       line-height: 70px;
       height: 70px; } }
+
+.speakerBlock {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 100px; }
+  .speakerBlock .photo,
+  .speakerBlock .intro {
+    display: inline-block;
+    vertical-align: top; }
+  .speakerBlock .photo {
+    width: 210px;
+    height: 210px;
+    border-radius: 100%;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -o-border-radius: 100%;
+    overflow: hidden; }
+    .speakerBlock .photo > img {
+      width: 100%;
+      height: auto;
+      display: block; }
+  .speakerBlock .intro {
+    width: calc(100% - 220px);
+    padding-left: 8%;
+    text-align: left; }
+    .speakerBlock .intro p {
+      margin-bottom: 10px;
+      font-size: 18px; }
+    .speakerBlock .intro p.name {
+      font-size: 30px;
+      color: #43a046;
+      margin-bottom: 5px; }
+    .speakerBlock .intro p.des {
+      text-align: justify;
+      text-justify: inter-ideograph;
+      word-wrap: break-word;
+      word-break: break-all; }
+    .speakerBlock .intro p.job {
+      font-weight: 500; }
+    .speakerBlock .intro p.agendaBlock span {
+      display: inline-block; }
+    .speakerBlock .intro p.agendaBlock span.time {
+      color: #43a046;
+      margin-right: 20px;
+      font-weight: 500; }
+  @media screen and (max-width: 1024px) {
+    .speakerBlock .intro {
+      padding-left: 3%; } }
+  @media screen and (max-width: 768px) {
+    .speakerBlock {
+      margin-bottom: 50px; }
+      .speakerBlock .photo,
+      .speakerBlock .intro {
+        display: block; }
+      .speakerBlock .photo {
+        margin: 0 auto;
+        width: 60%;
+        height: 60%;
+        border-radius: 100%;
+        -webkit-border-radius: 100%;
+        -moz-border-radius: 100%;
+        -o-border-radius: 100%;
+        margin-bottom: 30px; }
+      .speakerBlock .intro {
+        width: 100%;
+        padding-left: 0; } }
 
 section.schedule .main_schedule {
   max-width: 1170px; }
@@ -2023,36 +2026,64 @@ section.schedule ul.timetable {
     letter-spacing: 0;
     border-bottom: 1px solid #363636;
     padding: 30px 0; }
+    section.schedule ul.timetable li > p {
+      display: inline-block;
+      font-size: 18px;
+      letter-spacing: 1px;
+      vertical-align: top; }
+      section.schedule ul.timetable li > p > span {
+        display: inline-block; }
+    section.schedule ul.timetable li > p:nth-of-type(1) {
+      width: 25%;
+      padding-right: 20px; }
+      section.schedule ul.timetable li > p:nth-of-type(1) span {
+        vertical-align: top; }
+      section.schedule ul.timetable li > p:nth-of-type(1) span.title {
+        padding-left: 20px;
+        width: 59%; }
+      section.schedule ul.timetable li > p:nth-of-type(1) span.time {
+        width: 41%; }
+    section.schedule ul.timetable li > p:nth-of-type(2) {
+      width: 40%; }
+    section.schedule ul.timetable li > p:nth-of-type(3) {
+      width: 35%;
+      padding-left: 20px;
+      opacity: 1;
+      -webkit-transition: all .4s;
+      -o-transition: all .4s;
+      transition: all .4s; }
+      section.schedule ul.timetable li > p:nth-of-type(3):hover {
+        opacity: 0.8;
+        cursor: pointer; }
+    section.schedule ul.timetable li .speakerBlock {
+      margin-top: 30px;
+      margin-bottom: 0;
+      background-color: #f8f8f8;
+      padding: 20px;
+      position: relative; }
+      section.schedule ul.timetable li .speakerBlock .intro {
+        padding-left: 3%; }
+        section.schedule ul.timetable li .speakerBlock .intro p.agendaBlock {
+          display: none; }
+      section.schedule ul.timetable li .speakerBlock a.close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        display: block;
+        width: 30px;
+        height: 30px; }
+        section.schedule ul.timetable li .speakerBlock a.close > img {
+          width: 100%;
+          height: auto;
+          display: block; }
   section.schedule ul.timetable li:last-child {
     border-bottom: none; }
-  section.schedule ul.timetable p {
-    display: inline-block;
-    font-size: 18px;
-    letter-spacing: 1px;
-    vertical-align: top; }
-    section.schedule ul.timetable p > span {
-      display: inline-block; }
-  section.schedule ul.timetable p:nth-of-type(1) {
-    width: 25%;
-    padding-right: 20px; }
-    section.schedule ul.timetable p:nth-of-type(1) span {
-      vertical-align: top; }
-    section.schedule ul.timetable p:nth-of-type(1) span.title {
-      padding-left: 20px;
-      width: 59%; }
-    section.schedule ul.timetable p:nth-of-type(1) span.time {
-      width: 41%; }
-  section.schedule ul.timetable p:nth-of-type(2) {
-    width: 40%; }
-  section.schedule ul.timetable p:nth-of-type(3) {
-    width: 35%;
-    padding-left: 20px; }
 @media screen and (max-width: 1200px) {
   section.schedule .main_schedule {
     padding: 0 20px; }
-  section.schedule ul.timetable p:nth-of-type(1) span.time {
+  section.schedule ul.timetable li > p:nth-of-type(1) span.time {
     text-align: center; }
-    section.schedule ul.timetable p:nth-of-type(1) span.time b {
+    section.schedule ul.timetable li > p:nth-of-type(1) span.time b {
       display: block;
       text-align: center;
       -moz-transform: rotate(90deg);
@@ -2060,31 +2091,34 @@ section.schedule ul.timetable {
       -webkit-transform: rotate(90deg);
       transform: rotate(90deg); } }
 @media screen and (max-width: 768px) {
-  section.schedule ul.timetable p {
+  section.schedule ul.timetable li > p {
     display: block;
     font-size: 18px;
     letter-spacing: 0; }
-  section.schedule ul.timetable p:nth-of-type(1), section.schedule ul.timetable p:nth-of-type(2), section.schedule ul.timetable p:nth-of-type(3) {
+  section.schedule ul.timetable li > p:nth-of-type(1),
+  section.schedule ul.timetable li > p:nth-of-type(2),
+  section.schedule ul.timetable li > p:nth-of-type(3) {
     width: 100%;
     padding: 0; }
-  section.schedule ul.timetable p:nth-of-type(1) span {
+  section.schedule ul.timetable li > p:nth-of-type(1) span {
     display: inline-block; }
-  section.schedule ul.timetable p:nth-of-type(1) span.time {
+  section.schedule ul.timetable li > p:nth-of-type(1) span.time {
     text-align: left;
     width: 30%; }
-    section.schedule ul.timetable p:nth-of-type(1) span.time b {
+    section.schedule ul.timetable li > p:nth-of-type(1) span.time b {
       display: inline;
       text-align: left;
       -moz-transform: rotate(-90deg);
       -ms-transform: rotate(-90deg);
       -webkit-transform: rotate(-90deg);
       transform: rotate(-90deg); }
-  section.schedule ul.timetable p:nth-of-type(1) span.title {
+  section.schedule ul.timetable li > p:nth-of-type(1) span.title {
     width: 70%;
     padding-left: 10px; }
-  section.schedule ul.timetable p:nth-of-type(2) {
+  section.schedule ul.timetable li > p:nth-of-type(2) {
     margin: 10px 0; }
-  section.schedule ul.timetable p:nth-of-type(2), section.schedule ul.timetable p:nth-of-type(3) {
+  section.schedule ul.timetable li > p:nth-of-type(2),
+  section.schedule ul.timetable li > p:nth-of-type(3) {
     padding-left: calc(30% + 10px); } }
 
 

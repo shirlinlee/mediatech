@@ -655,11 +655,16 @@ var menuCtrl = {
     scrollPage(pc, page, el) {
         if (page === 'index') {
             if (pc) {
-                console.log(pc, page, el);
-                bodyScroll.animate({ scrollTop: $('.' + el).offset().top }, 800);
+                // console.log(pc, page, el);
+                
+                if( el !== "agenda" ){
+                    bodyScroll.animate({ scrollTop: $('.' + el).offset().top }, 800);
+                } else {
+                    bodyScroll.animate({ scrollTop: $('.trans_for_agenda').offset().top }, 800);
+                }
                 $('.menu-section,.menu-toggle').removeClass("on");
             } else {
-                console.log(pc, page, el);
+                // console.log(pc, page, el);
                 bodyScroll.animate({ scrollTop: $('.' + el).offset().top }, 2);
                 $('.menu-section,.menu-toggle').removeClass("on");
             }
@@ -715,7 +720,6 @@ var indexCtrl = {
             anim.play();
         }
         window.history.pushState("", "", "index.html");
-        
 
         // var wow = new WOW(
         //     {
@@ -727,7 +731,6 @@ var indexCtrl = {
         //   );
 
         // wow.init();
-
 
         window.addEventListener('resize', this.resize, false);
         window.addEventListener('load', this.loadEnd, false);
@@ -747,7 +750,7 @@ var indexCtrl = {
         $body.on('click', 'a.see_agenda', function() {
             // console.log('see_agenda');
             indexCtrl.openAgenda($(this));
-        })
+        });
 
         $body.on('click', '.see_lecturer', function() {
             indexCtrl.openLecturer($(this));
@@ -757,12 +760,7 @@ var indexCtrl = {
             e.preventDefault();
             console.log('timeClick');
             indexCtrl.timeTableSeelect($(this));
-        })
-    },
-    afterReveal(el) {
-        // el.addEventListener('animationend', function () {
-        console.log('This runs once finished!');
-        // });
+        });
     },
     getUrlParam(name) {
         var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
@@ -787,9 +785,7 @@ var indexCtrl = {
     kv_ani() {
         var marginVal = windowWidth * .02;
         if (windowHeight > windowWidth) marginVal = 10;
-
         $('.item').css({ 'marginTop': marginVal, 'marginBottom': marginVal });
-
     },
     resize() {
         windowWidth = $(window).innerWidth(),
@@ -807,9 +803,6 @@ var indexCtrl = {
             var leftVal = -(indexCtrl.$lottie.width() - windowWidth) / 2;
             indexCtrl.$lottie.css({ marginLeft: leftVal, top: '-2vh' });
         }
-
-
-
     },
     loadEnd() {
         indexCtrl.load = true;
@@ -822,7 +815,7 @@ var indexCtrl = {
         indexCtrl.$speaker.removeClass('show');
 
         if (which === 'agenda2') {
-            indexCtrl.$schedule.animate({ scrollTop: $body.find('div.scrollHeight').height() + 90 })
+            indexCtrl.$schedule.animate({ scrollTop: $body.find('div.scrollHeight').height() + 90 },1)
         } else {
             indexCtrl.$schedule.animate({ scrollTop: 0 },1)
         }
@@ -836,21 +829,21 @@ var indexCtrl = {
     },
     openLecturer(el) {
         var index = el.attr('data-lect');
+        var top_space = ( windowWidth > 780 )? 100 : 50;
+        var totalScroll = ( windowWidth > 780 )? 200 : 180;
         bodyScroll.addClass('popup');
         indexCtrl.$speaker.addClass('show');
         indexCtrl.$schedule.removeClass('show');
 
         if (index >= 1) {
-            var i,
-                totalScroll = 200;
+            var i;
             for (i = 0; i < index; i++) {
-                totalScroll = $('.speakerBlock#lect_' + i).height() + 100 + totalScroll;
+                totalScroll = $('.speakerBlock#lect_' + i).height() + top_space + totalScroll;
                 console.log($('.speakerBlock#lect_' + i).height());
             }
-            indexCtrl.$speaker.animate({ scrollTop: totalScroll }, 600);
+            indexCtrl.$speaker.animate({ scrollTop: totalScroll }, 1);
         } else {
             indexCtrl.$speaker.animate({ scrollTop:  0 },1);
-            
         }
 
         indexCtrl.$speaker.find('a.close').on('click', function() {
@@ -859,8 +852,6 @@ var indexCtrl = {
             totalScroll = 0;
         
         });
-
-          
     },
     timeTableSeelect(el) {
         var which = el.attr('data-lect');
@@ -876,7 +867,6 @@ var indexCtrl = {
         
     }
 }
-
 
 $(function() {
     if (page === 'index') {
