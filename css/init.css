@@ -212,6 +212,7 @@ body.show .index .wording {
     -moz-transition: opacity .6s .5s;
     transition: opacity .6s .5s;
     z-index: 3;
+    
 }
 
 
@@ -290,11 +291,14 @@ section.introduce {
     width: 82%;
     position: absolute;
     opacity: 0;
-    z-index: 1;
+    z-index: -1;
     bottom: -30vw;
     left: 2%;
     opacity: 0;
+    -webkit-transform:translateZ(0px);
+    -webkit-transform: skewX(37deg) rotate(-11deg) rotateX(-42deg);
     transform: skewX(37deg) rotate(-11deg) rotateX(-42deg);
+    
 }
 
 body.show .bg_logo {
@@ -472,7 +476,7 @@ a.close:hover {
 /******      取代wow      ******/
 .wow{
     opacity: 0;
-    transform: translate(0,90px);
+    transform: translate(0,70px);
 }
 .animated>.wow{
     opacity: 1;
