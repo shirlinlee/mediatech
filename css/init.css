@@ -478,10 +478,12 @@ a.close:hover {
     opacity: 0;
     transform: translate(0,70px);
 }
+
 .animated>.wow{
     opacity: 1;
     transform: translate(0,0);
 }
+
 .animated .w0{
     transition: all .7s;
 }
@@ -497,14 +499,18 @@ a.close:hover {
 .animated .w3{
     transition: all .7s .6s;
 }
+
 .animated .w4{
     transition: all .7s .8s;
 }
-
+.mb{
+    display: none;
+}
 @media only screen and (max-width: 1365px) {
     .fix.ag {
         position: relative;
-        height: fit-content;
+        /* height: fit-content; */
+        height: auto;
     }
     .fix.ag section {
         position: relative;
@@ -521,6 +527,10 @@ a.close:hover {
         top: 20px;
         right: 15px;
     }
+    .fix.indexPass .index {
+        opacity: 0;
+    }
+    
 }
 
 @media only screen and (max-width: 414px) {
@@ -530,7 +540,8 @@ a.close:hover {
         bottom: -40vw;
     }
     body.show .bg_logo {
-        bottom: -15vh;
+        bottom: -40vw;
+        /* bottom: -10vw; */
     }
     .item {
         width: 7%;
@@ -549,11 +560,21 @@ a.close:hover {
         width: 200px;
         height: 200px;
     }
+    .mb{
+        display: inline-block;
+    }
 }
 @media only screen and (max-width: 375px) {
     .speakerBlock .photo {
         width: 170px;
         height: 170px;
+    }
+    section.lecturer ul.photo a b{
+        font-size: 13.5px;
+        white-space: nowrap;
+    }
+    section.agenda .dayBlock .des p{
+        font-size: 17px;
     }
 }  
 
@@ -561,6 +582,9 @@ a.close:hover {
     .speakerBlock .photo {
         width: 140px;
         height: 140px;
+    }
+    section.lecturer ul.photo a b{
+        font-size: 12.5px;
     }
 }  
 

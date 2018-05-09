@@ -8,6 +8,7 @@ section.index {
         width: 40%;
         max-width: 590px;
         text-align: center;
+        transform: translate3d(-50%, -50%, 500px);
         h2 {
             @include img-scale;
             margin: 0 auto;

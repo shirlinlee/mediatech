@@ -424,7 +424,7 @@ function onWindowScroll(e) {
         if( scroll_val >= ( agenda_end - bodyHeight/3) ) {
           $('.ani_lect1').addClass('animated');
         }
-        if( scroll_val >= ( agenda_end + $('.ani_lect1').height()/2 ) ) {
+        if( scroll_val >= ( agenda_end + $('.ani_lect1').height()/3 ) ) {
           $('.ani_lect2').addClass('animated');
           lecturerFirst = false;
         }

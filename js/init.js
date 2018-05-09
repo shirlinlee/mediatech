@@ -701,12 +701,13 @@ var indexCtrl = {
             preserveAspectRatio: 'xMidYMid meet'
         },
         path: 'js/data.json'
-
     },
     init() {
         indexCtrl.resize();
         indexCtrl.kv_ani();
-
+        // alert($('section.agenda').height()+','+ $('section.agenda .main').height());
+        // console.log($('section.agenda').height(), $('section.agenda .main').height());
+        
         //來自次頁回首頁
         var anchor = indexCtrl.getUrlParam("anchor");
         if (anchor !== null) {
@@ -855,14 +856,21 @@ var indexCtrl = {
     },
     timeTableSeelect(el) {
         var which = el.attr('data-lect');
-        // console.log(el.hasClass('show'))
+        // console.log(el.hasClass('show'));
         if (el.hasClass('show')) {
+            //收起
             el.removeClass('show').find('.speakerBlock').slideUp(700);
             return;
         } else {
-            var content = $body.find('.speakerBlock#lect_'+which);
-            el.addClass('show').append(content);
-            el.find('.speakerBlock').attr('id','').slideDown(700);
+            //展開
+            if(el.find('.speakerBlock').hasClass('done')) {
+                // console.log('點過')
+                el.addClass('show').find('.speakerBlock').slideDown(700);
+                return;
+            }
+            // console.log('沒點過')
+            var content = $body.find('.speakerBlock#lect_'+which).html();
+            el.addClass('show').find('.speakerBlock').addClass('done').html(content).slideDown(700);
         }
         
     }
