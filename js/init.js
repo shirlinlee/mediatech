@@ -1,15 +1,45 @@
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
 var countryUl = $('#country ul'),
     districtUl = $('#district ul'),
     submitTicketBtn = $('.btn_ticket'),
     $body = $('body'),
     bodyScroll = (window.opera) ? (document.compatMode == "CSS1Compat" ? $('html') : $('body')) : $('html,body'),
     anim;
+    
 
 var ticketCtr = {
     ticket_0: 0,
     ticket_1: 0,
     ticket_2: 0,
     init() {
+        gtag('config', 'UA-118988191-1', {
+            'page_title' : 'pv_ticket',
+            'page_path': '/ticket.html'
+        });
+
+        var date_now = new Date().getTime();
+        // 早鳥票期  5/31
+        // 一般票期  6/1-6/15
+        // 報名截止  6/15 23:59 (關閉報名頁)
+        
+        
+        if ( date_now >= new Date("June 16, 2018 00:00:00")){
+            // alert('活動Out');
+            window.location="/index.html";
+        } else if( date_now >= new Date("June 1, 2018 00:00:00") ){
+            $('#ticket_0').find('.placeholder').addClass('notAllow');
+            $('#ticket_1').find('.placeholder').removeClass('notAllow');
+            // alert('正常票');
+        } else {
+            $('#ticket_1').find('.placeholder').addClass('notAllow');
+            $('#ticket_0').find('.placeholder').removeClass('notAllow');
+            
+            // alert('早鳥票');
+        }
+
         ticketCtr.countryDataInit();
         $('.popup_ticket').addClass('hide');
         $body.append('<div id="loadPage"><div class="loader"></div></div>');
@@ -21,6 +51,7 @@ var ticketCtr = {
             })
             $('.select').on('click', '.placeholder', function(e) {
                 e.stopPropagation();
+                if($(this).hasClass('notAllow')) return;
                 ticketCtr.selectShowHandler($(this))
             });
             $('.select').on('click', 'li', function(e) {
@@ -84,7 +115,7 @@ var ticketCtr = {
             // console.log(ticketCtr.ticket_0);
             // console.log(ticketCtr.ticket_1);
             $('.total_person').text(ticketCtr.ticket_0 + ticketCtr.ticket_1 + ticketCtr.ticket_2);
-            $('.total_cost').text((ticketCtr.ticket_0 * 6000 + ticketCtr.ticket_1 * 8000 + ticketCtr.ticket_2 * 1000).toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+            $('.total_cost').text((ticketCtr.ticket_0 * 6000 + ticketCtr.ticket_1 * 8000 + ticketCtr.ticket_2 * 2000).toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
         }
 
     },
@@ -124,6 +155,8 @@ var ticketCtr = {
     },
     formPost(e) {
         e.preventDefault();
+
+        gtag('event', 'click', { event_category: 'send_form', event_action: 'ticket_click'});
         submitTicketBtn.off('click');
         $body.find('#loadPage').addClass('show');
 
@@ -228,6 +261,8 @@ var ticketCtr = {
             contentType: 'application/json; charset=utf-8',
             success: function(response) {
                 console.log(response);
+                gtag('event', 'click', { event_category: 'send_form', event_action: 'ticket_sent_success' })
+        
                 $('.popup_ticket').fadeIn('400', function() {
                     $(this).removeClass('hide');
                     $(this).find('a').on('click', function() {
@@ -631,7 +666,6 @@ var areaData = {
     }
 }
 
-
 var menuCtrl = {
     init() {
         $(".menu-toggle").on('click touchstart', function(e) {
@@ -653,15 +687,17 @@ var menuCtrl = {
         $('.menu-section,.menu-toggle').toggleClass("on");
     },
     scrollPage(pc, page, el) {
+        gtag('event', 'click', { event_category: 'Menu_click', event_action: (el==="wrap")? 'btn_index': 'btn_'+el });
+
         if (page === 'index') {
             if (pc) {
                 // console.log(pc, page, el);
                 
-                if( el !== "agenda" ){
+                // if( el !== "agenda" ){
                     bodyScroll.animate({ scrollTop: $('.' + el).offset().top }, 800);
-                } else {
-                    bodyScroll.animate({ scrollTop: $('.trans_for_agenda').offset().top }, 800);
-                }
+                // } else {
+                    // bodyScroll.animate({ scrollTop: $('.trans_for_agenda').offset().top }, 800);
+                // }
                 $('.menu-section,.menu-toggle').removeClass("on");
             } else {
                 // console.log(pc, page, el);
@@ -703,6 +739,12 @@ var indexCtrl = {
         path: 'js/data.json'
     },
     init() {
+
+        gtag('config', 'UA-118988191-1', {
+            'page_title' : 'pv_index',
+            'page_path': '/index.html'
+        });
+
         indexCtrl.resize();
         indexCtrl.kv_ani();
         // alert($('section.agenda').height()+','+ $('section.agenda .main').height());
@@ -721,6 +763,8 @@ var indexCtrl = {
             anim.play();
         }
         window.history.pushState("", "", "index.html");
+
+        if ( windowWidth <= 768 ) $('.transparent').css({ height: windowHeight });
 
         // var wow = new WOW(
         //     {
@@ -742,7 +786,7 @@ var indexCtrl = {
 
         $('.index_scroll').on('click', function() {
             $('.scroll').trigger('click');
-        })
+        });
 
         $('.scroll').on('click touchstart', function() {
             bodyScroll.animate({ scrollTop: $('.introduce').offset().top }, 800);
@@ -759,6 +803,7 @@ var indexCtrl = {
 
         $body.on('click', '.timeClick', function(e) {
             e.preventDefault();
+            e.stopPropagation();
             console.log('timeClick');
             indexCtrl.timeTableSeelect($(this));
         });
@@ -810,7 +855,8 @@ var indexCtrl = {
     },
     openAgenda(el) {
         var which = el.attr('id');
-        console.log(which);
+        gtag('event', 'click', { event_category: 'Agenda_click', event_action: (which === 'agenda2')?'btn_Day2':'btn_Day1' })
+        
         bodyScroll.addClass('popup');
         indexCtrl.$schedule.addClass('show');
         indexCtrl.$speaker.removeClass('show');
@@ -872,6 +918,12 @@ var indexCtrl = {
             var content = $body.find('.speakerBlock#lect_'+which).html();
             el.addClass('show').find('.speakerBlock').addClass('done').html(content).slideDown(700);
         }
+        el.find('.speakerBlock').on('click',function(e){
+            e.preventDefault();
+            e.stopPropagation();
+            el.removeClass('show').find('.speakerBlock').slideUp(700);
+        })
+
         
     }
 }
@@ -883,7 +935,6 @@ $(function() {
     } else if (page === 'ticket') {
         ticketCtr.init();
     }
-    console.log(page);
     menuCtrl.init();
 
 

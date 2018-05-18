@@ -10,15 +10,10 @@ a {
     text-decoration: none;
 }
 
-html {
-    height: 100%;
-}
-
 body {
     background-color: #ffffff;
     @include font-source(18px, 400, $h-grey);
     @include font-noto(18px, 400, $h-grey);
-    height: 100%;
 }
 
 h1 {
@@ -240,7 +235,6 @@ a.btn_popup_ticket {
 
 .wrap {
     width: 100%;
-    height: 100%;
 }
 
 section {
@@ -300,6 +294,12 @@ section.lecturer {
                 font-size: 30px;
                 color: $h-green;
                 margin-bottom: 2px;
+                font-weight: 300;
+            }
+            span.eng {
+                font-weight: 200;
+                letter-spacing: 0;
+                font-size: 28px;
             }
             b {
                 font-size: 16px;
@@ -385,25 +385,56 @@ section.lecturer {
     }
 }
 
+
+
+
+b.engStyle {
+    display: block;
+    font-size: 16px;
+    margin-top: 10px;
+    font-weight: 200;
+    letter-spacing: 0;
+}
+
+
 footer {
     margin: 0 auto;
-    padding: 20px;
+    padding: 100px 0px;
     @include box;
     width: 100%;
-    text-align: center;
-    margin-top: 50px;
-    font-size: 13px;
-    line-height: 18px;
-    p {
-        display: block;
-        @media only screen and (max-width: 375px) {
-            display: none;
+
+    .wrap {
+        width: 90%;
+        max-width: 1000px;
+        margin: 0 auto;
+        font-weight: 800;
+        .logo_area_01 {
+            display: inline-block;
+            vertical-align: top;
+            line-height: 100px;
+            margin-right: 50px;
+            p {
+                line-height: 10px;
+            }
+            img {
+                display: inline-block;
+                margin: 30px 35px 0px 0px;
+                vertical-align: middle;
+            }
         }
-    }
-    p.phone {
-        display: none;
-        @media only screen and (max-width: 375px) {
-            display: block;
+
+        .logo_area_02 {
+            width: 100%;
+            margin-top: 60px;
+            line-height: 0px;
+            img {
+                margin-right: 30px;
+            }
+        }
+        .logo_area_mobile {
+            @media only screen and (min-width: 320px) and (max-width: 780px) {
+                margin-top: 60px;
+            }
         }
     }
 }

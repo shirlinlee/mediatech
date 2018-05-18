@@ -21,7 +21,7 @@ var container,
     scrolling = false,
     bodyHeight = window.innerHeight,
     $introduce = $('.introduce'),
-    $agenda = (window.innerWidth >= 1366 )? $('.trans_for_agenda'): $('.agenda'),
+    $agenda = $('.agenda'),
     intro_top = $introduce.offset().top,
     intro_bottom = $introduce.height(),
     agenda_end = $agenda.offset().top + $agenda.height();

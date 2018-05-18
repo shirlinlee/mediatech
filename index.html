@@ -4,16 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>MEDIA TECH</title>
+    <title>MediaTech 2018 媒體科技大會</title>
     <!-- facebook share -->
+    <meta name="description" content="2018《Media Tech》由滾石文化主辦，是一個匯集行銷創意與數位科技開發者的展示平台！《Media Tech》的任務是「發現、展示、媒合」，7月10日至11日，共2場貴賓主題演講、5場媒體科技趨勢報告與9場媒體科技產品發表，《Media Tech》將催化文化創意與數位科技整合、成果展示及創新作品發表、媒合新創與行銷產業，創造出開發者產品交流應用機會！">
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="" />
-    <meta property="og:description" content="" />
-    <meta property="og:image" content="" />
+    <meta property="og:title" content="MediaTech 2018 媒體科技大會" />
+    <meta property="og:description" content="2018《Media Tech》由滾石文化主辦，是一個匯集行銷創意與數位科技開發者的展示平台！《Media Tech》的任務是「發現、展示、媒合」，7月10日至11日，共2場貴賓主題演講、5場媒體科技趨勢報告與9場媒體科技產品發表，《Media Tech》將催化文化創意與數位科技整合、成果展示及創新作品發表、媒合新創與行銷產業，創造出開發者產品交流應用機會！" />
+    <meta property="og:image" content="https://mediatech2018.webgene.com.tw/img/share.jpg" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="format-detection" content="telephone=no">
     <!-- favicon -->
     <link rel="icon" href="img/favicon.ico">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-118988191-1"></script>
+
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/0.1.12/wow.min.js"></script> -->
@@ -24,8 +27,8 @@
 
     <link rel="stylesheet" href="css/animate.min.css">
     <!-- css style -->
-    <link rel="stylesheet" href="css/style.css?v=0503">
-    <link rel="stylesheet" href="css/init.css?v=0509">
+    <link rel="stylesheet" href="css/style.css?v=0518">
+    <link rel="stylesheet" href="css/init.css?v=051812">
 
     <!--[if gt IE 9]>
     <script src="js/vendor/html5shiv.js"></script>
@@ -50,7 +53,7 @@
     <header>
         <!-- navigation -->
         <nav>
-            <a href="index.html"><img src="img/navi_logo.png"></a>
+            <a href="index.html" onclick="gtag('event', 'click', { event_category: '首頁', event_action: 'btn_logo'});"><img src="img/navi_logo.png"></a>
             <ul>
                 <li data-anchor="contact" data-page="index"><a href="">聯絡我們</a></li>
                 <li data-anchor="traffic" data-page="index"><a href="">交通資訊</a></li>
@@ -148,9 +151,15 @@
                 <div class="intro_text">
                     <div class="wording wow w0 fadeInUp">
                         <span><img src="img/MT.png" alt=""></span>
-                        <p>2018《Media Tech》由滾石文化主辦，是一個匯集行銷創意與數位科技開發者的展示平台！《Media Tech》的任務是「發現、展示、媒合」，7月10日至11日，共2場主題演講、6場媒體科技趨勢報告、與8場開發者作品發表，《Media Tech》將催化文化創意與數位科技整合、成果展示及創新作品發表、媒合新創與行銷產業，創造出開發者作品交流應用機會！
+                        <p>2018《Media Tech》由滾石文化主辦，是一個匯集行銷創意與數位科技開發者的展示平台！《Media Tech》的任務是「發現、展示、媒合」，7月10日至11日，共2場貴賓主題演講、5場媒體科技趨勢報告與9場媒體科技產品發表，《Media Tech》將催化文化創意與數位科技整合、成果展示及創新作品發表、媒合新創與行銷產業，創造出開發者產品交流應用機會！
+                            
                             <br>
-                            <br>過去以傳統媒體作為廣告行銷核心競爭力的時代悄聲落幕，當前此刻，一個以「科技優先」的新時代已經降臨！不停推動科技創新的下一步，又是什麼？2018年《Media Tech》－「科技驅動行銷」，聚集產業焦點，以科技引爆「媒體＋科技」能量！</p>
+                            <br>過去以傳統媒體作為廣告行銷核心競爭力的時代悄聲落幕，當前此刻，一個以「科技優先」的新時代已經降臨！不停推動科技創新的下一步，又是什麼？2018年《Media Tech》－－「科技驅動行銷」，聚集產業焦點，以科技引爆「媒體＋科技」能量！
+                            <b class="engStyle">
+                                Media Tech 2018 is a platform with the purpose of integrating creative marketing and digital technology which organized by Rock Publications. The mission of Media Tech includes discovery, demonstration and matching. Media Tech will take place from July 10th to 11th, which covers 2 keynote speeches, 5 Media Tech trend observations and 9 Media Tech demonstrations. Media Tech will step up the chances for cultural creativity & digital technology, demonstrating & publishing innovative works, startups& industry matching.
+                            <br> "Technology First" era is coming! With “Technology drives marketing” as the theme, Media Tech 2018 focuses at industry gathering, triggering the power of “Media + Technology” !
+                            </b>
+                        </p>
                     </div>
                 </div>
                 <div class="general">
@@ -201,35 +210,40 @@
             </div>
         </section>
         <!-- 議程介紹 -->
-        <div class="trans_for_agenda transparent"></div>
-        <div class="fix ag">
-            <div class="index_scroll"></div>
-            <section class="agenda">
-                <canvas id="canvas"></canvas>
-                <div class="poA"></div>
-                <div class="main">
-                    <h1>議程介紹</h1>
-                    <div class="dayBlock">
-                        <div class="time"><span><b>7/10 (二)</b>DAY1</span></div>
-                        <div class="des">
-                            <p>《Media Tech》揭開首日序幕，以「科技驅動行銷」為主軸創新概念！邀集重量級平台於這場盛會，探索迎向未來的所有可能性與發展！作為數位與媒體平台間的互動橋樑，《Media Tech》同時舉辦開發者作品發表，欲曝光交流創新作品，創造新媒體商機！</p>
-                            <div class="btnBox">
-                                <a href="" class="btn see_agenda" id="agenda1">MORE</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="dayBlock">
-                        <div class="time"><span><b>7/11 (三)</b>DAY2</span></div>
-                        <div class="des">
-                            <p>一場探索「媒體＋科技」之旅，就在《Media Tech》！第二天將邀請知名數位與媒體公司，透過跨界深入交流，激盪科技新知與創新技術，刺激產業發展！結束兩日交流後，將於台北君悅酒店舉辦大會晚宴，以佳餚盛宴完美落幕2018年《Media Tech》！</p>
-                            <div class="btnBox">
-                                <a href="" class="btn see_agenda" id="agenda2">MORE</a>
-                            </div>
+        <!-- <div class="trans_for_agenda transparent"></div> -->
+            
+        <section class="agenda"><div class="index_scroll"></div>
+            <canvas id="canvas"></canvas>
+            <div class="poA"></div>
+            <div class="main">
+                <h1>議程介紹</h1>
+                <div class="dayBlock">
+                    <div class="time"><span><b>7/10 (二)</b>DAY1</span></div>
+                    <div class="des">
+                        <p>《Media Tech》揭開首日序幕，以「科技驅動行銷」為主軸創新概念！邀集重量級平台於這場盛會，探索迎向未來的所有可能性與發展！作為數位與媒體平台間的互動橋樑，《Media Tech》同時舉辦開發者作品發表，將曝光交流創新科技產品，創造新媒體商機！
+                            <b class="engStyle">On the first day of the event, Media Tech would be unveiled with “Technology-Driven Marketing” as the theme. Media Tech has invited hot shots from the industry to explore all possibilities and developments for the future! As an interactive bridge between digital and media platforms, Media Tech also holds demonstrations for publication which could be a chance to expose and exchange innovative works and create new opportunities!
+                            </b>
+                        </p>
+                        
+                        <div class="btnBox">
+                            <a href="" class="btn see_agenda" id="agenda1">MORE</a>
                         </div>
                     </div>
                 </div>
-            </section>
-        </div>
+                <div class="dayBlock">
+                    <div class="time"><span><b>7/11 (三)</b>DAY2</span></div>
+                    <div class="des">
+                        <p>一場探索「媒體＋科技」之旅，就在《Media Tech》！第二天將邀請知名數位與媒體公司，透過跨界深入交流，激盪科技新知與創新技術，刺激產業發展！結束兩日交流後，將於台北君悅酒店舉辦大會晚宴，以佳餚盛宴完美落幕2018年《Media Tech》！
+                            <b class="engStyle">A trip to explore the possibility of Media + Technology is at Media Tech! On the second day, Media Tech has invited renowned digital media companies to intensify cross-border communication and sharing, stimulate new knowledge in technology, and industrial development! The 2 day exciting agenda will set off new technology and create new values in the digital era! A trip to explore the possibilities of Media + Technology is just in Media Tech!
+                            </b>
+                        </p>
+                        <div class="btnBox">
+                            <a href="" class="btn see_agenda" id="agenda2">MORE</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
         <!-- 講師介紹 -->
         <section class="lecturer">
             <div class="main">
@@ -239,8 +253,15 @@
                         <li class="wow w1 fadeInUp see_lecturer" data-lect="0" data-wow-delay=".1s">
                             <a href="">
                                 <p><img src="img/photo/speacker/0710_0940-1010_ChrisKlotzbach.jpg" alt=""></p>
-                                <span>Christopher Klotzbach</span>
+                                <span class="eng">Christopher Klotzbach</span>
                                 <b>Flurry全球產品總監</b>
+                            </a>
+                        </li>
+                        <li class="wow w1 fadeInUp see_lecturer" data-lect="2" data-wow-delay=".1s">
+                            <a href="">
+                                <p><img src="img/photo/speacker/0710_1100-1130_GordonDomlija.jpg" alt=""></p>
+                                <span class="eng">Gordon Domlija</span>
+                                <b>WAVEMAKER大中華區<br/>首席執行官</b>
                             </a>
                         </li>
                         <li class="wow w1 fadeInUp see_lecturer" data-lect="1" data-wow-delay=".1s">
@@ -250,48 +271,44 @@
                                 <b>碚曦投資協作體<br/>創始人兼首席執行官</b>
                             </a>
                         </li>
-                        <li class="wow w1 fadeInUp see_lecturer" data-lect="2" data-wow-delay=".1s">
-                            <a href="">
-                                <p><img src="img/photo/speacker/0710_1100-1130_GordonDomlija.jpg" alt=""></p>
-                                <span>Gordon Domlija</span>
-                                <b>WAVEMAKER大中華區<br/>首席執行官</b>
-                            </a>
-                        </li>
                         <li class="wow w1 fadeInUp see_lecturer" data-lect="3" data-wow-delay=".1s">
                             <a href="">
-                                <p><img src="images/frame_blank.png" alt=""></p>
-                                <span>OOO</span>
-                                <b>PHD</b>
+                                <p><img src="img/photo/speacker/0710_1500-1530_関龍太郎.jpg" alt=""></p>
+                                <span>関龍太郎</span>
+                                <b>泰國電通資深創意總監暨<br/>
+                                    dentsu X 泰國<br class="mb"/>副執行創意總監
+                                </b>
                             </a>
                         </li>
                         <li class="wow w2 fadeInUp see_lecturer" data-lect="4" data-wow-delay=".2s">
                             <a href="">
-                                <p><img src="images/frame_blank.png" alt=""></p>
-                                <span>OOO</span>
-                                <b>cacaFly</b>
+                                <p><img src="img/photo/speacker/0710_1530-1600_林聖鈞.jpg" alt=""></p>
+                                <span>林聖鈞</span>
+                                <b>騰學廣告科技<br/>TenMax Adtech Lab<br/>營運總監</b>
                             </a>
                         </li>
                         <li class="wow w2 fadeInUp see_lecturer" data-lect="5" data-wow-delay=".2s">
                             <a href="">
-                                <p><img src="img/photo/speacker/0710_1500-1530_関龍太郎.jpg" alt=""></p>
-                                <span>関龍太郎</span>
-                                <b>泰國電通/DentsuX泰國<br/>副執行創意總監</b>
+                                <p><img src="img/photo/speacker/0710_1620-1650_Innity.jpg" alt=""></p>
+                                <span class="eng">Innity</span>
+                                <!-- <b>Innity</b> -->
                             </a>
                         </li>
                         <li class="wow w2 fadeInUp see_lecturer" data-lect="6" data-wow-delay=".2s">
+                            <a href="">
+                                <p><img src="img/photo/speacker/0711_1630-1700_鍾子偉.jpg" alt=""></p>
+                                <span>鍾子偉</span>
+                                <b>關鍵評論網<br/>共同創辦人暨執行長</b>
+                            </a>
+                        </li>
+                        <li class="wow w2 fadeInUp see_lecturer" data-lect="7" data-wow-delay=".2s">
                             <a href="">
                                 <p><img src="img/photo/speacker/0710_1600-1630_吳柏蒼.jpg" alt=""></p>
                                 <span>吳柏蒼</span>
                                 <b>KKFARM<br/>經營合夥人</b>
                             </a>
                         </li>
-                        <li class="wow w2 fadeInUp see_lecturer" data-lect="7" data-wow-delay=".2s">
-                            <a href="">
-                                <p><img src="images/frame_blank.png" alt=""></p>
-                                <span>OOO</span>
-                                <b>碚曦投資協作體<br/>創始人兼首席執行官</b>
-                            </a>
-                        </li>
+                        
 
                     </div>
                     <div class="ani_lect2">
@@ -306,36 +323,30 @@
                             <a href="">
                                 <p><img src="images/frame_blank.png" alt=""></p>
                                 <span>邱天雄</span>
-                                <b>世華多媒體執行長<br/>暨星洲媒體集團總經理
+                                <b>世華多媒體執行長<br/>世華媒體集團執行長暨<br/>馬來西亞優質媒體聯盟副主席
                                 </b>
                             </a>
                         </li>
                         <li class="wow w1 fadeInUp see_lecturer" data-lect="10" data-wow-delay=".3s">
                             <a href="">
-                                <p><img src="images/frame_blank.png" alt=""></p>
-                                <span>OOO</span>
-                                <b>等待講師提供中</b>
+                                <p><img src="img/photo/speacker/0711_1130-1230_GuyHearn.jpg" alt=""></p>
+                                <span class="eng">Guy Hearn</span>
+                                <b>宏盟媒體集團亞太區創新長
+                                </b>
                             </a>
                         </li>
-                        <li class="wow w1 fadeInUp see_lecturer" data-lect="11" data-wow-delay=".3s">
+                        <li class="wow w1 fadeInUp see_lecturer" data-lect="12" data-wow-delay=".3s">
                             <a href="">
-                                <p><img src="images/frame_blank.png" alt=""></p>
-                                <span>OOO</span>
-                                <b>D2C</b>
-                            </a>
-                        </li>
-                        <li class="wow w2 fadeInUp see_lecturer" data-lect="12" data-wow-delay=".4s">
-                            <a href="">
-                                <p><img src="img/photo/speacker/0711_1430-1500_劉震紳.jpg" alt=""></p>
-                                <span>劉震紳</span>
-                                <b>康泰納仕<br/>董事總經理/發行人</b>
+                                <p><img src="img/photo/speacker/0711_1430-1530_D2C.jpg" alt=""></p>
+                                <span class="eng">D2C</span>
+                                <!-- <b>D2C</b> -->
                             </a>
                         </li>
                         <li class="wow w2 fadeInUp see_lecturer" data-lect="13" data-wow-delay=".4s">
                             <a href="">
-                                <p><img src="images/frame_blank.png" alt=""></p>
-                                <span>OOO</span>
-                                <b>等待講師提供中</b>
+                                <p><img src="img/photo/speacker/0711_1430-1500_劉震紳.jpg" alt=""></p>
+                                <span>劉震紳</span>
+                                <b>康泰納仕<br/>董事總經理/發行人</b>
                             </a>
                         </li>
                         <li class="wow w2 fadeInUp see_lecturer" data-lect="14" data-wow-delay=".4s">
@@ -345,13 +356,7 @@
                                 <b>凱絡媒體數位行銷<br/>總經理</b>
                             </a>
                         </li>
-                        <li class="wow w2 fadeInUp see_lecturer" data-lect="15" data-wow-delay=".4s">
-                            <a href="">
-                                <p><img src="img/photo/speacker/0711_1630-1700_鍾子偉.jpg" alt=""></p>
-                                <span>鍾子偉</span>
-                                <b>關鍵評論網<br/>共同創辦人暨執行長</b>
-                            </a>
-                        </li>
+                        
                     </div>
                 </ul>
             </div>
@@ -363,8 +368,8 @@
                 <ul class="priceForm wow w1 fadeInUp" data-wow-delay=".1s">
                     <li>
                         <p class="w-1 green"><span>分類</span></p>
-                        <p class="w-1 green"><span>早鳥費用<b>(2018/05/20前)</b></span></p>
-                        <p class="w-1 green"><span>全額<b>(2018/05/20後)</b></span></p>
+                        <p class="w-1 green"><span>早鳥費用<b>(2018/05/31前)</b></span></p>
+                        <p class="w-1 green"><span>全額<b>(2018/06/01起)</b></span></p>
                     </li>
                     <li>
                         <p class="w-1"><span>國內與會者議程活動</span></p>
@@ -378,25 +383,28 @@
                 </ul>
                 <ul class="schedule wow w2 fadeInUp" data-wow-delay=".2s">
                     <li>
-                        <p><span>5月<b>07</b></span></p>
+                        <p><span>5月<b>21</b></span></p>
                         <span>開放線上報名<b>(早鳥優惠開放)</b></span></li>
                     <li>
-                        <p><span>5月<b>20</b></span></p>
+                        <p><span>5月<b>31</b></span></p>
                         <span>早鳥優惠結束</span></li>
                     <li>
-                        <p><span>6月<b>10</b></span></p>
+                        <p><span>6月<b>15</b></span></p>
                         <span>報名截止</span></li>
                     <li>
-                        <p><span>6月<b>20</b></span></p>
+                        <p><span>6月<b>22</b></span></p>
                         <span>繳費最後期限</span></li>
                     <li>
-                        <p><span>6月<b>25</b></span></p>
+                        <p><span>7月<b>05</b></span></p>
                         <span>寄發報到提醒函</span></li>
                     <li>
-                        <p><span>7月<b>09</b></span></p>
+                        <p><span>7月<b>10</b></span></p>
                         <span>活動開始</span></li>
                 </ul>
-                <a href="/ticket.html" class="btn wow w3 fadeInUp" data-wow-delay=".3s">線上報名</a>
+                <p class="inform wow w3 fadeInUp" data-wow-delay=".3s">若為海外參加者，請與Jasmine Chen 聯繫註冊報名事宜 (+886-2-2721-6121 #370／jasmine.chen@rock.com.tw) <br/>
+                    <b class="engStyle">Overseas registration please contact Ms. Jasmine Chen (+886-2-2721-6121 #370／jasmine.chen@rock.com.tw)</b>
+                </p> 
+                <a href="/ticket.html" onclick="gtag('event', 'click', { event_category: 'singUp_click', event_action:'btn_register2' });" class="btn wow w3 fadeInUp" data-wow-delay=".3s">線上報名</a>
             </div>
         </section>
         <!-- 交通資訊 -->
@@ -455,7 +463,8 @@
             <h1>聯絡我們</h1>
             <div class="main">
                 <div class="fbPlugin">
-                    <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FCF.NOTE%2F&tabs=timeline&width=315&height=440&small_header=false&adapt_container_width=true&hide_cover=true&show_facepile=false&appId=1094957320534192" width="315"
+                    <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fpg%2Fadm23915168
+                    &tabs=timeline&width=315&height=440&small_header=false&adapt_container_width=true&hide_cover=true&show_facepile=false&appId=1094957320534192" width="315"
                         height="440" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
                 </div>
                 <ul class="wording">
@@ -472,7 +481,57 @@
         </section>
     </div>
     <!-- footer -->
-    <footer></footer>
+    <footer>
+        <div class="wrap">
+            <div class="logo_area_01">
+                <p>主辦單位</p>
+                <img src="img/sponser/logo_rock.png" alt="">
+                <img src="img/sponser/logo_adm.png" alt="">
+            </div>
+            <div class="logo_area_01 logo_area_mobile">
+                <p>主視覺設計</p>
+                <img src="img/sponser/logo_dm.png" alt="">
+            </div>
+            <div class="logo_area_01 logo_area_mobile">
+                <p>網站設計</p>
+                <img src="img/sponser/logo_webgene.png" alt="">
+            </div>
+            <div class="logo_area_01 logo_area_02">
+                <p>大會合作夥伴</p>
+                <img src="img/sponser/logo_cacafly.png" alt="">
+                <img src="img/sponser/logo_line.png" alt="">
+                <img src="img/sponser/logo_mbat.png" alt="">
+                <img src="img/sponser/logo_mppm.png" alt="">
+                <img src="img/sponser/logo_nmea.png" alt="">
+                <img src="img/sponser/logo_oath.png" alt="">
+                <img src="img/sponser/logo_hyatt.png" alt="">
+            </div>
+            <div class="logo_area_01 logo_area_02">
+                <p>會議合作夥伴</p>
+                <img src="img/sponser/logo_carat.png" alt="">
+                <img src="img/sponser/logo_d2c.png" alt="">
+                <img src="img/sponser/logo_dentsux.png" alt="">
+                <img src="img/sponser/logo_GQ.png" alt="">
+                <img src="img/sponser/logo_iab.png" alt="">
+                <img src="img/sponser/logo_innity.png" alt="">
+                <img src="img/sponser/logo_KKFARM.png" alt="">
+                <img src="img/sponser/logo_mcil.png" alt="">
+                <img src="img/sponser/logo_omg.png" alt="">
+                <img src="img/sponser/logo_tenmax.png" alt="">
+                <img src="img/sponser/logo_tnl.png" alt="">
+                <img src="img/sponser/logo_vogue.png" alt="">
+                <img src="img/sponser/logo_wm.png" alt="">
+                <img src="img/sponser/logo_withinlink.png" alt="">
+            </div>
+            <div class="logo_area_01 logo_area_02">
+                <p>大會合作夥伴</p>
+                <img src="img/sponser/logo_hitfm.png" alt="">
+                <img src="img/sponser/logo_ilook.png" alt="">
+                <img src="img/sponser/logo_pixnet.png" alt="">
+                <img src="img/sponser/logo_vogue2.png" alt="">
+            </div>
+        </div>
+    </footer>
 
     <!-- ======================= 議程 ========================= -->
     <section class="schedule">
@@ -485,58 +544,137 @@
                     DAY1<span>7/10(二)</span>
                 </div>
                 <ul class="timetable">
+                    <li>
+                        <p><span class="time greenColor">09:30<b>-</b>09:40</span><span class="title">開幕儀式<b class="engStyle">Opening</b></span></p>
+                        <p>致歡迎詞<b class="engStyle">Welcome Speech</b></p>
+                        <p><span class="greenColor">Oath</span></p>
+                    </li>
                     <li class="timeClick" data-lect="0">
                         <p>
-                            <span class="time greenColor">09:40<b>-</b>10:10</span><span class="title">貴賓主題演講1</span>
+                            <span class="time greenColor">09:40<b>-</b>10:40</span><span class="title">貴賓主題演講1
+                                <b class="engStyle">Keynote Speech 1</b>
+                            </span>
                         </p>
-                        <p>講師題目</p>
+                        <p>Flurry’s State of Mobile 2018</p>
                         <p>
-                            <span class="greenColor">Christopher Klotzbach</span> / Flurry全球產品總監
+                            <span class="greenColor eng">Christopher Klotzbach</span> / Flurry全球產品總監
+                            <b class="engStyle"> Christopher Klotzbach / Director, Flurry From Yahoo </b>
                         </p>
                         <div class="speakerBlock"></div>
                     </li>
+                    <li>
+                        <p><span class="time greenColor">10:40<b>-</b>11:00</span><span class="title">中場休息<b class="engStyle">Coffee Break </b></span></p>
+                        <p></p>
+                        <p></p>
+                    </li>
                     <li class="timeClick" data-lect="1">
-                        <p><span class="time greenColor">10:30<b>-</b>11:00</span><span class="title">貴賓主題演講1</span></p>
-                        <p>講師題目</p>
-                        <p><span class="greenColor">李倩玲</span> / 碚曦投資協作體創始人兼首席執行官</p>
+                        <p>
+                            <span class="time greenColor">11:00<b>-</b>11:30</span><span class="title">
+                                媒體科技趨勢報告 1
+                                <b class="engStyle">Media Tech Trend Observation 1</b>
+                            </span>
+                        </p>
+                        <p>你是白羊還是黑羊？
+                           <b class="engStyle">Are You a Sheep?</b>
+                        </p>
+                        <p>
+                            <span class="greenColor">李倩玲</span> / 碚曦投資協作體創始人兼首席執行官
+                            <b class="engStyle">Bessie Lee / Founder& CEO, Withinlink 
+                            </b>
+                        </p>
                         <div class="speakerBlock"></div>
                     </li>
                     <li class="timeClick" data-lect="2">
-                        <p><span class="time greenColor">11:00<b>-</b>11:30</span><span class="title">貴賓主題演講1</span></p>
-                        <p>講師題目</p>
-                        <p><span class="greenColor">Gordon Domlija</span> / WAVEMAKER大中華區首席執行官</p>
+                        <p><span class="time greenColor">11:30<b>-</b>12:30</span><span class="title">
+                                媒體科技趨勢報告 2
+                                <b class="engStyle">Media Tech Trend Observation 2</b>
+                            </span>
+                        </p>
+                        <p></p>
+                        <p><span class="greenColor eng">Gordon Domlija</span> / WAVEMAKER大中華區首席執行官<b class="engStyle">Gordon Domlija, CEO, WAVEMAKER Greater China</b></p>
                         <div class="speakerBlock"></div>
                     </li>
                     <li class="timeClick" data-lect="3">
-                        <p><span class="time greenColor">11:30<b>-</b>12:00</span><span class="title">貴賓主題演講1</span></p>
-                        <p>講師題目</p>
-                        <p><span class="greenColor">OOO</span> / PHD</p>
+                        <p><span class="time greenColor">14:30<b>-</b>15:30</span><span class="title">
+                                媒體科技產品發表 1
+                                <b class="engStyle">Media Tech Demonstration 1</b> 
+                            </span>
+                        </p>
+                        <p>何謂創意事業的創新 <br/>
+                            創新不止於科技，是改變人類行為
+                            <b class="engStyle">What is the innovation for Creative Business
+                            Innovation is not just Technology, 
+                            it is about changing human behavior.</b>
+                        </p>
+                        <p><span class="greenColor">関龍太郎</span> / 泰國電通資深創意總監暨dentsu X 泰國副執行創意總監
+                            <b class="engStyle">Ryutaro Seki / Senior Creative Director, DENTSU THAILAND
+                            & Deputy Executive Creative Director, dentsu X Thailand
+                            </b>
+                        </p>
                         <div class="speakerBlock"></div>
                     </li>
                     <li class="timeClick" data-lect="4">
-                        <p><span class="time greenColor">14:30<b>-</b>15:00</span><span class="title">貴賓主題演講1</span></p>
-                        <p>講師題目</p>
-                        <p><span class="greenColor">OOO</span> / cacaFly</p>
+                        <p><span class="time greenColor">14:30<b>-</b>15:30</span><span class="title">
+                                媒體科技產品發表 2
+                                <b class="engStyle">Media Tech Demonstration 2 
+                                </b> 
+                            </span>
+                        </p>
+                        <p>飆速升級一鍵迎戰 影音廣告的數位衝鋒槍
+                            <b class="engStyle">Key To Win In The Digital Video Ad Market</b>
+                        </p>
+                        <p><span class="greenColor">林聖鈞</span> / 騰學廣告科技TenMax Adtech Lab營運總監
+                            <b class="engStyle">Jeremy Lin, Operation Director, TenMax Adtech Lab </b>
+                        </p>
                         <div class="speakerBlock"></div>
                     </li>
+                    <li>
+                        <p><span class="time greenColor">16:00<b>-</b>16:20</span><span class="title">中場休息<b class="engStyle">Coffee Break </b></span></p>
+                        <p></p>
+                        <p></p>
+                    </li>
+                    
                     <li class="timeClick" data-lect="5">
-                        <p><span class="time greenColor">15:00<b>-</b>15:30</span><span class="title">貴賓主題演講1</span></p>
-                        <p>講師題目</p>
-                        <p><span class="greenColor">関龍太郎</span> / 泰國電通\Dentsu X 泰國副執行創意總監</p>
+                        <p><span class="time greenColor">16:20<b>-</b>16:50</span><span class="title">
+                                媒體科技產品發表 3
+                                <b class="engStyle">Media Tech Demonstration 3</b> 
+                            </span>
+                        </p>
+                        <p></p>
+                        <p><span class="greenColor">Innity</span></p>
                         <div class="speakerBlock"></div>
                     </li>
                     <li class="timeClick" data-lect="6">
-                        <p><span class="time greenColor">16:00<b>-</b>16:30</span><span class="title">貴賓主題演講1</span></p>
-                        <p>講師題目</p>
-                        <p><span class="greenColor">吳柏蒼</span> / KKFARM經營合夥人</p>
+                        <p><span class="time greenColor">16:50<b>-</b>17:20</span><span class="title">
+                                媒體科技產品發表 4
+                                <b class="engStyle">Media Tech Demonstration 4</b> 
+                            </span>
+                        </p>
+                        <p>新媒體與品牌行銷
+                           <b class="engStyle">New Media and Content Marketing</b>
+                        </p>
+                        <p><span class="greenColor">鍾子偉 / </span>關鍵評論網共同創辦人暨執行長
+                            <b class="engStyle">Joey Chung, Co-Founder& CEO, The News Lens</b>
+                        </p>
                         <div class="speakerBlock"></div>
                     </li>
                     <li class="timeClick" data-lect="7">
-                        <p><span class="time greenColor">16:30<b>-</b>17:00</span><span class="title">貴賓主題演講1</span></p>
-                        <p>講師題目</p>
-                        <p><span class="greenColor">OOO</span> /</p>
+                        <p><span class="time greenColor">17:20<b>-</b>17:50</span><span class="title">
+                                媒體科技產品發表 5
+                                <b class="engStyle">Media Tech Demonstration 5</b> 
+                            </span>
+                        </p>
+                        <p>如何在內容產業利用區塊鏈
+                        <b class="engStyle">Blockchain in Content Industry</b>
+                        </p>
+                        <p><span class="greenColor">
+                            吳柏蒼</span> / KKFARM經營合夥人
+                            <b class="engStyle">Pochang Wu Managing Partner, KKFARM 
+                            </b>
+                        </p>
                         <div class="speakerBlock"></div>
                     </li>
+                    
                 </ul>
             </div>
             <!--第二天-->
@@ -544,62 +682,115 @@
                 DAY2<span>7/11(三)</span>
             </div>
             <ul class="timetable">
+            
                 <li class="timeClick" data-lect="8">
                     <p>
-                        <span class="time greenColor">10:00<b>-</b>10:30</span><span class="title">貴賓主題演講1</span>
+                        <span class="time greenColor">09:40<b>-</b>10:10</span><span class="title">貴賓主題演講 2
+                            <b class="engStyle">Keynote Speech 2</b>
+                        </span>
                     </p>
-                    <p>行銷科技領域的新興企業</p>
+                    <p>從科技驅動立體行銷
+                        <b class="engStyle">How technology 
+                        drives marketing in a three dimensional way
+                        </b>
+                     </p>
                     <p>
                         <span class="greenColor">王俞蓉</span> / LINE台灣 廣告事業部副總經理
+                        <b class="engStyle">Susan Wang, Lead of Corporate Business Office, LINE TW </b>
                     </p>
                     <div class="speakerBlock"></div>
                 </li>
+                <li>
+                    <p><span class="time greenColor">10:10<b>-</b>10:30</span><span class="title">中場休息<b class="engStyle">Coffee Break </b></span></p>
+                    <p></p>
+                    <p></p>
+                </li>
                 <li class="timeClick" data-lect="9">
-                    <p><span class="time greenColor">10:50<b>-</b>11:20</span><span class="title">貴賓主題演講1</span></p>
-                    <p>行銷科技領域的新興企業</p>
-                    <p><span class="greenColor">邱天雄</span> / 世華多媒體執行長暨星洲媒體集團總經理</p>
+                    <p><span class="time greenColor">10:30<b>-</b>11:30</span><span class="title">媒體科技趨勢報告3
+                            <b class="engStyle">Media Tech Trend Observation 3 
+                            </b>
+                        </span>
+                    </p>
+                    <p></p>
+                    <p><span class="greenColor">邱天雄</span> / 世華媒體集團執行長暨馬來西亞優質媒體聯盟副主席
+                        <b class="engStyle">Keu Tien Siong / CEO, MCIL MULTIMEDIA SDN BHD& Vice Chairman, MPPM
+                        </b>
+                    </p>
                     <div class="speakerBlock"></div>
                 </li>
                 <li class="timeClick" data-lect="10">
-                    <p><span class="time greenColor">11:20<b>-</b>11:50</span><span class="title">貴賓主題演講1</span></p>
-                    <p>行銷科技領域的新興企業</p>
-                    <p><span class="greenColor">OOO</span> / </p>
+                    <p><span class="time greenColor">11:30<b>-</b>12:30</span><span class="title">媒體科技趨勢報告4
+                            <b class="engStyle">Media Tech Trend Observation 4 
+                            </b>
+                        </span>
+                    </p>
+                    <p></p>
+                    <p><span class="greenColor eng">Guy Hearn</span> / 宏盟媒體集團亞太區創新長<b class="engStyle">Gordon Domlija/ CEO, WAVEMAKER Greater China</b></p> 
                     <div class="speakerBlock"></div>
                 </li>
                 <li class="timeClick" data-lect="11">
-                    <p><span class="time greenColor">11:50<b>-</b>12:20</span><span class="title">貴賓主題演講1</span></p>
-                    <p>行銷科技領域的新興企業</p>
-                    <p><span class="greenColor">OOO</span> / D2C</p>
+                    <p><span class="time greenColor">12:30<b>-</b>13:30</span><span class="title">媒體科技趨勢報告5
+                        <b class="engStyle">Media Tech Trend Observation 5 
+                        </b>
+                    </span></p>
+                    <p></p>
+                    <p>邀請中</p>
                     <div class="speakerBlock"></div>
                 </li>
                 <li class="timeClick" data-lect="12">
-                    <p><span class="time greenColor">14:30<b>-</b>15:00</span><span class="title">貴賓主題演講1</span></p>
-                    <p>行銷科技領域的新興企業</p>
-                    <p><span class="greenColor">劉震紳</span> / 康泰納仕董事總經理 / 發行人</p>
+                    <p><span class="time greenColor">14:30<b>-</b>15:30</span><span class="title">媒體科技趨勢報告6
+                            <b class="engStyle">Media Tech Trend Observation 6 
+                            </b>
+                        </span></p>
+                    <p></p>
+                    <p><span class="greenColor">D2C</span></p>
                     <div class="speakerBlock"></div>
                 </li>
                 <li class="timeClick" data-lect="13">
-                    <p><span class="time greenColor">15:00<b>-</b>15:30</span><span class="title">貴賓主題演講1</span></p>
-                    <p>行銷科技領域的新興企業</p>
-                    <p><span class="greenColor">OOO</span> / </p>
+                    <p><span class="time greenColor">15:30<b>-</b>16:00</span><span class="title">媒體科技趨勢報告7
+                            <b class="engStyle">Media Tech Trend Observation 7 
+                            </b>
+                        </span></p>
+                    <p>
+                        大數據，媒體的未來語言
+                        <b class="engStyle">Data, the Future Language of Media</b>
+                    </p>
+                    <p><span class="greenColor">劉震紳</span> / 康泰納仕董事總經理 / 發行人
+                        <b class="engStyle">C.M Liu / Managing Director/ Publisher, Condé Nast International Group Taiwan
+                        </b>
+                    </p>
                     <div class="speakerBlock"></div>
                 </li>
+                <li>   
+                    <p><span class="time greenColor">16:00<b>-</b>16:20</span><span class="title">中場休息<b class="engStyle">Coffee Break </b></span></p>
+                    <p></p>
+                    <p></p>
+                </li>
                 <li class="timeClick" data-lect="14">
-                    <p><span class="time greenColor">16:00<b>-</b>16:30</span><span class="title">貴賓主題演講1</span></p>
-                    <p>行銷科技領域的新興企業</p>
-                    <p><span class="greenColor">盧人瑞</span> / 凱絡媒體數位行銷總經理</p>
+                    <p><span class="time greenColor">16:20<b>-</b>16:50</span><span class="title">媒體科技趨勢報告8
+                            <b class="engStyle">Media Tech Trend Observation 8 
+                            </b>
+                        </span>
+                    <p></p>
+                    <p><span class="greenColor">盧人瑞</span> / 凱絡媒體數位行銷總經理
+                        <b class="engStyle">JJ Lu / General Manager, Carat Interactive</b>
+                    </p>
                     <div class="speakerBlock"></div>
                 </li>
                 <li class="timeClick" data-lect="15">
-                    <p><span class="time greenColor">16:30<b>-</b>17:00</span><span class="title">貴賓主題演講1</span></p>
-                    <p>行銷科技領域的新興企業</p>
-                    <p><span class="greenColor">鍾子偉</span> / 關鍵評論網共同創辦人暨執行長</p>
+                    <p><span class="time greenColor">16:50<b>-</b>17:20</span><span class="title">媒體科技趨勢報告9
+                            <b class="engStyle">Media Tech Trend Observation 9 
+                            </b>
+                        </span>
+                    </p>
+                    <p></p>
+                    <p>邀請中</p>
                     <div class="speakerBlock"></div>
                 </li>
             </ul>
             <div class="btnBlock">
                 <!-- <a href="" class="btn see_lecturer" data-lect="0">講師介紹</a> -->
-                <a href="ticket.html" class="btn">立即報名</a>
+                <a href="ticket.html" class="btn" onclick="gtag('event', 'click', { event_category: 'singUp_click', event_action:'btn_seminar_register' });">立即報名</a>
             </div>
         </div>
     </section>
@@ -613,13 +804,16 @@
             <div class="speakerBlock" id="lect_0">
                 <div class="photo"><img src="img/photo/speacker/0710_0940-1010_ChrisKlotzbach.jpg" alt=""></div>
                 <div class="intro">
-                    <p class="name">Christopher Klotzbach</p>
+                    <p class="name eng">Christopher Klotzbach</p>
                     <p class="job">Flurry全球產品總監</p>
+                    <b class="engStyle">Christopher Klotzbach  /  Director, Flurry from Yahoo</b>    
                     <p class="des">Chris為產業領頭羊的Flurry Analytics團隊負責人。 在此之前，他負責Yahoo的行動產品策略和業務輔助，也催生了Gemini行動版原生廣告及相關的產品行銷及上市策略規劃。在加入Yahoo之前，Chris管理富比士網站的廣告交易平台和策略夥伴關係，並負責富比士網站於第三方平台上的廣告庫存管理及變現。Chris擁有波士頓大學的理學學士學位。                        
                     </p>
+                    <b class="engStyle">Chris leads the growth team for the industry-leading Flurry Analytics. Prior to this role, he was responsible for mobile product strategy and sales enablement at Yahoo; where he deployed Gemini mobile native ads for Yahoo properties and developed the go-to-market strategy for Yahoo sales team. Before Yahoo, Chris managed the ad exchange and network relationships for Forbes.com, overseeing the monetization of Forbes inventory on third party platforms. Chris holds a Bachelor of Science degree from Boston University.。</b>
                     <p class="agendaBlock">
-                        <span class="time">07/10(二) 09:40~10:10</span>
-                        <span class="topic">貴賓主題演講 1：講師題目 </span>
+                        <span class="time">07/10(二) 09:40~10:40</span>
+                        <span class="topic">貴賓主題演講 1 <b class="engStyle">Keynote Speech 1: Flurry’s State of Mobile 2018
+                            </b></span>
                     </p>
                 </div>
             </div>
@@ -628,100 +822,151 @@
                 <div class="intro">
                     <p class="name">李倩玲</p>
                     <p class="job">碚曦投資協作體創始人兼首席執行官</p>
-                    <p class="des">擁有28年大中華區媒體傳播資歷，曾任群邑集團中國首席執行官，並於2013年起任職WPP集團中國區首席執行官。作為中國傳媒界和行銷科技界領軍人物之一，李倩玲曾於坎城國際廣告節、金融時報Future of Marketing峰會以及RISE論壇擔任演講嘉賓，更擔任2017年Spikes Asia創新類獎項評審主席。她也在家庭服務機器人品牌Ecovacs Robotics任職獨立董事。作為中國無線行銷聯盟（Mobile Marketing Association）的創始人之一，李倩玲更當選為該聯盟聯合主席。
-                        目前，李倩玲所帶領的碚曦投資協作體專注在行銷科技領域的新興企業孵化器和早期風險投資機構，旨在協助中國媒體傳播行業發展。                        
+                    <b class="engStyle">Bessie Lee  /  Founder& CEO, Withinlink</b>    
+                    <p class="des">李倩玲，碚曦投資協作體創始人兼首席執行官。碚曦投資協作體專注在行銷科技領域的新興企業孵化和早期風險投資，旨在協助中國媒體傳播行業發展。
+                            李倩玲擁有28年大中華區媒體傳播行業資歷，在成立碚曦投資協作體之前，曾於2013年起任職WPP集團中國區首席執行官，並曾與2005年至2012年擔任群邑集團中國首席執行官。作為中國傳媒界和行銷科技界領軍人物之一，李倩玲曾於坎城國際廣告節、金融時報Future of Marketing峰會以及SXSW和TechCrunch 中國國際創新峰會擔任演講嘉賓，也曾擔任2017年Spikes Asia創新類獎項評審主席。同時，她也在家庭服務機器人品牌Ecovacs 任職獨立董事。作為中國無線行銷聯盟（Mobile Marketing Association）的創始人之一，李倩玲於2017年當選為該聯盟聯合主席。
                     </p>
+                    <b class="engStyle">Bessie Lee is Founder and CEO of Withinlink, a China-based startup incubator and early- stage venture fund focused on marketing technology that supports China’s media communications industry. With more than 28 years of experience in the media communications industry in Greater China, exclusively across a number of WPP companies, Bessie draws upon an extensive network of thought leaders as well as a team of C-suite media and marketing executives, investment professionals and entrepreneurs. Prior to founding her own company, she was CEO of GroupM China from 2005 to 2012 and became the CEO of WPP China since 2013.  As one of the most experienced and highly respected individuals in China’s media and martech industry, Bessie’s professional success is reflected in the many hats she wears as a frequent media commentator, blogger and a highly sought-after international public speaker, having presented many times at Cannes Lions’ International Festival of Creativity, FT Future of Marketing, SXSW and TechCunch China. Bessie was the Innovation Jury President at the Spikes Asia Awards 2017. She is an independent director on the board of Ecovacs, the world's second largest robotic appliance company, and the co-founder of the Mobile Marketing Association in China. Bessie is based in Shanghai.
+                        </b>
                     <p class="agendaBlock">
-                        <span class="time">07/10(二) 10:30~11:00</span>
-                        <span class="topic">媒體科技趨勢報告 1：講師題目 </span>
+                        <span class="time">07/10(二) 11:00~11:30</span>
+                        <span class="topic">媒體科技趨勢報告 1：你是白羊還是黑羊？<b class="engStyle">Media Tech Trend Observation 1： Are You a Sheep</b></span>
                     </p>
                 </div>
             </div>
             <div class="speakerBlock" id="lect_2">
                 <div class="photo"><img src="img/photo/speacker/0710_1100-1130_GordonDomlija.jpg" alt=""></div>
                 <div class="intro">
-                    <p class="name">Gordon Domlija</p>
+                    <p class="name eng">Gordon Domlija</p>
                     <p class="job">WAVEMAKER大中華區首席執行官</p>
+                    <b class="engStyle">Gordon Domlija /  CEO, WAVEMAKER Greater China</b>    
                     <p class="des">Gordon在英國和中國的媒體行銷產業有逾20年工作經驗，熟稔於媒體策劃、媒體購買和數位媒體傳播等領域，幫助公司營運和品牌傳播策略取得成功。
                         Gordon於2008年加入傳立媒體、2015年就任尚揚中國（MEC China）首席執行官。2017年底，群邑旗下的尚揚（MEC）與邁勢（Maxus）合併為全球年營收達10億美元的新型媒體代理商：Wavemaker，Gordon即被任命為WAVEMAKER大中華區首席執行官，負責其大中華區的業務發展和管理。
                         他服務的客戶有Nike、Jaguar-Land Rover、Ford、Volvo、HSBC和Kimberly Clark。Gordon曾負責中國最知名campaign，如Nike 2010世界盃宣傳廣告《Write the Future》、Nike體育節、Nike LDN2012，以及Jaguar攬勝極光車型發佈會。
                     </p>
+                    <b class="engStyle">Gordon was appointed CEO of MEC China in 2015. After MEC and Maxus announcing the merger in June 2017, Gordon was appointed CEO of WAVEMAKER Greater China, responsible for business development and management in Greater China.
+                            Gordon has more than 20 years’ media and marketing industry experience across the UK and China. In this time Gordon has worked across planning, buying, commercial and digital, which has given him a deep operational understanding of the agency business, and has helped establish a successful track record in agency leadership and development of brand communication strategy. 
+                            In 2008 Gordon moved to China to join Mindshare, and following leadership roles on the consolidated automotive business and then Unilever, Gordon was named Managing Director at Mindshare, responsible for agency management, business performance and strategic development for the multinational client portfolio, including; Nike, Jaguar-Land Rover, Ford, Volvo, HSBC and Kimberly Clark. 
+                            Here he worked on some of the most recognizable and award-winning campaigns developed in China, including Nike’s WC2010 Write the Future, Nike Festival of Sport, Nike LDN2012 and the Land Rover Evoque launch campaign. Latterly in his time at Mindshare Gordon also led the integrated business for L’Oreal in China. </b>
                     <p class="agendaBlock">
-                        <span class="time">07/10(二) 11:00~11:30</span>
-                        <span class="topic">媒體科技趨勢報告 2：講師題目</span>
+                        <span class="time">07/10(二) 11:30~12:30</span>
+                        <span class="topic">媒體科技趨勢報告 2
+                        <b class="engStyle">Media Tech Trend Observation 2</b></span>
                     </p>
                 </div>
             </div>
             <div class="speakerBlock" id="lect_3">
-                <div class="photo"><img src="images/frame_blank.png" alt=""></div>
+                <div class="photo"><img src="img/photo/speacker/0710_1500-1530_関龍太郎.jpg" alt=""></div>
                 <div class="intro">
-                    <p class="name">OOO</p>
-                    <p class="job">PHD</p>
-                    <p class="des">
+                    <p class="name">関龍太郎</p>
+                    <p class="job">泰國電通資深創意總監暨dentsu X 泰國副執行創意總監
                     </p>
+                    <b class="engStyle">Ryutaro Seki /  Senior Creative Director, DENTSU THAILAND
+                            & Deputy Executive Creative Director, dentsu X Thailand
+                            </b>    
+                    <p class="des">現任泰國電通資深創意總監暨dentsu X 泰國副執行創意總監，関龍太郎專攻傳播解決方案企畫以及數位、內容、媒體的結合手法，找尋最佳方案企劃並製作出媒體中立和整體的方式。
+                        憑藉在知名英國策略創意代理商Naked Communications工作的經驗，関龍太郎開始從策略上探討大眾廣告與獨特的創新技術方法。他也曾與Google Zoo創意技術團隊在Google紐約辦公室一同工作、交流計畫，以熟悉並擴展數位創意能力。
+                        関龍太郎曾獲多項國際大獎如，坎城國際創意獎（Cannes Lions）、金鉛筆獎（One Show）、亞太廣告獎（Adfest）、艾奇獎（ECI Award）、數位廣告大賞（CODE Award）與亞洲創意獎（Spikes Asia）等等。
+                    </p>
+                    <b class="engStyle">Ryutaro Seki is a Deputy Executive Creative Director specialized in communication solution planning and mixing among the digital, contents and media. Planning and producing the thing in a media neutral and/or holistic way by finding optimal method. 
+                            Taking advantage of experience from seconded to the strategic creative
+                            agency; Naked Communications, he became to approach strategically the objectives from both classes mass advertisement and/or unique inventive technological method. Also experienced an exchange program with Google/Zoo, working at google NY office for understanding and expanding digital creative capability. 
+                            Seki has received numerous international advertising awards such as Cannes Lions, One Show, Adfest, ECI Award, Dentsu Award, and Spikes Asia etc. 
+                            </b>
                     <p class="agendaBlock">
-                        <span class="time">07/10(二) 11:30~12:00</span>
-                        <span class="topic">媒體科技趨勢報告 3：講師題目 </span>
+                        <span class="time">07/10(二) 14:30-15:30</span>
+                        <span class="topic">媒體科技產品發表 1：何謂創意事業的創新
+                            創新不止於科技，是改變人類行為
+                            <b class="engStyle">Media Tech Demonstration 1 ：
+                            What is the innovation for Creative Business
+                            Innovation is not just Technology, 
+                            it is about changing human behavior.
+                            </b>
+                        </span>
                     </p>
                 </div>
             </div>
             <div class="speakerBlock" id="lect_4">
-                <div class="photo"><img src="images/frame_blank.png" alt=""></div>
+                <div class="photo"><img src="/img/photo/speacker/0710_1530-1600_林聖鈞.jpg" alt=""></div>
                 <div class="intro">
-                    <p class="name">OOO</p>
-                    <p class="job">cacaFly</p>
-                    <p class="des">擁有 28 年大中華區媒體傳播資歷，曾任群邑集團中國首席執行官，並於 2013 年起任職 WPP 集團中國區首席執行官。作為中國傳媒界和行銷科技界領軍人物之一，李倩玲曾於坎城國際廣告節、金融時報 Future of Marketing 峰會以及RISE論壇擔任演講嘉賓，更擔任 2017 年 Spikes Asia 創新類獎項評審主席。她也在家庭服務機器人品牌 Ecovacs Robotics 任職獨立董事。作為中國無線行銷聯盟（Mobile Marketing
-                        Association）的創始人之一，李倩玲更當選為該聯盟聯合主席。目前，李倩玲所帶領的碚曦投資協作體專注在行銷科技領域的新興企業孵化器和早期風險投資機構，旨在協助中國媒體傳播行業發展。
+                    <p class="name">林聖鈞</p>
+                    <p class="job">騰學廣告科技TenMax Adtech Lab營運總監</p>
+                    <b class="engStyle">Jeremy Lin  / Operation Director, TenMax Adtech Lab</b>    
+                    <p class="des">現任騰學廣告科技股份有限公司 TenMax Adtech Lab 營運總監，
+                            負責 TenMax 在台灣市場與馬來西亞等海外市場的商業合作與營運。
+                            擅長市場開發與產品策略，並維護重要夥伴的合作關係。
                     </p>
+                    <b class="engStyle">Operation Director of TenMax Adtech Lab <br/>  
+                            - Business and  Operation lead in Taiwan and Malaysia. <br/> 
+                            - Develop the go-to-market strategy for TenMax branches in SEA. <br/> 
+                            - Execution of operational strategies and management of operation team. <br/> 
+                            - Expertise in digital marketing and advertising technology.<br/> 
+                            - Consult and implement digital marketing strategies and ad tech solutions for partners and clients.
+                            </b>
                     <p class="agendaBlock">
-                        <span class="time">07/10(二) 14:30~15:00</span>
-                        <span class="topic">開發者作品發表 1：講師題目 
+                        <span class="time">07/10(二) 15:30-16:00</span>
+                        <span class="topic">媒體科技產品發表 2：
+                                飆速升級一鍵迎戰 影音廣告的數位衝鋒槍
+                            <b class="engStyle">Media Tech Demonstration 2 ：
+                                Key To Win In The Digital Video Ad Market</b>
                         </span>
                     </p>
                 </div>
             </div>
             <div class="speakerBlock" id="lect_5">
-                <div class="photo"><img src="img/photo/speacker/0710_1500-1530_関龍太郎.jpg" alt=""></div>
+                <div class="photo"><img src="/img/photo/speacker/0710_1620-1650_Innity.jpg" alt=""></div>
                 <div class="intro">
-                    <p class="name">関龍太郎</p>
-                    <p class="job">泰國電通 / Dentsu X 泰國副執行創意總監</p>
-                    <p class="des">現任泰國電通/Dentsu X 泰國副執行創意總監，関龍太郎專攻傳播解決方案企畫以及數位、內容、媒體的結合手法，找尋最佳方案企劃並製作出媒體中立和整體的方式。
-                        憑藉在知名英國策略創意代理商Naked Communications工作的經驗，関龍太郎開始從策略上探討大眾廣告與獨特的創新技術方法。他也曾與Google Zoo創意技術團隊在Google紐約辦公室一同工作、交流計畫，以熟悉並擴展數位創意能力。
-                        関龍太郎曾獲多項國際大獎如，坎城國際創意獎（Cannes Lions）、金鉛筆獎（One Show）、亞太廣告獎（Adfest）、艾奇獎（ECI Award）、數位廣告大賞（CODE Award）與亞洲創意獎（Spikes Asia）等等。
+                    <p class="name">Innity</p>
+                    <p class="job"></p>
+                    <b class="engStyle"></b>    
+                    <p class="des">
                     </p>
+                    <b class="engStyle"></b>
                     <p class="agendaBlock">
-                        <span class="time">07/10(二) 15:00~15:30</span>
-                        <span class="topic">開發者作品發表 2：講師題目 
+                        <span class="time">07/10(二) 16:20-16:50</span>
+                        <span class="topic">媒體科技產品發表 3 
+                            <b class="engStyle">Media Tech Demonstration 3</b>
                         </span>
                     </p>
-
                 </div>
             </div>
             <div class="speakerBlock" id="lect_6">
-                <div class="photo"><img src="img/photo/speacker/0710_1600-1630_吳柏蒼.jpg" alt=""></div>
+                <div class="photo"><img src="img/photo/speacker/0711_1630-1700_鍾子偉.jpg" alt=""></div>
                 <div class="intro">
-                    <p class="name">吳柏蒼</p>
-                    <p class="job">KKFARM經營合夥人</p>
-                    <p class="des">KKFARM經營合夥人，回聲樂團主唱，iNDIEVOX 創辦人。
+                    <p class="name">鍾子偉</p>
+                    <p class="job">關鍵評論網共同創辦人暨執行長</p>
+                    <b class="engStyle">Joey Chung  /  Co-Founder& CEO, The News Lens</b>    
+                    <p class="des">現任關鍵評論網共同創辦人暨執行長。前三麗鷗中國區總經理，美國三麗鷗企業開發部經理。哈佛商學院2009年畢業生。曾任職於美國紐約Ralph Lauren，瑞士銀行證券研究部，商周專欄作家，台灣模擬聯合國推展協會創會理事長。在媒體品牌、零售、行銷及國際事務方面都很有經驗。著有《22歲起，選那個不做會後悔的決定》（2015）、《放膽去闖: 上海職活的故事》（2013）、《18歲起，你的格局不一樣: 想像十年後的自己，做出最聰明的選擇》（2012）、《哈佛商學院教我的成功關鍵: 世界頂尖商學院的學習經驗》（2010）等多本暢銷書。
                     </p>
+                    <b class="engStyle">Joey Chung earned a Master's Degree in business administration from Harvard University in 2009. In 2011, he became General Manager of Sanrio China. He then returned to Taiwan and co-founded The News Lens in 2013,one of the fastest growing digital media in Asia that focuses on facts and also offers diverse perspectives of news and voices. Joey has written several books and is also a columnist of Business Weekly.
+                        </b>
                     <p class="agendaBlock">
-                        <span class="time">07/10(二) 16:00~16:30</span>
-                        <span class="topic">開發者作品發表 3 ：講師題目 
+                        <span class="time">07/11(三) 16:50-17:20</span>
+                        <span class="topic">媒體科技產品發表 4：新媒體與品牌行銷
+                            <b class="engStyle">Media Tech Demonstration 4 ：
+                                    New Media and Content Marketing
+                            </b>
                         </span>
                     </p>
                 </div>
             </div>
             <div class="speakerBlock" id="lect_7">
-                <div class="photo"><img src="images/frame_blank.png" alt=""></div>
+                <div class="photo"><img src="img/photo/speacker/0710_1600-1630_吳柏蒼.jpg" alt=""></div>
                 <div class="intro">
-                    <p class="name">OOO</p>
-                    <p class="job">碚曦投資協作體創始人兼首席執行官</p>
-                    <p class="des">擁有 28 年大中華區媒體傳播資歷，曾任群邑集團中國首席執行官，並於 2013 年起任職 WPP 集團中國區首席執行官。作為中國傳媒界和行銷科技界領軍人物之一，李倩玲曾於坎城國際廣告節、金融時報 Future of Marketing 峰會以及RISE論壇擔任演講嘉賓，更擔任 2017 年 Spikes Asia 創新類獎項評審主席。她也在家庭服務機器人品牌 Ecovacs Robotics 任職獨立董事。作為中國無線行銷聯盟（Mobile Marketing
-                        Association）的創始人之一，李倩玲更當選為該聯盟聯合主席。目前，李倩玲所帶領的碚曦投資協作體專注在行銷科技領域的新興企業孵化器和早期風險投資機構，旨在協助中國媒體傳播行業發展。
+                    <p class="name">吳柏蒼</p>
+                    <p class="job">KKFARM經營合夥人</p>
+                    <b class="engStyle">Pochang Wu /  Managing Partner, KKFARM
+                        </b>    
+                    <p class="des">KKFARM經營合夥人，回聲樂團主唱，iNDIEVOX 創辦人。
                     </p>
+                    <b class="engStyle">Managing Partner at KKFARM, frontman of Taiwanese indie rock band "Echo", founder of Taiwan's first e-music store iNDIEVOX
+                        </b>
                     <p class="agendaBlock">
-                        <span class="time">07/10(二) 16:30~17:00</span>
-                        <span class="topic">開發者作品發表 4：講師題目 
+                        <span class="time">07/10(二) 17:20-17:50
+                            </span>
+                        <span class="topic">媒體科技產品發表 5 ：如何在內容產業利用區塊鏈
+                            <b class="engStyle">Media Tech Demonstration 5 ：Blockchain in Content Industry
+                            </b>
                         </span>
                     </p>
                 </div>
@@ -731,12 +976,18 @@
                 <div class="intro">
                     <p class="name">王俞蓉</p>
                     <p class="job">LINE台灣 廣告事業部副總經理</p>
+                    <b class="engStyle">Susan Wang  / Lead of Corporate Business Office, LINE TW
+                        </b>    
                     <p class="des">王俞蓉自2017年加入LINE台灣擔任廣告事業部副總經理，負責帶領LINE在台灣的廣告事業團隊。在LINE從通訊軟體發展為智慧入口之際，提供廣告主結合社群、內容、生活，與科技的全方位媒體廣告方案，期許能為廣告主帶來輕鬆跨越線上線下的創新思維，並透過LINE，拉近與顧客之間的距離。
                         加入LINE台灣之前，王俞蓉曾擔任MEC媒體庫總經理，幫助廣告主全面走向數位化，創造卓越成績。此外，也在Yahoo台灣分公司擔任業務資深總監期間，累積超過15年深厚網路行銷業務經驗，擅長策略操盤，並成功打造許多經典品牌行銷案例。
                     </p>
+                    <b class="engStyle">Susan joined LINE TW as Lead of Corporate Business Office from 2017; together with her team, they aim to provide a total ads solution to fulfill clients’ needs. LINE Ads solution contained the solution from social, content, living to technology; also breaking the line between online and offline, it indeed closes the distance between clients and their customers.</b>
                     <p class="agendaBlock">
-                        <span class="time">07/11(三) 10:00~ 10:30</span>
-                        <span class="topic">貴賓主題演講 2：講師題目 
+                        <span class="time">07/11(三) 09:40-10:10</span>
+                        <span class="topic">貴賓主題演講 2：從科技驅動立體行銷
+                            <b class="engStyle">Keynote Speech 2：How technology 
+                                    drives marketing in a three dimensional way
+                            </b>
                         </span>
                     </p>
                 </div>
@@ -745,119 +996,167 @@
                 <div class="photo"><img src="images/frame_blank.png" alt=""></div>
                 <div class="intro">
                     <p class="name">邱天雄</p>
-                    <p class="job">世華多媒體執行長暨星洲媒體集團總經理
+                    <p class="job">世華媒體集團執行長暨馬來西亞優質媒體聯盟副主席
+                    <b class="engStyle">Keu Tien Siong  /  CEO, MCIL MULTIMEDIA SDN BHD& Vice Chairman, MPPM
+                        </b>    
                     </p>
                     <p class="des">世華多媒體執行長暨星洲媒體集團總經理邱天雄，2001年加入星洲媒體集團，自2012年起，他被委任為星洲媒體子公司──世華多媒體有限公司首席執行長，帶領數位科技團隊為集團開發新媒體事業。另外，邱天雄也開發了星洲網新聞網站、星洲電子報，百格時視（Pocketimes.my）網路視頻平臺和熱購（LOGON.my）電商平台。2016、2017年，邱天雄分別主辦了亞洲數碼行銷論壇與LOGON電子商務論壇。2016年他受任命為馬來西亞世華媒體執行委員會新媒體小組主席，負責協調集團內的新媒體開發和策略專案。邱天雄熱心公益，不僅是雪州萬達鎮佛學會弘法組理事，也曾為推動癌症運動籌款而落髮，亦曾舉辦義賣會、馬拉松義跑等公益活動。
                     </p>
+                    <b class="engStyle">Keu Tien Siong, Aged 44, is the General Manager (Group ICT) of Sin Chew Media Corporation Berhad (SCMC), the publisher of the leading Chinese Daily in Malaysia, Sin Chew Daily cum the CEO of MCIL Multimedia Sdn Bhd, the subsidiary and the digital arm of SCMC. Mr. Keu has appointed to chair the Group New Media Committee under Malaysia Exco in 2016.
+                            He joined SCMC media group in 2001 as IT Manager (Planning and Development). He is currently overseeing the ICT and Digital business in Malaysia of Media Chinese International Limited. Digital Businesses including Sin Chew Online, China Press News portal, Nanyang Online and Guang Ming Online, Pocketimes video channel and Logon e-marketplace.
+                            He is a local and international well known speaker in the area of digital media, online video and e-commerce.
+                    </b>
                     <p class="agendaBlock">
-                        <span class="time"> 07/11(三) 10:50~ 11:20</span>
-                        <span class="topic">媒體科技趨勢報告 4：講師題目 
+                        <span class="time"> 07/11(三) 10:30-11:30 </span>
+                        <span class="topic">媒體科技趨勢報告 3
+                            <b class="engStyle">Media Tech Trend Observation3 </b>
                         </span>
                     </p>
                 </div>
             </div>
             <div class="speakerBlock" id="lect_10">
-                <div class="photo"><img src="images/frame_blank.png" alt=""></div>
+                <div class="photo"><img src="/img/photo/speacker/0711_1130-1230_GuyHearn.jpg" alt=""></div>
                 <div class="intro">
-                    <p class="name">OOO</p>
-                    <p class="job">等待講師提供中</p>
-                    <p class="des">
+                    <p class="name eng">Guy Hearn</p>
+                    <p class="job">宏盟媒體集團亞太區創新長
+                        </p>
+                    <b class="engStyle">Guy Hearn  / Chief Innovation Officer, Asia Pacific
+                    Omnicom Media Group
+                    </b>    
+                    <p class="des">Guy是宏盟媒體集團亞太區首席創新長，同時是宏盟媒體集團未來創新實驗室主管，常駐宏盟媒體集團新加坡地區總部。他負責洞察、研究、分析、開發溝通策略，發展並培養新的業務流程，並針對該地區的消費者洞察和規劃中提供創新策略。
+                    1997年起，他一直在亞洲生活，並與亞太地區的客戶及團隊一同合作，特別是中國，澳洲，印度和東協國家。Guy畢業於西澳大學，主修歷史和人類學。他經常擔任媒體、消費者洞察等相關活動與研討會的講師、主持人及與談人。忙於洞察消費者之餘，他努力在音樂、藝術、足球、騎車、F1賽車、葡萄酒和閱讀等嗜好之間取得平衡，他更曾是一線珠寶業務的聯合創辦人。
+                            
                     </p>
+                    <b class="engStyle">Guy Hearn is Chief Innovation Officer, Asia Pacific for Omnicom Media Group and also heads up What’s Next, OMG’s future focused innovations lab. As such he is responsible for insights, measurement, research, analytics, development of communications strategy, developing and incubating new streams of business and delivering innovation in consumer understanding and planning within the region.  
+                    Guy is based in Omnicom Media Group’s regional headquarters in Singapore. He has been living in Asia since 1997 and works with clients and teams throughout Asia Pacific but especially in China, Australia, India and the ASEAN nations. 
+                    Guy is a graduate of The University of Western Australia, where he majored in history and anthropology. He is a frequent speaker at media, consumer insights and related events and a frequent panelist and moderator
+                    When not trying to understand consumers, he struggles to balance other obsessions such as music, art, football, cycling, Formula One, wine and reading.  He was once the cofounder of an online jewellery business that sank without trace, thus demonstrating that all the strategy in the world wont help you if the product has not appeal.
+                    </b>
                     <p class="agendaBlock">
-                        <span class="time">07/11(三) 11:20~ 11:50</span>
-                        <span class="topic">媒體科技趨勢報告 5：講師題目 
+                        <span class="time">07/11(三) 11:30-12:30</span>
+                        <span class="topic">媒體科技趨勢報告 4 
+                            <b class="engStyle">Media Tech Trend Observation 4
+                            </b>  
                         </span>
                     </p>
                 </div>
             </div>
             <div class="speakerBlock" id="lect_11">
-                <div class="photo"><img src="images/frame_blank.png" alt=""></div>
+                    <div class="photo"><img src="images/frame_blank.png" alt=""></div>
+                    <div class="intro">
+                        <p class="name">邀請中
+                            </p>
+                        <p class="job"></p>
+                        <b class="engStyle"></b>    
+                        <p class="des">
+                        </p>
+                        <b class="engStyle"></b>
+                        <p class="agendaBlock">
+                            <span class="time">07/11(三) 12:30-13:30</span>
+                            <span class="topic">媒體科技產品發表 5
+                                <b class="engStyle">Media Tech Demonstration 5
+                                </b>
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            <div class="speakerBlock" id="lect_12">
+                <div class="photo"><img src="img/photo/speacker/0711_1430-1530_D2C.jpg" alt=""></div>
                 <div class="intro">
-                    <p class="name">OOO</p>
-                    <p class="job">D2C</p>
+                    <p class="name">D2C</p>
+                    <!-- <p class="job">D2C</p> -->
+                    <b class="engStyle"></b>    
                     <p class="des">
                     </p>
+                    <b class="engStyle"></b>
                     <p class="agendaBlock">
-                        <span class="time">07/11(三) 11:50~ 12:20</span>
-                        <span class="topic">開發者作品發表 6：講師題目 
-                        </span>
-                    </p>
-                </div>
-            </div>
-            <div class="speakerBlock" id="lect_12">
-                <div class="photo"><img src="img/photo/speacker/0711_1430-1500_劉震紳.jpg" alt=""></div>
-                <div class="intro">
-                    <p class="name">劉震紳</p>
-                    <p class="job">康泰納仕董事總經理/發行人
-                    </p>
-                    <p class="des">劉震紳（CM Liu）服務於時尚、精品、媒體、活動行銷及公關產業長達20年之久的經驗，於台灣康泰納仕樺舍集團中參與並擔任主要專案之主導者 (如: VOGUE全球購物夜, GQ Men of the Year等) ；致力媒體整合，結合不同資源來建立『全方位』媒體服務規劃平台，將媒體創意與客戶服務進階至另一個里程碑，並與品牌有良好緊密關係。在傳統媒體數位化的過程裡，CM成功地將Vogue.com與GQ.com建立為該領域的第一品牌，網站每月造訪次數超過1500萬。同時，Vogue.com並被數位時代雜誌選為2014台灣網站百強。
-                    </p>
-                    <p class="agendaBlock">
-                        <span class="time"> 07/11(三) 14:30~ 15:00</span>
-                        <span class="topic">開發者作品發表 5：講師題目 
+                        <span class="time">07/11(三) 14:30-15:30</span>
+                        <span class="topic">媒體科技產品發表 6
+                            <b class="engStyle">Media Tech Demonstration 6
+                            </b>
                         </span>
                     </p>
                 </div>
             </div>
             <div class="speakerBlock" id="lect_13">
-                <div class="photo"><img src="images/frame_blank.png" alt=""></div>
+                <div class="photo"><img src="img/photo/speacker/0711_1430-1500_劉震紳.jpg" alt=""></div>
                 <div class="intro">
-                    <p class="name">OOO</p>
-                    <p class="job">等待講師提供中</p>
-                    <p class="des">
+                    <p class="name">劉震紳</p>
+                    <p class="job">康泰納仕董事總經理/發行人
+                    <b class="engStyle">C.M Liu / Managing Director/ Publisher, 
+                            Condé Nast International Group Taiwan
+                    </b>    
                     </p>
+                    <p class="des">劉震紳（CM Liu）服務於時尚、精品、媒體、活動行銷及公關產業長達20年之久的經驗，於台灣康泰納仕樺舍集團中參與並擔任主要專案之主導者 (如: VOGUE全球購物夜, GQ Men of the Year等) ；致力媒體整合，結合不同資源來建立『全方位』媒體服務規劃平台，將媒體創意與客戶服務進階至另一個里程碑，並與品牌有良好緊密關係。在傳統媒體數位化的過程裡，CM成功地將Vogue.com與GQ.com建立為該領域的第一品牌，網站每月造訪次數超過1500萬。同時，Vogue.com並被數位時代雜誌選為2014台灣網站百強。
+                    </p>
+                    <b class="engStyle">Working in fashion, luxury, media, event marketing and public relations for twenty years, C.M. Liu has been with Condé Nast Interculture Taiwan for over 15 years and has served as the main project leader for many new initiates, such as Vogue’s Fashion Night Out and GQ Men of the Year. He is committed to media integration and combining different resources to build an all media service solution for clients, bringing media creativeness and client services to a new level, and maintaining close relationships with brands. In the traditional media digitalization process, C.M. Liu successfully established Vogue.com and GQ.com, which have gone on to be the leading brands in the market, with over fifteen million visits every month. Vogue.com was also honored as one of the Top 100 websites by Business Next magazine in 2014 in Taiwan.
+                    </b>
                     <p class="agendaBlock">
-                        <span class="time">07/11(三) 15:00~ 15:30</span>
-                        <span class="topic">開發者作品發表 6：講師題目 
+                        <span class="time"> 07/11(三) 15:30~ 16:00</span>
+                        <span class="topic">媒體科技產品發表 7：大數據，媒體的未來語言 
+                            <b class="engStyle">Media Tech Demonstration 7 ：
+                            Data, the Future Language of Media
+                            </b>
                         </span>
                     </p>
                 </div>
             </div>
-    
             <div class="speakerBlock" id="lect_14">
                 <div class="photo"><img src="img/photo/speacker/0711_1600-1630 _盧人瑞.jpg" alt=""></div>
                 <div class="intro">
                     <p class="name">盧人瑞</p>
                     <p class="job">凱絡媒體數位行銷總經理</p>
+                    <b class="engStyle">JJ Lu  / General Manager, Carat Interactive
+                        </b>    
                     <p class="des">盧人瑞（JJ Lu），是紐約大學互動傳播碩士，有超過20年廣告經驗。他曾任職華商廣告、奧美運籌廣告，OgilvyONE、惠普電腦、上海安索帕、上海麥肯、異言堂廣告等。JJ擁有豐富中國經驗，曾參與2008年可口可樂於北京奧運期間的整合行銷暨網路活動、2010年上海通用在上海世博的整合行銷活動等。JJ服務過各類型的兩岸品牌客戶，包含：汽車（NISSAN裕隆日產、Infiniti、中華三菱、上海通用）；金融（友邦人壽、渣打銀行、富邦銀行）；電信通訊（中華電信emome、Hinet）、食品飲料（可口可樂、雪碧、冰露礦泉水、金車伯朗咖啡、藍山咖啡）等等。
-                        
                     </p>
+                    <b class="engStyle">JJ graduated from NYU as Master of Professional Study at Interactive Telecommunication Program, having over 20 years of experience in Advertising & Digital Marketing. He once worked at Bozell (FCB), Olgilvy Resutls (I Am David), RMG (OlgilvyONE), Commwave International Software, Hewlett Pakard Taiwan, Isobar Shanghai, McCann Shanghai, IUX Digital etc. JJ has extensive experience with the China market. He once participated in the integrated marketing＆ networking activities for Coca-Cola during the Beijing Olympics in 2008 and the integrated marketing activities for Shanghai GM in Shanghai World Expo in 2010.
+                            JJ used to manage various of brands such as, NISSAN Yulong, Mitsubishi Taiwan, GM Shanghai, Standard Charter Bank, FuBang Bank
+                            Chunghua Telecomm emome portal, Coca Cola China and KingCar Taiwan etc.
+                            </b>
                     <p class="agendaBlock">
-                        <span class="time">07/11(三) 16:00~ 16:30</span>
-                        <span class="topic">開發者作品發表 7：講師題目 
-                            
+                        <span class="time">07/11(三) 16:20-16:50</span>
+                        <span class="topic">媒體科技產品發表 8
+                            <b class="engStyle">Media Tech Demonstration 8
+                            </b>
                         </span>
                     </p>
                 </div>
             </div>
+    
             <div class="speakerBlock" id="lect_15">
-                <div class="photo"><img src="img/photo/speacker/0711_1630-1700_鍾子偉.jpg" alt=""></div>
+                <div class="photo"><img src="images/frame_blank.png" alt=""></div>
                 <div class="intro">
-                    <p class="name">鍾子偉</p>
-                    <p class="job">關鍵評論網共同創辦人暨執行長</p>
-                    <p class="des">現任關鍵評論網共同創辦人暨執行長。前三麗鷗中國區總經理，美國三麗鷗企業開發部經理。哈佛商學院2009年畢業生。曾任職於美國紐約Ralph Lauren，瑞士銀行證券研究部，商周專欄作家，台灣模擬聯合國推展協會創會理事長。在媒體品牌、零售、行銷及國際事務方面都很有經驗。著有《22歲起，選那個不做會後悔的決定》（2015）、《放膽去闖: 上海職活的故事》（2013）、《18歲起，你的格局不一樣: 想像十年後的自己，做出最聰明的選擇》（2012）、《哈佛商學院教我的成功關鍵: 世界頂尖商學院的學習經驗》（2010）等多本暢銷書。
-                        
+                    <p class="name">邀請中
+                        </p>
+                    <p class="job"></p>
+                    <b class="engStyle"></b>    
+                    <p class="des">
                     </p>
+                    <b class="engStyle"></b>
                     <p class="agendaBlock">
-                        <span class="time">07/11(三) 16:30~ 17:00</span>
-                        <span class="topic">開發者作品發表 8：講師題目 
+                        <span class="time">07/11(三) 16:50-17:20
+                        </span>
+                        <span class="topic">媒體科技產品發表 9
+                            <b class="engStyle">Media Tech Demonstration 9
+                            </b>
                         </span>
                     </p>
                 </div>
             </div>
+            
             <div class="btnBlock">
-                <a href="" class="btn see_agenda">議程介紹</a><a href="/ticket.html" class="btn">立即報名</a>
+                <a href="" class="btn see_agenda">議程介紹</a><a href="/ticket.html" class="btn" onclick="gtag('event', 'click', { event_category: 'singUp_click', event_action:'btn_speaker_register' });">立即報名</a>
             </div>
         </div>
     </section>
-
 
     <script>
         var page = 'index';
         $('html,body').addClass('load');
     </script>
-    <script src="js/init.js?v=0509"></script>
-    <script src="js/all_particle.js?v=0509"></script>
+    <script src="js/init.js?v=0518"></script>
+    <script src="js/all_particle.js?v=0518"></script>
 </body>
 
 </html>
