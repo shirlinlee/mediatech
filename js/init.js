@@ -26,10 +26,10 @@ var ticketCtr = {
         // 報名截止  6/15 23:59 (關閉報名頁)
         
         
-        if ( date_now >= new Date("June 16, 2018 00:00:00")){
+        if ( date_now >= new Date("June 23, 2018 00:00:00")){
             // alert('活動Out');
             window.location="/index.html";
-        } else if( date_now >= new Date("June 1, 2018 00:00:00") ){
+        } else if( date_now >= new Date("June 9, 2018 00:00:00") ){
             $('#ticket_0').find('.placeholder').addClass('notAllow');
             $('#ticket_1').find('.placeholder').removeClass('notAllow');
             // alert('正常票');
@@ -215,7 +215,7 @@ var ticketCtr = {
         //     .catch(function(error) {
         //         console.log(error);
         // });
-        console.log(jsonBody);
+        // console.log(jsonBody);
 
         if (Company_receipt === 'triple') {
             if (Company_name === null) {
@@ -260,7 +260,7 @@ var ticketCtr = {
             // dataType: 'json', //可省
             contentType: 'application/json; charset=utf-8',
             success: function(response) {
-                console.log(response);
+                // console.log(response);
                 gtag('event', 'click', { event_category: 'send_form', event_action: 'ticket_sent_success' })
         
                 $('.popup_ticket').fadeIn('400', function() {
@@ -747,6 +747,7 @@ var indexCtrl = {
 
         indexCtrl.resize();
         indexCtrl.kv_ani();
+
         // alert($('section.agenda').height()+','+ $('section.agenda .main').height());
         // console.log($('section.agenda').height(), $('section.agenda .main').height());
         
@@ -765,17 +766,6 @@ var indexCtrl = {
         window.history.pushState("", "", "index.html");
 
         if ( windowWidth <= 768 ) $('.transparent').css({ height: windowHeight });
-
-        // var wow = new WOW(
-        //     {
-        //       boxClass:     'wow',      // 要套用WOW.js縮需要的動畫class(預設是wow)
-        //       animateClass: 'animated', // 要"動起來"的動畫(預設是animated, 因此如果你有其他動畫library要使用也可以在這裡調整)
-        //       mobile:       true,       // 手機上是否要套用動畫 (預設是true)
-        //       live:         true,       // 非同步產生的內容是否也要套用 (預設是true, 非常適合搭配SPA)
-        //     }
-        //   );
-
-        // wow.init();
 
         window.addEventListener('resize', this.resize, false);
         window.addEventListener('load', this.loadEnd, false);
